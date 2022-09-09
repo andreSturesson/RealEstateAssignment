@@ -8,5 +8,9 @@ namespace RealEstateAssignment
 {
     internal class LegalForm
     {
+        public LegalForm()
+        {
+
+        }
     }
 }

@@ -12,7 +12,8 @@ namespace RealEstateAssignment
         private int id;
         private Address address;
 
-        protected Estate(int id, Address address)
+
+        public Estate(int id, Address address)
         {
             this.id = id;
             this.address = address;

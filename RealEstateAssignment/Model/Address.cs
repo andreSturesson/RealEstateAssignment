@@ -11,7 +11,9 @@ namespace RealEstateAssignment
         private string street;
         private string city;
         private int zipCode;
-        private Enums country;
+
+        private Countries country;
+
 
         public Address(string street, string city, int zipcode, Enums country)
         {
@@ -31,7 +33,10 @@ namespace RealEstateAssignment
             get { return this.zipCode; }
             set { 
                 if(value.ToString().Length == 5)
+                {
                     this.zipCode = value; 
+                }
+                    
             }
         }
         public string City

@@ -5,9 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RealEstateAssignment.Model.Institutional
+namespace RealEstateAssignment
+
 {
     internal class University : Institutional
     {
+        public University(int id, Address address) : base(id, address)
+        {
+
+        }
     }
 }

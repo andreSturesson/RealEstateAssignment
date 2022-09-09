@@ -20,6 +20,10 @@ namespace RealEstateAssignment
         private void button1_Click(object sender, EventArgs e)
         {
 
+            Estate state;
+            state = new Apartment(15, new Address("Street", "City", 35591, Countries.Bangladesh), 1, 1, 1, new LegalForm());
+            Console.Write(state);
+
         }
 
         private void Form1_Load(object sender, EventArgs e)

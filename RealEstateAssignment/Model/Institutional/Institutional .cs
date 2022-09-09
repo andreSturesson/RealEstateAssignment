@@ -5,11 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RealEstateAssignment
-
 {
-    internal class Schools : Institutional
+    internal abstract class Institutional : Estate
     {
-        public Schools(int id, Address address) : base(id, address)
+        public Institutional(int id, Address address) : base(id, address)
         {
 
         }
