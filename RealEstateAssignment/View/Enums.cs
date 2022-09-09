@@ -34,7 +34,7 @@ public class Enums
     ///The countries of the world.
     /// </summary>
 
-    public enum contries
+    public enum countries
     {
         Afghanistan,
         Algeria,

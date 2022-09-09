@@ -12,7 +12,7 @@ namespace RealEstateAssignment
         {
             InitializeComponent();
 
-            comboBox1.DataSource = Enums.contries.GetValues(typeof(contries));
+            comboBox1.DataSource = Enums.countries.GetValues(typeof(countries));
             comboBox2.DataSource = Enums.types.GetValues(typeof(types));
             garageComboBox.DataSource = Enums.hasGarage.GetValues(typeof(hasGarage));
             apartmentTypeComboBox.DataSource = Enums.apartmentType.GetValues(typeof(apartmentType));
@@ -22,7 +22,7 @@ namespace RealEstateAssignment
         {
 
             Estate state;
-            state = new Apartment(15, new Address("Street", "City", 35591, Countries.Bangladesh), 1, 1, 1, new LegalForm());
+            state = new Apartment(15, new Address("Street", "City", 35591, Enums.countries.Somalia), 1, 1, 1, new LegalForm());
             Console.Write(state);
 
         }
