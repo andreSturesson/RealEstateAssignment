@@ -12,9 +12,34 @@ namespace RealEstateAssignment
         private int apartmentNumber;
         private int rooms;
         private int size;
-        public Apartment(int id, Address address) : base(id, address)
+        private LegalForm legalForm;
+        public Apartment(int id, Address address, int apartmentNumber, int rooms, int size, LegalForm legalForm) : base(id, address)
         {
+            this.apartmentNumber = apartmentNumber;
+            this.rooms = rooms;
+            this.size = size;
+            this.legalForm = legalForm;
 
+        }
+        public int ApartmentNumber
+        {
+            get { return apartmentNumber; }
+            set { apartmentNumber = value; }
+        }
+        public int Rooms
+        {
+            get { return rooms; }
+            set { rooms = value; }
+        }
+        public int Size
+        {
+            get { return size; }
+            set { size = value; }
+        }
+        public LegalForm LegalForm
+        {
+            get { return legalForm; }
+            set { legalForm = value; }
         }
     }
 }

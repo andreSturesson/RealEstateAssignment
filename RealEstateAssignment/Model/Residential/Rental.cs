@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace RealEstateAssignment.Appartment
 {
-    internal class Rental : Apartment
+    internal class Rental
     {
-        public Rental(int id, Address address) : base(id, address)
+        public Rental()
         {
         }
     }

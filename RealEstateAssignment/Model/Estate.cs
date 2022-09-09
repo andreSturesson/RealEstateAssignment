@@ -12,6 +12,12 @@ namespace RealEstateAssignment
         private int id;
         private Address address;
 
+        public Estate(int id, Address address)
+        {
+            this.id = id;
+            this.address = address;
+        }
+
         public int Id { get => id; set => id = value; }
         public Address Address { get => address; set => address = value; }
 
