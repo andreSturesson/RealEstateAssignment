@@ -16,6 +16,7 @@ namespace RealEstateAssignment
             comboBox2.DataSource = Enums.types.GetValues(typeof(types));
             garageComboBox.DataSource = Enums.hasGarage.GetValues(typeof(hasGarage));
             apartmentTypeComboBox.DataSource = Enums.apartmentType.GetValues(typeof(apartmentType));
+            //features
         }
 
         private void button1_Click(object sender, EventArgs e)
