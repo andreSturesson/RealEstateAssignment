@@ -33,6 +33,11 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chooseImageTextBox = new System.Windows.Forms.TextBox();
+            this.browseFilesButton = new System.Windows.Forms.Button();
+            this.BrowseFilesLabel = new System.Windows.Forms.Label();
+            this.apartmentTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.AppartmentTypeText = new System.Windows.Forms.Label();
             this.garageComboBox = new System.Windows.Forms.ComboBox();
             this.garageLabel = new System.Windows.Forms.Label();
             this.plotSizeText = new System.Windows.Forms.TextBox();
@@ -59,12 +64,13 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.AppartmentTypeText = new System.Windows.Forms.Label();
-            this.apartmentTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.image = new System.Windows.Forms.PictureBox();
+            this.chooseImageFile = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -102,6 +108,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.chooseImageTextBox);
+            this.groupBox2.Controls.Add(this.browseFilesButton);
+            this.groupBox2.Controls.Add(this.BrowseFilesLabel);
             this.groupBox2.Controls.Add(this.apartmentTypeComboBox);
             this.groupBox2.Controls.Add(this.AppartmentTypeText);
             this.groupBox2.Controls.Add(this.garageComboBox);
@@ -135,6 +144,56 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Estate Registration";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // chooseImageTextBox
+            // 
+            this.chooseImageTextBox.Location = new System.Drawing.Point(58, 182);
+            this.chooseImageTextBox.Name = "chooseImageTextBox";
+            this.chooseImageTextBox.Size = new System.Drawing.Size(109, 23);
+            this.chooseImageTextBox.TabIndex = 29;
+            this.chooseImageTextBox.TextChanged += new System.EventHandler(this.chooseImageTextBox_TextChanged);
+            // 
+            // browseFilesButton
+            // 
+            this.browseFilesButton.Location = new System.Drawing.Point(171, 182);
+            this.browseFilesButton.Name = "browseFilesButton";
+            this.browseFilesButton.Size = new System.Drawing.Size(72, 23);
+            this.browseFilesButton.TabIndex = 28;
+            this.browseFilesButton.Text = "Browse...";
+            this.browseFilesButton.UseVisualStyleBackColor = true;
+            this.browseFilesButton.Visible = false;
+            this.browseFilesButton.Click += new System.EventHandler(this.browseFilesButton_Click);
+            // 
+            // BrowseFilesLabel
+            // 
+            this.BrowseFilesLabel.AutoSize = true;
+            this.BrowseFilesLabel.Location = new System.Drawing.Point(5, 175);
+            this.BrowseFilesLabel.Name = "BrowseFilesLabel";
+            this.BrowseFilesLabel.Size = new System.Drawing.Size(47, 30);
+            this.BrowseFilesLabel.TabIndex = 27;
+            this.BrowseFilesLabel.Text = "Choose\r\nImage";
+            this.BrowseFilesLabel.Visible = false;
+            this.BrowseFilesLabel.Click += new System.EventHandler(this.BrowseFilesLabel_Click);
+            // 
+            // apartmentTypeComboBox
+            // 
+            this.apartmentTypeComboBox.FormattingEnabled = true;
+            this.apartmentTypeComboBox.Location = new System.Drawing.Point(136, 82);
+            this.apartmentTypeComboBox.Name = "apartmentTypeComboBox";
+            this.apartmentTypeComboBox.Size = new System.Drawing.Size(91, 23);
+            this.apartmentTypeComboBox.TabIndex = 26;
+            this.apartmentTypeComboBox.Visible = false;
+            this.apartmentTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.apartmentTypeComboBox_SelectedIndexChanged);
+            // 
+            // AppartmentTypeText
+            // 
+            this.AppartmentTypeText.AutoSize = true;
+            this.AppartmentTypeText.Location = new System.Drawing.Point(136, 54);
+            this.AppartmentTypeText.Name = "AppartmentTypeText";
+            this.AppartmentTypeText.Size = new System.Drawing.Size(91, 15);
+            this.AppartmentTypeText.TabIndex = 25;
+            this.AppartmentTypeText.Text = "Apartment Type";
+            this.AppartmentTypeText.Visible = false;
             // 
             // garageComboBox
             // 
@@ -367,40 +426,41 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.image);
             this.groupBox3.Controls.Add(this.button3);
-            this.groupBox3.Location = new System.Drawing.Point(270, 12);
+            this.groupBox3.Location = new System.Drawing.Point(270, 17);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(286, 426);
+            this.groupBox3.Size = new System.Drawing.Size(286, 421);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Estate Information";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
-            // AppartmentTypeText
+            // image
             // 
-            this.AppartmentTypeText.AutoSize = true;
-            this.AppartmentTypeText.Location = new System.Drawing.Point(136, 54);
-            this.AppartmentTypeText.Name = "AppartmentTypeText";
-            this.AppartmentTypeText.Size = new System.Drawing.Size(91, 15);
-            this.AppartmentTypeText.TabIndex = 25;
-            this.AppartmentTypeText.Text = "Apartment Type";
-            this.AppartmentTypeText.Visible = false;
+            this.image.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.image.Location = new System.Drawing.Point(54, 241);
+            this.image.Name = "image";
+            this.image.Size = new System.Drawing.Size(187, 150);
+            this.image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.image.TabIndex = 3;
+            this.image.TabStop = false;
+            this.image.Click += new System.EventHandler(this.image_Click);
             // 
-            // apartmentTypeComboBox
+            // chooseImageFile
             // 
-            this.apartmentTypeComboBox.FormattingEnabled = true;
-            this.apartmentTypeComboBox.Location = new System.Drawing.Point(136, 82);
-            this.apartmentTypeComboBox.Name = "apartmentTypeComboBox";
-            this.apartmentTypeComboBox.Size = new System.Drawing.Size(91, 23);
-            this.apartmentTypeComboBox.TabIndex = 26;
-            this.apartmentTypeComboBox.Visible = false;
-            this.apartmentTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.apartmentTypeComboBox_SelectedIndexChanged);
+            this.chooseImageFile.FileName = "openFileDialog1";
+            this.chooseImageFile.Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF";
+            this.chooseImageFile.Title = "Choose Image";
+            this.chooseImageFile.FileOk += new System.ComponentModel.CancelEventHandler(this.chooseImageFile_FileOk);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(857, 451);
+            this.ClientSize = new System.Drawing.Size(865, 451);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -412,6 +472,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -451,5 +513,10 @@
         private Label garageLabel;
         private ComboBox apartmentTypeComboBox;
         private Label AppartmentTypeText;
+        private Label BrowseFilesLabel;
+        private PictureBox image;
+        private Button browseFilesButton;
+        private TextBox chooseImageTextBox;
+        private OpenFileDialog chooseImageFile;
     }
 }

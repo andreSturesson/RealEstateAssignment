@@ -1,5 +1,6 @@
 using RealEstateAssignment.Appartment;
 using System.Diagnostics;
+using System.Windows.Forms;
 using static Enums;
 
 namespace RealEstateAssignment
@@ -92,6 +93,8 @@ namespace RealEstateAssignment
             garageComboBox.Visible = false;
             apartmentTypeComboBox.Visible = false;
             AppartmentTypeText.Visible = false;
+            browseFilesButton.Visible = false;
+            BrowseFilesLabel.Visible = false;
             switch (comboBox2.SelectedItem.ToString())
             {
                 case "Apartment":
@@ -102,6 +105,8 @@ namespace RealEstateAssignment
                     roomsTextBox.Visible = true;
                     apartmentTypeComboBox.Visible = true;
                     AppartmentTypeText.Visible = true;
+                    browseFilesButton.Visible = true;
+                    BrowseFilesLabel.Visible = true;
                     break;
                 case "Villa":
                     sizeLabel.Visible = true;
@@ -113,13 +118,8 @@ namespace RealEstateAssignment
                     plotSizeText.Visible = true;
                     garageLabel.Visible = true;
                     garageComboBox.Visible = true;
-                    break;
-                case "Tenement":
-                    sizeLabel.Visible = true;
-                    sizeTextBox.Visible = true;
-                    sizesqmLabel.Visible = true;
-                    roomsLabel.Visible = true;
-                    roomsTextBox.Visible = true;
+                    browseFilesButton.Visible = true;
+                    BrowseFilesLabel.Visible = true;
                     break;
                 case "Shop":
                     break;
@@ -182,6 +182,31 @@ namespace RealEstateAssignment
                 default:
                     break;
             }
+        }
+        private void BrowseFilesLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void browseFilesButton_Click(object sender, EventArgs e)
+        {
+            chooseImageFile.ShowDialog();
+        }
+
+        private void chooseImageFile_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            chooseImageTextBox.Text = chooseImageFile.FileName;
+            image.Load(chooseImageFile.FileName);
+        }
+
+        private void chooseImageTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void image_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
