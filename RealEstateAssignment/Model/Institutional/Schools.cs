@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Modern_Real_Estates_by_Johannes
+namespace RealEstateAssignment.Model.Institutional
 {
     internal class Schools : Institutional
     {

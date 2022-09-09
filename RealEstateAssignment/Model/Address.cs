@@ -10,14 +10,14 @@ namespace RealEstateAssignment
     {
         private string street;
         private string city;
-        private int zipcode;
-        private Countries country;
+        private int zipCode;
+        private Enums country;
 
-        public Address(string street, string city, int zipcode, Countries country)
+        public Address(string street, string city, int zipcode, Enums country)
         {
             this.street = street;
             this.city = city;
-            this.zipcode = zipcode;
+            this.zipCode = zipcode;
             this.country = country;
         }
 
@@ -30,7 +30,7 @@ namespace RealEstateAssignment
         {
             get { return this.zipCode; }
             set { 
-                if(value.ToString().Length = 5)
+                if(value.ToString().Length == 5)
                     this.zipCode = value; 
             }
         }
@@ -39,7 +39,7 @@ namespace RealEstateAssignment
             get { return this.city; }
             set { this.city = value; }
         }
-        public Countries Country
+        public Enums Country
         {
             get { return this.country; }
             set { this.country = value; }

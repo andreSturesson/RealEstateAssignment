@@ -8,6 +8,8 @@ namespace RealEstateAssignment
 {
     internal class Residential : Estate
     {
+        private int rooms;
+        private int size;
         public Residential(int id, Address address) : base(id, address)
         {
         }

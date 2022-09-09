@@ -11,12 +11,22 @@ public class Enums
     public enum types
     {
         Apartment,
-        Rental,
         Rowhouse,
-        Tenement,
         Villa,
         Shop,
         Warehouse
+    }
+
+    public enum hasGarage
+    {
+        Yes,
+        No
+    }
+
+    public enum apartmentType
+    {
+        Tenement,
+        Rental
     }
     
     

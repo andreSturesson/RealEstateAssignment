@@ -8,6 +8,7 @@ namespace RealEstateAssignment.Appartment
 {
     internal class Rental : Apartment
     {
+        private int rent;
         public Rental(int id, Address address) : base(id, address)
         {
         }
