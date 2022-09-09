@@ -1,4 +1,5 @@
 using RealEstateAssignment.Appartment;
+using System.Diagnostics;
 using static Enums;
 
 namespace RealEstateAssignment
@@ -12,13 +13,13 @@ namespace RealEstateAssignment
 
             comboBox1.DataSource = Enums.contries.GetValues(typeof(contries));
             comboBox2.DataSource = Enums.types.GetValues(typeof(types));
+            garageComboBox.DataSource = Enums.hasGarage.GetValues(typeof(hasGarage));
+            apartmentTypeComboBox.DataSource = Enums.apartmentType.GetValues(typeof(apartmentType));
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Estate state;
-            state = new Apartment(15, new Address("Street", "City", 35591, "Sweden"));
-            Console.Write(state);
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -83,6 +84,14 @@ namespace RealEstateAssignment
             sizesqmLabel.Visible = false;
             roomsLabel.Visible = false;
             roomsTextBox.Visible = false;
+            plotSizeLabel.Visible = false;
+            plotSizeText.Visible = false;
+            rentLabel.Visible = false;
+            rentLabelText.Visible = false;
+            garageLabel.Visible = false;
+            garageComboBox.Visible = false;
+            apartmentTypeComboBox.Visible = false;
+            AppartmentTypeText.Visible = false;
             switch (comboBox2.SelectedItem.ToString())
             {
                 case "Apartment":
@@ -91,12 +100,26 @@ namespace RealEstateAssignment
                     sizesqmLabel.Visible = true;
                     roomsLabel.Visible = true;
                     roomsTextBox.Visible = true;
+                    apartmentTypeComboBox.Visible = true;
+                    AppartmentTypeText.Visible = true;
                     break;
                 case "Villa":
-                    break;
-                case "Rental":
+                    sizeLabel.Visible = true;
+                    sizeTextBox.Visible = true;
+                    sizesqmLabel.Visible = true;
+                    roomsLabel.Visible = true;
+                    roomsTextBox.Visible = true;
+                    plotSizeLabel.Visible = true;
+                    plotSizeText.Visible = true;
+                    garageLabel.Visible = true;
+                    garageComboBox.Visible = true;
                     break;
                 case "Tenement":
+                    sizeLabel.Visible = true;
+                    sizeTextBox.Visible = true;
+                    sizesqmLabel.Visible = true;
+                    roomsLabel.Visible = true;
+                    roomsTextBox.Visible = true;
                     break;
                 case "Shop":
                     break;
@@ -126,6 +149,39 @@ namespace RealEstateAssignment
         private void sizeLabel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void plotSizeText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void garageLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void apartmentTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rentLabel.Visible = false;
+            rentLabelText.Visible = false;
+            switch (apartmentTypeComboBox.SelectedItem.ToString())
+            {
+                case "Tenement":
+
+                    break;
+                case "Rental":
+                    rentLabel.Visible = true;
+                    rentLabelText.Visible = true;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

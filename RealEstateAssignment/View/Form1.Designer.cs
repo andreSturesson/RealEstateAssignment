@@ -33,6 +33,13 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.garageComboBox = new System.Windows.Forms.ComboBox();
+            this.garageLabel = new System.Windows.Forms.Label();
+            this.plotSizeText = new System.Windows.Forms.TextBox();
+            this.plotSizeLabel = new System.Windows.Forms.Label();
+            this.rentLabelText = new System.Windows.Forms.TextBox();
+            this.rentLabel = new System.Windows.Forms.Label();
+            this.sizesqmLabel = new System.Windows.Forms.Label();
             this.roomsTextBox = new System.Windows.Forms.TextBox();
             this.roomsLabel = new System.Windows.Forms.Label();
             this.sizeTextBox = new System.Windows.Forms.TextBox();
@@ -52,7 +59,8 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.sizesqmLabel = new System.Windows.Forms.Label();
+            this.AppartmentTypeText = new System.Windows.Forms.Label();
+            this.apartmentTypeComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -94,6 +102,14 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.apartmentTypeComboBox);
+            this.groupBox2.Controls.Add(this.AppartmentTypeText);
+            this.groupBox2.Controls.Add(this.garageComboBox);
+            this.groupBox2.Controls.Add(this.garageLabel);
+            this.groupBox2.Controls.Add(this.plotSizeText);
+            this.groupBox2.Controls.Add(this.plotSizeLabel);
+            this.groupBox2.Controls.Add(this.rentLabelText);
+            this.groupBox2.Controls.Add(this.rentLabel);
             this.groupBox2.Controls.Add(this.sizesqmLabel);
             this.groupBox2.Controls.Add(this.roomsTextBox);
             this.groupBox2.Controls.Add(this.roomsLabel);
@@ -119,6 +135,74 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Estate Registration";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // garageComboBox
+            // 
+            this.garageComboBox.FormattingEnabled = true;
+            this.garageComboBox.Location = new System.Drawing.Point(56, 145);
+            this.garageComboBox.Name = "garageComboBox";
+            this.garageComboBox.Size = new System.Drawing.Size(39, 23);
+            this.garageComboBox.TabIndex = 24;
+            this.garageComboBox.Visible = false;
+            // 
+            // garageLabel
+            // 
+            this.garageLabel.AutoSize = true;
+            this.garageLabel.Location = new System.Drawing.Point(8, 148);
+            this.garageLabel.Name = "garageLabel";
+            this.garageLabel.Size = new System.Drawing.Size(44, 15);
+            this.garageLabel.TabIndex = 23;
+            this.garageLabel.Text = "Garage";
+            this.garageLabel.Click += new System.EventHandler(this.garageLabel_Click);
+            // 
+            // plotSizeText
+            // 
+            this.plotSizeText.Location = new System.Drawing.Point(56, 116);
+            this.plotSizeText.Name = "plotSizeText";
+            this.plotSizeText.Size = new System.Drawing.Size(39, 23);
+            this.plotSizeText.TabIndex = 22;
+            this.plotSizeText.Visible = false;
+            this.plotSizeText.TextChanged += new System.EventHandler(this.plotSizeText_TextChanged);
+            // 
+            // plotSizeLabel
+            // 
+            this.plotSizeLabel.AutoSize = true;
+            this.plotSizeLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.plotSizeLabel.Location = new System.Drawing.Point(6, 120);
+            this.plotSizeLabel.Name = "plotSizeLabel";
+            this.plotSizeLabel.Size = new System.Drawing.Size(51, 15);
+            this.plotSizeLabel.TabIndex = 21;
+            this.plotSizeLabel.Text = "Plot Size";
+            this.plotSizeLabel.Visible = false;
+            // 
+            // rentLabelText
+            // 
+            this.rentLabelText.Location = new System.Drawing.Point(56, 116);
+            this.rentLabelText.Name = "rentLabelText";
+            this.rentLabelText.Size = new System.Drawing.Size(39, 23);
+            this.rentLabelText.TabIndex = 20;
+            // 
+            // rentLabel
+            // 
+            this.rentLabel.AutoSize = true;
+            this.rentLabel.Location = new System.Drawing.Point(6, 120);
+            this.rentLabel.Name = "rentLabel";
+            this.rentLabel.Size = new System.Drawing.Size(31, 15);
+            this.rentLabel.TabIndex = 19;
+            this.rentLabel.Text = "Rent";
+            this.rentLabel.Visible = false;
+            this.rentLabel.Click += new System.EventHandler(this.label2_Click_1);
+            // 
+            // sizesqmLabel
+            // 
+            this.sizesqmLabel.AutoSize = true;
+            this.sizesqmLabel.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.sizesqmLabel.Location = new System.Drawing.Point(92, 66);
+            this.sizesqmLabel.Name = "sizesqmLabel";
+            this.sizesqmLabel.Size = new System.Drawing.Size(21, 11);
+            this.sizesqmLabel.TabIndex = 18;
+            this.sizesqmLabel.Text = "m^2";
+            this.sizesqmLabel.Visible = false;
             // 
             // roomsTextBox
             // 
@@ -292,16 +376,25 @@
             this.groupBox3.Text = "Estate Information";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
-            // sizesqmLabel
+            // AppartmentTypeText
             // 
-            this.sizesqmLabel.AutoSize = true;
-            this.sizesqmLabel.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.sizesqmLabel.Location = new System.Drawing.Point(92, 66);
-            this.sizesqmLabel.Name = "sizesqmLabel";
-            this.sizesqmLabel.Size = new System.Drawing.Size(21, 11);
-            this.sizesqmLabel.TabIndex = 18;
-            this.sizesqmLabel.Text = "m^2";
-            this.sizesqmLabel.Visible = false;
+            this.AppartmentTypeText.AutoSize = true;
+            this.AppartmentTypeText.Location = new System.Drawing.Point(136, 54);
+            this.AppartmentTypeText.Name = "AppartmentTypeText";
+            this.AppartmentTypeText.Size = new System.Drawing.Size(91, 15);
+            this.AppartmentTypeText.TabIndex = 25;
+            this.AppartmentTypeText.Text = "Apartment Type";
+            this.AppartmentTypeText.Visible = false;
+            // 
+            // apartmentTypeComboBox
+            // 
+            this.apartmentTypeComboBox.FormattingEnabled = true;
+            this.apartmentTypeComboBox.Location = new System.Drawing.Point(136, 82);
+            this.apartmentTypeComboBox.Name = "apartmentTypeComboBox";
+            this.apartmentTypeComboBox.Size = new System.Drawing.Size(91, 23);
+            this.apartmentTypeComboBox.TabIndex = 26;
+            this.apartmentTypeComboBox.Visible = false;
+            this.apartmentTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.apartmentTypeComboBox_SelectedIndexChanged);
             // 
             // Form1
             // 
@@ -350,5 +443,13 @@
         private Label sizeLabel;
         private GroupBox groupBox4;
         private Label sizesqmLabel;
+        private TextBox rentLabelText;
+        private Label rentLabel;
+        private TextBox plotSizeText;
+        private Label plotSizeLabel;
+        private ComboBox garageComboBox;
+        private Label garageLabel;
+        private ComboBox apartmentTypeComboBox;
+        private Label AppartmentTypeText;
     }
 }

@@ -10,8 +10,6 @@ namespace RealEstateAssignment
     internal class Apartment : Residential
     {
         private int apartmentNumber;
-        private int rooms;
-        private int size;
         public Apartment(int id, Address address) : base(id, address)
         {
 
