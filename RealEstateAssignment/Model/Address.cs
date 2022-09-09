@@ -11,9 +11,9 @@ namespace RealEstateAssignment
         private string street;
         private string city;
         private int zipcode;
-        private string country;
+        private Countries country;
 
-        public Address(string street, string city, int zipcode, string country)
+        public Address(string street, string city, int zipcode, Countries country)
         {
             this.street = street;
             this.city = city;
@@ -21,9 +21,25 @@ namespace RealEstateAssignment
             this.country = country;
         }
 
-        public string Street { get => street; set => street = value; }
-        public string City { get => city; set => city = value; }
-        public int Zipcode { get => zipcode; set => zipcode = value; }
-        public string Country { get => country; set => country = value; }
+        public string Street
+        {
+            get { return street; }
+            set { street = value; }
+        }
+        public int ZipCode
+        {
+            get { return this.zipCode; }
+            set { this.zipCode = value; }
+        }
+        public string City
+        {
+            get { return this.city; }
+            set { this.city = value; }
+        }
+        public Countries Country
+        {
+            get { return this.country; }
+            set { this.country = value; }
+        }
     }
 }
