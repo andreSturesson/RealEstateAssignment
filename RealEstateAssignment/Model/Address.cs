@@ -29,7 +29,10 @@ namespace RealEstateAssignment
         public int ZipCode
         {
             get { return this.zipCode; }
-            set { this.zipCode = value; }
+            set { 
+                if(value.ToString().Length = 5)
+                    this.zipCode = value; 
+            }
         }
         public string City
         {
