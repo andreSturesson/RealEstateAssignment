@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RealEstateAssignment.Appartment
+namespace RealEstateAssignment.Model.Institutional
 {
-    internal class Rental
+    internal class Institutional
     {
-        public Rental()
-
-        {
-        }
     }
 }

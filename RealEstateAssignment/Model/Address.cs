@@ -11,9 +11,11 @@ namespace RealEstateAssignment
         private string street;
         private string city;
         private int zipCode;
+
         private Countries country;
 
-        public Address(string street, string city, int zipcode, Countries country)
+
+        public Address(string street, string city, int zipcode, Enums country)
         {
             this.street = street;
             this.city = city;
@@ -42,7 +44,7 @@ namespace RealEstateAssignment
             get { return this.city; }
             set { this.city = value; }
         }
-        public Countries Country
+        public Enums Country
         {
             get { return this.country; }
             set { this.country = value; }

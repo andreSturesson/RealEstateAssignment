@@ -8,6 +8,8 @@ namespace RealEstateAssignment
 {
     class Villa : Estate
     {
+        private string plot;
+        private bool garage;
         public Villa(int id, Address address) : base(id, address)
         {
         }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RealEstateAssignment
+
 {
     internal class Schools : Institutional
     {
