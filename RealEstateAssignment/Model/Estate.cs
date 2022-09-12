@@ -32,10 +32,7 @@ namespace RealEstateAssignment
         }
        
 
-        public void test()
-        {
-            throw new NotImplementedException();
-        }
         public virtual void Change(Estate estate) { }
+
     }
 }

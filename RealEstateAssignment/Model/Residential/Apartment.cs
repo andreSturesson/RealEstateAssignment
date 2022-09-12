@@ -1,13 +1,15 @@
-﻿using System;
+﻿using RealEstateAssignment;
+using RealEstateAssignment.Model.Residential;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RealEstateAssignment
+namespace RealEstateAssignment.Model.Residential
 {
-    internal class Apartment : Residential
+    class Apartment : Residential
     {
         private int apartmentNumber;
         public Apartment(Address address, int apartmentNumber, int rooms, int size, LegalForm legalForm) : base(address, rooms, size, legalForm)
@@ -19,6 +21,7 @@ namespace RealEstateAssignment
             get { return apartmentNumber; }
             set { apartmentNumber = value; }
         }
+
         public override void Change(Estate estate) 
         {
             Address = ((Apartment)estate).Address;
@@ -27,5 +30,6 @@ namespace RealEstateAssignment
             Size = ((Apartment)estate).Size;
             LegalForm = ((Apartment)estate).LegalForm;
         }
+
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RealEstateAssignment
+namespace RealEstateAssignment.Model.Residential
 {
     class Villa : Residential
     {
@@ -14,7 +14,18 @@ namespace RealEstateAssignment
         {
             this.plot = plot;
             this.garage = garage;
+        }
 
+        public string Plot
+        {
+            get { return plot; }
+            set { plot = value; }
+        }
+
+        public bool Garage
+        {
+            get { return garage; }
+            set { garage = value; }
         }
         public string Plot
         {
