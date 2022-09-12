@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace RealEstateAssignment
 {
-    internal class Shop
+    internal class Shop : Commercial
     {
+        public Shop(Address address) : base(address)
+        {
+
+        }
     }
 }

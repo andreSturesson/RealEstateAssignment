@@ -22,6 +22,14 @@ namespace RealEstateAssignment.Model.Residential
             set { apartmentNumber = value; }
         }
 
+        public override void Change(Estate estate) 
+        {
+            Address = ((Apartment)estate).Address;
+            ApartmentNumber = ((Apartment)estate).ApartmentNumber;
+            Rooms = ((Apartment)estate).Rooms;
+            Size = ((Apartment)estate).Size;
+            LegalForm = ((Apartment)estate).LegalForm;
+        }
 
     }
 }

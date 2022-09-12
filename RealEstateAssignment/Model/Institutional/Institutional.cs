@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace RealEstateAssignment.Model.Institutional
 {
-    internal class Institutional
+    abstract class Institutional : Estate
     {
+        public Institutional(Address address) : base(address)
+        {
+
+        }
     }
 }

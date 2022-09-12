@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,8 +20,19 @@ namespace RealEstateAssignment
             this.address = address;
         }
 
-        public int Id { get => id; set => id = value; }
-        public Address Address { get => address; set => address = value; }
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+        public Address Address
+        {
+            get { return address; }
+            set { address = value; }
+        }
+       
+
+        public virtual void Change(Estate estate) { }
 
     }
 }

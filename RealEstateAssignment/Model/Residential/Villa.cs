@@ -27,5 +27,25 @@ namespace RealEstateAssignment.Model.Residential
             get { return garage; }
             set { garage = value; }
         }
+        public string Plot
+        {
+            get { return this.plot; }
+            set { this.plot = value; }
+        }
+        public bool Garage
+        {
+            get { return this.garage; }
+            set { this.garage = value; }
+        }
+
+        public override void Change(Estate estate)
+        {
+            Address = ((Villa)estate).Address;
+            Plot = ((Villa)estate).Plot;
+            Garage = ((Villa)estate).Garage;
+            Rooms = ((Villa)estate).Rooms;
+            Size = ((Villa)estate).Size;
+            LegalForm = ((Villa)estate).LegalForm;
+        }
     }
 }
