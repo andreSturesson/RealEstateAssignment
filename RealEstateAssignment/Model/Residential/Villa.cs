@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace RealEstateAssignment
 {
-    class Villa : Estate
+    class Villa : Residential
     {
         private string plot;
         private bool garage;
-        public Villa(int id, Address address) : base(id, address)
+        public Villa(int id, Address address, string plot, bool garage, int rooms, int size, LegalForm legalForm) : base(id, address, rooms, size, legalForm)
         {
+            this.plot = plot;
+            this.garage = garage;
+
         }
     }
 }
