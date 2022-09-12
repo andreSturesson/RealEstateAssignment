@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RealEstateAssignment
+namespace RealEstateAssignment.Model.LegalForm
 {
-    internal interface IEstate
+    internal class Ownership
     {
-        int Id { get; set; }
-        Address Address { get; set; }
     }
 }

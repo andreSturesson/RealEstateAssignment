@@ -11,7 +11,7 @@ namespace RealEstateAssignment
     {
         public Commercial(Address address) : base(address)
         {
-        {
+        
 
         }
     }
