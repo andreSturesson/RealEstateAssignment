@@ -17,10 +17,12 @@ namespace RealEstateAssignment.Appartment
             this.estate = estate;
         }
 
-        internal Estate Estate { get => estate; set => estate = value; }
 
-        public int addEstate()
+        public Estate Estate { get => estate; set => estate = value; }
+
+        public int addEstate(String type)
         {
+
 
             return 0;
         }
