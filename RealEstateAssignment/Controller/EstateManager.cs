@@ -10,15 +10,14 @@ namespace RealEstateAssignment.Appartment
     //Will later contain a collection of estates
     class EstateManager
     {
-        private Estate estate;
+        private Estate state;
 
-        public EstateManager(Estate estate)
+        public EstateManager(Estate state)
         {
-            this.estate = estate;
+            Estate = state;
         }
 
-
-        public Estate Estate { get => estate; set => estate = value; }
+        public Estate Estate { get => state; set => state = value; }
 
         public int addEstate(String type)
         {
