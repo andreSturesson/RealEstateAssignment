@@ -1,5 +1,4 @@
 ﻿using RealEstateAssignment;
-using RealEstateAssignment.Model.Residential;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RealEstateAssignment.Model.Residential
+namespace RealEstateAssignment
 {
     class Apartment : Residential
     {
