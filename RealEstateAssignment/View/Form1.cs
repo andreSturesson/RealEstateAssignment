@@ -90,12 +90,8 @@ namespace RealEstateAssignment
             sizeLabel.Visible = false;
             sizeTextBox.Visible = false;
             sizesqmLabel.Visible = false;
-            roomsLabel.Visible = false;
-            roomsTextBox.Visible = false;
             plotSizeLabel.Visible = false;
             plotSizeText.Visible = false;
-            rentLabel.Visible = false;
-            rentLabelText.Visible = false;
             garageLabel.Visible = false;
             garageComboBox.Visible = false;
             apartmentTypeComboBox.Visible = false;
@@ -112,12 +108,14 @@ namespace RealEstateAssignment
                     sizesqmLabel.Visible = true;
                     roomsLabel.Visible = true;
                     roomsTextBox.Visible = true;
-                    apartmentTypeComboBox.Visible = true;
-                    AppartmentTypeText.Visible = true;
                     browseFilesButton.Visible = true;
                     BrowseFilesLabel.Visible = true;
                     apartmentNumberLabel.Visible = true;
                     apartmentNumberTextBox.Visible = true;
+                    rentLabel.Visible = true;
+                    rentLabelText.Visible = true;
+                    apartmentTypeComboBox.Visible = true;
+                    AppartmentTypeText.Visible = true;
                     break;
                 case "Villa":
                     sizeLabel.Visible = true;
@@ -125,16 +123,60 @@ namespace RealEstateAssignment
                     sizesqmLabel.Visible = true;
                     roomsLabel.Visible = true;
                     roomsTextBox.Visible = true;
+                    plotSizeLabel.Text = "Plot size";
                     plotSizeLabel.Visible = true;
                     plotSizeText.Visible = true;
                     garageLabel.Visible = true;
                     garageComboBox.Visible = true;
                     browseFilesButton.Visible = true;
                     BrowseFilesLabel.Visible = true;
+
+                    //For legalform
+                    rentLabel.Visible = true;
+                    rentLabelText.Visible = true;
+                    apartmentTypeComboBox.Visible = true;
+                    AppartmentTypeText.Visible = true;
                     break;
                 case "Shop":
+                    sizeLabel.Visible = true;
+                    sizeTextBox.Visible = true;
+                    roomsLabel.Visible = true;
+                    roomsTextBox.Visible = true;
+                    plotSizeLabel.Text = "Shelves";
+                    plotSizeLabel.Visible = true;
+                    plotSizeText.Visible = true;
+                    browseFilesButton.Visible = true;
+                    BrowseFilesLabel.Visible = true;
+
+                    //For legalform
+                    rentLabel.Visible = true;
+                    rentLabelText.Visible = true;
+                    apartmentTypeComboBox.Visible = true;
+                    AppartmentTypeText.Visible = true;
                     break;
                 case "Warehouse":
+                    sizeLabel.Visible = true;
+                    sizeTextBox.Visible = true;
+                    roomsLabel.Visible = true;
+                    roomsTextBox.Visible = true;
+                    plotSizeLabel.Text = "Shelves";
+                    plotSizeLabel.Visible = true;
+                    plotSizeText.Visible = true;
+                    browseFilesButton.Visible = true;
+                    BrowseFilesLabel.Visible = true;
+
+                    //For legalform
+                    rentLabel.Visible = true;
+                    rentLabelText.Visible = true;
+                    apartmentTypeComboBox.Visible = true;
+                    AppartmentTypeText.Visible = true;
+                    break;
+
+                case "Hospital":
+                    break;
+                case "School":
+                    break;
+                case "University":
                     break;
                 case "Rowhouse":
                     sizeLabel.Visible = true;
@@ -148,6 +190,12 @@ namespace RealEstateAssignment
                     garageComboBox.Visible = true;
                     browseFilesButton.Visible = true;
                     BrowseFilesLabel.Visible = true;
+                    rentLabel.Visible = true;
+                    rentLabelText.Visible = true;
+                    rentLabel.Visible = true;
+                    rentLabelText.Visible = true;
+                    apartmentTypeComboBox.Visible = true;
+                    AppartmentTypeText.Visible = true;
                     break;
                 default:
                     break;
@@ -192,14 +240,15 @@ namespace RealEstateAssignment
 
         private void apartmentTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            rentLabel.Visible = false;
-            rentLabelText.Visible = false;
             switch (apartmentTypeComboBox.SelectedItem.ToString())
             {
                 case "Tenement":
-
+                    rentLabel.Text = "Value";
+                    rentLabel.Visible = true;
+                    rentLabelText.Visible = true;
                     break;
                 case "Rental":
+                    rentLabel.Text = "Rent";
                     rentLabel.Visible = true;
                     rentLabelText.Visible = true;
                     break;
@@ -236,49 +285,88 @@ namespace RealEstateAssignment
         //Add an estate
         private void button2_Click(object sender, EventArgs e)
         {
-            if (streetTextBox.Text != "" && cityTextBox.Text != "" && zipCodeTextBox.Text != "" && countryComboBox.SelectedText == "")
+            errorText.Visible = false;
+            try
             {
-                Address adress = new Address(streetTextBox.Text, cityTextBox.Text, Int32.Parse(zipCodeTextBox.Text), countryComboBox.SelectedText);
-                LegalForm legalform = new LegalForm();
-                switch (comboBox2.SelectedItem.ToString())
+                LegalForm legal;
+                if (streetTextBox.Text != "" && cityTextBox.Text != "" && zipCodeTextBox.Text != "" && countryComboBox.SelectedText == "")
                 {
-                    case "Apartment":
-                        if (apartmentNumberTextBox.Text != "" && roomsTextBox.Text != "" && sizeTextBox.Text != "")
-                        {
-                            estate = new Apartment(adress, Int32.Parse(apartmentNumberTextBox.Text), Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legalform);
+                    Address adress = new Address(streetTextBox.Text, cityTextBox.Text, Int32.Parse(zipCodeTextBox.Text), countryComboBox.SelectedText);
+                    if (apartmentTypeComboBox.SelectedItem.ToString() == "Tenement")
+                    {
+                        legal = new Rental(Int32.Parse(rentLabelText.Text));
+                    }
+                    else
+                    {
+                        legal = new Ownership(Int32.Parse(rentLabelText.Text));
+                    }
+                    switch (comboBox2.SelectedItem.ToString())
+                    {
+                        case "Apartment":
+                            if (apartmentNumberTextBox.Text != "" && roomsTextBox.Text != "" && sizeTextBox.Text != "")
+                            {
+                                estate = new Apartment(adress, Int32.Parse(apartmentNumberTextBox.Text), Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legal);
+                                displayseeEstate.Visible = false;
+                                //Address
+                                showApartment();
+                            }
+                            else
+                            {
+                                errorText.Text = "ERROR - No fields can be empty";
+                            }
+                            break;
+                        case "Villa":
                             displayseeEstate.Visible = false;
-                            //Address
-                            showApartment();
-                        }
-                        else
-                        {
-                            errorText.Text = "ERROR - No fields can be empty";
-                        }
-                        break;
-                    case "Villa":
-                        estate = new Villa(adress, plotSizeText.Text, Convert.ToBoolean(garageComboBox.Text), Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text),legalform);
-                        showVilla();
-                        break;
-                    case "Shop":
-                        showShop();
-                        break;
-                    case "Warehouse":
-                        showWarehouse();
-                        break;
-                    case "Rowhouse":
-                        showRowHouse();
-                        estate = new Rowhouse(adress, plotSizeText.Text, Convert.ToBoolean(garageComboBox.Text), Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legalform);
-                        break;
-                    default:
-                        break;
+                            Boolean garage;
+                            if (garageComboBox.SelectedItem.ToString() == "Yes")
+                            {
+                                garage = true;
+                            }
+                            else
+                            {
+                                garage = false;
+                            }
+                            estate = new Villa(adress, plotSizeText.Text, garage, Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legal);
+                            showVilla();
+                            break;
+                        case "Shop":
+                            displayseeEstate.Visible = false;
+
+                            showShop();
+                            break;
+                        case "Warehouse":
+                            displayseeEstate.Visible = false;
+
+                            showWarehouse();
+                            break;
+                        case "Rowhouse":
+                            displayseeEstate.Visible = false;
+                            Boolean ga;
+                            if (garageComboBox.SelectedItem.ToString() == "Yes")
+                            {
+                                ga = true;
+                            }
+                            else
+                            {
+                                ga = false;
+                            }
+                            estate = new Rowhouse(adress, plotSizeText.Text, ga, Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legal);
+                            showRowHouse();
+                            break;
+                        default:
+                            break;
+                    }
                 }
-            }
-            else
+                else
+                {
+                    errorText.Visible = true;
+                    errorText.Text = "ERROR - Something in address is empty";
+                }
+            } catch (Exception er)
             {
                 errorText.Visible = true;
-                errorText.Text = "ERROR - Something in address is empty";
+                errorText.Text = "ERROR - Some value is empty or incorrect " + er;
             }
-
         }
 
         private void showAdress()
@@ -296,19 +384,14 @@ namespace RealEstateAssignment
 
         private void showApartment()
         {
+            displayEstateText.Text = "Size: " + ((Apartment)estate).Size.ToString() + "\r\n" + "Apartment Number: " + 
+                ((Apartment)estate).ApartmentNumber + "\r\n" + "Number of rooms: " + ((Apartment)estate).Rooms.ToString() + "\r\n";
             displayEstateText.Visible = true;
-            displayEstateText.Text = "Size: " + ((Apartment)estate).Size.ToString() + "\r\n" + "Apartment Number: " + ((Apartment)estate).ApartmentNumber + "\r\n" + "Number of rooms: " + ((Apartment)estate).Rooms.ToString() + "\r\n";
             showAdress();
 
         }
 
         private void showVilla()
-        {
-            displayEstateText.Visible = true;
-            showAdress();
-        }
-
-        private void showRowHouse()
         {
             displayEstateText.Visible = true;
             string hasGarage;
@@ -320,7 +403,24 @@ namespace RealEstateAssignment
             {
                 hasGarage = "No";
             }
-            displayEstateText.Text = "Size: " + ((Villa)estate).Size + "\r\n" + "Total land size: " + ((Villa)estate).Plot + "\r\n" + "Number of rooms: " + ((Villa)estate).Rooms + "\r\n" + "Garage: " + hasGarage;
+            displayEstateText.Text = "Size: " + ((Villa)estate).Size + "\r\n" + "Total land size: " + ((Villa)estate).Plot + 
+                "\r\n" + "Number of rooms: " + ((Villa)estate).Rooms + "\r\n" + "Garage: " + hasGarage;
+            showAdress();
+        }
+
+        private void showRowHouse()
+        {
+            displayEstateText.Visible = true;
+            string hasGarage;
+            if (((Rowhouse)estate).Garage == true)
+            {
+                hasGarage = "Yes";
+            }
+            else
+            {
+                hasGarage = "No";
+            }
+            displayEstateText.Text = "Size: " + ((Rowhouse)estate).Size + "\r\n" + "Total land size: " + ((Rowhouse)estate).Plot + "\r\n" + "Number of rooms: " + ((Rowhouse)estate).Rooms + "\r\n" + "Garage: " + hasGarage;
             showAdress();
 
         }
@@ -375,6 +475,11 @@ namespace RealEstateAssignment
         }
 
         private void displayseeEstate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rentLabelText_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -14,7 +14,10 @@ public class Enums
         Rowhouse,
         Villa,
         Shop,
-        Warehouse
+        Warehouse,
+        Hospital,
+        School,
+        University
     }
 
     public enum hasGarage
