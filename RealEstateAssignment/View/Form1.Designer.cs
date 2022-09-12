@@ -653,11 +653,6 @@
         private Label displayZipcode;
         private Label displayCountry;
         private Label displayCity;
-        private Label DisplayAppartmentType;
-        private Label displayImageText;
-        private Label displayAppartmentNumber;
-        private Label displayPlotSize;
-        private Label displayRooms;
         private Label displayEstateText;
         private GroupBox DisplayAddressGroup;
         private Label displayseeEstate;

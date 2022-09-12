@@ -1,4 +1,5 @@
 using RealEstateAssignment.Appartment;
+using RealEstateAssignment.Model.Residential;
 using System.Diagnostics;
 using System.Drawing.Text;
 using System.Windows.Forms;

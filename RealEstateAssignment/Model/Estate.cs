@@ -22,10 +22,5 @@ namespace RealEstateAssignment
         public int Id { get => id; set => id = value; }
         public Address Address { get => address; set => address = value; }
 
-        public void test()
-        {
-            throw new NotImplementedException();
-        }
-
     }
 }

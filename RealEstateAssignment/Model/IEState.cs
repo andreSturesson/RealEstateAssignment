@@ -8,6 +8,7 @@ namespace RealEstateAssignment
 {
     internal interface IEstate
     {
-        abstract void test();
+        int Id { get; set; }
+        Address Address { get; set; }
     }
 }
