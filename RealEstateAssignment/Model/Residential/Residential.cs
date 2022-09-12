@@ -11,7 +11,7 @@ namespace RealEstateAssignment
         private int rooms;
         private int size;
         private LegalForm legalForm;
-        public Residential(int id, Address address, int rooms, int size, LegalForm legalForm) : base(id, address)
+        public Residential(Address address, int rooms, int size, LegalForm legalForm) : base(address)
         {
             this.rooms = rooms;
             this.size = size;

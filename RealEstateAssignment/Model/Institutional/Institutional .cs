@@ -8,7 +8,7 @@ namespace RealEstateAssignment
 {
     internal abstract class Institutional : Estate
     {
-        public Institutional(int id, Address address) : base(id, address)
+        public Institutional(Address address) : base(address)
         {
 
         }
