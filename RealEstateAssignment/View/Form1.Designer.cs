@@ -33,6 +33,8 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.apartmentNumberTextBox = new System.Windows.Forms.TextBox();
+            this.apartmentNumberLabel = new System.Windows.Forms.Label();
             this.chooseImageTextBox = new System.Windows.Forms.TextBox();
             this.browseFilesButton = new System.Windows.Forms.Button();
             this.BrowseFilesLabel = new System.Windows.Forms.Label();
@@ -49,16 +51,16 @@
             this.roomsLabel = new System.Windows.Forms.Label();
             this.sizeTextBox = new System.Windows.Forms.TextBox();
             this.sizeLabel = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.streetTextBox = new System.Windows.Forms.TextBox();
             this.streetLabel = new System.Windows.Forms.Label();
             this.zipcodeLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.zipCodeTextBox = new System.Windows.Forms.TextBox();
             this.cityLabel = new System.Windows.Forms.Label();
             this.cityTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.type = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.countryComboBox = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -66,6 +68,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.image = new System.Windows.Forms.PictureBox();
             this.chooseImageFile = new System.Windows.Forms.OpenFileDialog();
+            this.errorText = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -108,6 +111,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.apartmentNumberTextBox);
+            this.groupBox2.Controls.Add(this.apartmentNumberLabel);
             this.groupBox2.Controls.Add(this.chooseImageTextBox);
             this.groupBox2.Controls.Add(this.browseFilesButton);
             this.groupBox2.Controls.Add(this.BrowseFilesLabel);
@@ -124,16 +129,16 @@
             this.groupBox2.Controls.Add(this.roomsLabel);
             this.groupBox2.Controls.Add(this.sizeTextBox);
             this.groupBox2.Controls.Add(this.sizeLabel);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.streetTextBox);
             this.groupBox2.Controls.Add(this.streetLabel);
             this.groupBox2.Controls.Add(this.zipcodeLabel);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.zipCodeTextBox);
             this.groupBox2.Controls.Add(this.cityLabel);
             this.groupBox2.Controls.Add(this.cityTextBox);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.comboBox2);
             this.groupBox2.Controls.Add(this.type);
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.countryComboBox);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.groupBox4);
@@ -144,6 +149,24 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Estate Registration";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // apartmentNumberTextBox
+            // 
+            this.apartmentNumberTextBox.Location = new System.Drawing.Point(122, 145);
+            this.apartmentNumberTextBox.Name = "apartmentNumberTextBox";
+            this.apartmentNumberTextBox.Size = new System.Drawing.Size(39, 23);
+            this.apartmentNumberTextBox.TabIndex = 31;
+            this.apartmentNumberTextBox.Visible = false;
+            // 
+            // apartmentNumberLabel
+            // 
+            this.apartmentNumberLabel.AutoSize = true;
+            this.apartmentNumberLabel.Location = new System.Drawing.Point(5, 148);
+            this.apartmentNumberLabel.Name = "apartmentNumberLabel";
+            this.apartmentNumberLabel.Size = new System.Drawing.Size(111, 15);
+            this.apartmentNumberLabel.TabIndex = 30;
+            this.apartmentNumberLabel.Text = "Apartment Number";
+            this.apartmentNumberLabel.Visible = false;
             // 
             // chooseImageTextBox
             // 
@@ -300,12 +323,12 @@
             this.sizeLabel.Visible = false;
             this.sizeLabel.Click += new System.EventHandler(this.sizeLabel_Click);
             // 
-            // textBox2
+            // streetTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(67, 343);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 23);
-            this.textBox2.TabIndex = 12;
+            this.streetTextBox.Location = new System.Drawing.Point(67, 343);
+            this.streetTextBox.Name = "streetTextBox";
+            this.streetTextBox.Size = new System.Drawing.Size(100, 23);
+            this.streetTextBox.TabIndex = 12;
             // 
             // streetLabel
             // 
@@ -325,13 +348,13 @@
             this.zipcodeLabel.TabIndex = 10;
             this.zipcodeLabel.Text = "Zip Code";
             // 
-            // textBox1
+            // zipCodeTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(67, 305);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 9;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            this.zipCodeTextBox.Location = new System.Drawing.Point(67, 305);
+            this.zipCodeTextBox.Name = "zipCodeTextBox";
+            this.zipCodeTextBox.Size = new System.Drawing.Size(100, 23);
+            this.zipCodeTextBox.TabIndex = 9;
+            this.zipCodeTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // cityLabel
             // 
@@ -377,14 +400,14 @@
             this.type.TabIndex = 4;
             this.type.Text = "type";
             // 
-            // comboBox1
+            // countryComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(67, 235);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 23);
-            this.comboBox1.TabIndex = 3;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
+            this.countryComboBox.FormattingEnabled = true;
+            this.countryComboBox.Location = new System.Drawing.Point(67, 235);
+            this.countryComboBox.Name = "countryComboBox";
+            this.countryComboBox.Size = new System.Drawing.Size(100, 23);
+            this.countryComboBox.TabIndex = 3;
+            this.countryComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
             // button2
             // 
@@ -394,6 +417,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Add";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -456,11 +480,23 @@
             this.chooseImageFile.Title = "Choose Image";
             this.chooseImageFile.FileOk += new System.ComponentModel.CancelEventHandler(this.chooseImageFile_FileOk);
             // 
+            // errorText
+            // 
+            this.errorText.AutoSize = true;
+            this.errorText.Location = new System.Drawing.Point(20, 435);
+            this.errorText.Name = "errorText";
+            this.errorText.Size = new System.Drawing.Size(32, 15);
+            this.errorText.TabIndex = 30;
+            this.errorText.Text = "Error";
+            this.errorText.Visible = false;
+            this.errorText.Click += new System.EventHandler(this.errorText_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(865, 451);
+            this.Controls.Add(this.errorText);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -475,6 +511,7 @@
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -485,7 +522,7 @@
         private Button button3;
         private Button button2;
         private Button button1;
-        private ComboBox comboBox1;
+        private ComboBox countryComboBox;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn Address;
@@ -495,10 +532,10 @@
         private Label label1;
         private Label cityLabel;
         private TextBox cityTextBox;
-        private TextBox textBox2;
+        private TextBox streetTextBox;
         private Label streetLabel;
         private Label zipcodeLabel;
-        private TextBox textBox1;
+        private TextBox zipCodeTextBox;
         private TextBox roomsTextBox;
         private Label roomsLabel;
         private TextBox sizeTextBox;
@@ -518,5 +555,8 @@
         private Button browseFilesButton;
         private TextBox chooseImageTextBox;
         private OpenFileDialog chooseImageFile;
+        private Label errorText;
+        private TextBox apartmentNumberTextBox;
+        private Label apartmentNumberLabel;
     }
 }

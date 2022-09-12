@@ -1,5 +1,6 @@
 using RealEstateAssignment.Appartment;
 using System.Diagnostics;
+using System.Drawing.Text;
 using System.Windows.Forms;
 using static Enums;
 
@@ -7,12 +8,13 @@ namespace RealEstateAssignment
 {
     public partial class Form1 : Form
     {
+        private EstateManager em;
 
         public Form1()
         {
             InitializeComponent();
 
-            comboBox1.DataSource = Enums.countries.GetValues(typeof(countries));
+            countryComboBox.DataSource = Enums.countries.GetValues(typeof(countries));
             comboBox2.DataSource = Enums.types.GetValues(typeof(types));
             garageComboBox.DataSource = Enums.hasGarage.GetValues(typeof(hasGarage));
             apartmentTypeComboBox.DataSource = Enums.apartmentType.GetValues(typeof(apartmentType));
@@ -99,6 +101,8 @@ namespace RealEstateAssignment
             AppartmentTypeText.Visible = false;
             browseFilesButton.Visible = false;
             BrowseFilesLabel.Visible = false;
+            apartmentNumberLabel.Visible = false;
+            apartmentNumberTextBox.Visible = false;
             switch (comboBox2.SelectedItem.ToString())
             {
                 case "Apartment":
@@ -111,6 +115,8 @@ namespace RealEstateAssignment
                     AppartmentTypeText.Visible = true;
                     browseFilesButton.Visible = true;
                     BrowseFilesLabel.Visible = true;
+                    apartmentNumberLabel.Visible = true;
+                    apartmentNumberTextBox.Visible = true;
                     break;
                 case "Villa":
                     sizeLabel.Visible = true;
@@ -211,6 +217,37 @@ namespace RealEstateAssignment
         private void image_Click(object sender, EventArgs e)
         {
             
+        }
+
+        //Add an estate
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //Address adress = new Address(streetTextBox.Text, cityTextBox.Text, Int32.Parse(zipCodeTextBox.Text), countryComboBox.SelectedItem.ToString);
+            switch (comboBox2.SelectedItem.ToString())
+            {
+                case "Apartment":
+
+                    String size = sizeTextBox.Text;
+                    String rooms = roomsTextBox.Text;
+
+
+                    break;
+                case "Villa":
+                    break;
+                case "Shop":
+                    break;
+                case "Warehouse":
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+        //Errortext
+        private void errorText_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
