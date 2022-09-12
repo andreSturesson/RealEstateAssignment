@@ -36,6 +36,7 @@
             this.apartmentNumberTextBox = new System.Windows.Forms.TextBox();
             this.apartmentNumberLabel = new System.Windows.Forms.Label();
             this.chooseImageTextBox = new System.Windows.Forms.TextBox();
+            this.image = new System.Windows.Forms.PictureBox();
             this.browseFilesButton = new System.Windows.Forms.Button();
             this.BrowseFilesLabel = new System.Windows.Forms.Label();
             this.apartmentTypeComboBox = new System.Windows.Forms.ComboBox();
@@ -73,15 +74,14 @@
             this.displayZipcode = new System.Windows.Forms.Label();
             this.displayCity = new System.Windows.Forms.Label();
             this.displayEstateText = new System.Windows.Forms.Label();
-            this.image = new System.Windows.Forms.PictureBox();
             this.chooseImageFile = new System.Windows.Forms.OpenFileDialog();
             this.errorText = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.DisplayAddressGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -122,6 +122,7 @@
             this.groupBox2.Controls.Add(this.apartmentNumberTextBox);
             this.groupBox2.Controls.Add(this.apartmentNumberLabel);
             this.groupBox2.Controls.Add(this.chooseImageTextBox);
+            this.groupBox2.Controls.Add(this.image);
             this.groupBox2.Controls.Add(this.browseFilesButton);
             this.groupBox2.Controls.Add(this.BrowseFilesLabel);
             this.groupBox2.Controls.Add(this.apartmentTypeComboBox);
@@ -168,7 +169,7 @@
             // apartmentNumberLabel
             // 
             this.apartmentNumberLabel.AutoSize = true;
-            this.apartmentNumberLabel.Location = new System.Drawing.Point(5, 148);
+            this.apartmentNumberLabel.Location = new System.Drawing.Point(6, 148);
             this.apartmentNumberLabel.Name = "apartmentNumberLabel";
             this.apartmentNumberLabel.Size = new System.Drawing.Size(111, 15);
             this.apartmentNumberLabel.TabIndex = 30;
@@ -182,6 +183,19 @@
             this.chooseImageTextBox.Size = new System.Drawing.Size(109, 23);
             this.chooseImageTextBox.TabIndex = 29;
             this.chooseImageTextBox.TextChanged += new System.EventHandler(this.chooseImageTextBox_TextChanged);
+            // 
+            // image
+            // 
+            this.image.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.image.Location = new System.Drawing.Point(183, 121);
+            this.image.Name = "image";
+            this.image.Size = new System.Drawing.Size(60, 60);
+            this.image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.image.TabIndex = 3;
+            this.image.TabStop = false;
+            this.image.Click += new System.EventHandler(this.image_Click);
             // 
             // browseFilesButton
             // 
@@ -208,9 +222,9 @@
             // apartmentTypeComboBox
             // 
             this.apartmentTypeComboBox.FormattingEnabled = true;
-            this.apartmentTypeComboBox.Location = new System.Drawing.Point(136, 82);
+            this.apartmentTypeComboBox.Location = new System.Drawing.Point(152, 63);
             this.apartmentTypeComboBox.Name = "apartmentTypeComboBox";
-            this.apartmentTypeComboBox.Size = new System.Drawing.Size(91, 23);
+            this.apartmentTypeComboBox.Size = new System.Drawing.Size(94, 23);
             this.apartmentTypeComboBox.TabIndex = 26;
             this.apartmentTypeComboBox.Visible = false;
             this.apartmentTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.apartmentTypeComboBox_SelectedIndexChanged);
@@ -218,17 +232,17 @@
             // AppartmentTypeText
             // 
             this.AppartmentTypeText.AutoSize = true;
-            this.AppartmentTypeText.Location = new System.Drawing.Point(136, 54);
+            this.AppartmentTypeText.Location = new System.Drawing.Point(152, 45);
             this.AppartmentTypeText.Name = "AppartmentTypeText";
-            this.AppartmentTypeText.Size = new System.Drawing.Size(91, 15);
+            this.AppartmentTypeText.Size = new System.Drawing.Size(68, 15);
             this.AppartmentTypeText.TabIndex = 25;
-            this.AppartmentTypeText.Text = "Apartment Type";
+            this.AppartmentTypeText.Text = "Owner Ship";
             this.AppartmentTypeText.Visible = false;
             // 
             // garageComboBox
             // 
             this.garageComboBox.FormattingEnabled = true;
-            this.garageComboBox.Location = new System.Drawing.Point(56, 145);
+            this.garageComboBox.Location = new System.Drawing.Point(58, 148);
             this.garageComboBox.Name = "garageComboBox";
             this.garageComboBox.Size = new System.Drawing.Size(39, 23);
             this.garageComboBox.TabIndex = 24;
@@ -237,7 +251,7 @@
             // garageLabel
             // 
             this.garageLabel.AutoSize = true;
-            this.garageLabel.Location = new System.Drawing.Point(8, 148);
+            this.garageLabel.Location = new System.Drawing.Point(6, 151);
             this.garageLabel.Name = "garageLabel";
             this.garageLabel.Size = new System.Drawing.Size(44, 15);
             this.garageLabel.TabIndex = 23;
@@ -246,7 +260,7 @@
             // 
             // plotSizeText
             // 
-            this.plotSizeText.Location = new System.Drawing.Point(56, 116);
+            this.plotSizeText.Location = new System.Drawing.Point(56, 122);
             this.plotSizeText.Name = "plotSizeText";
             this.plotSizeText.Size = new System.Drawing.Size(39, 23);
             this.plotSizeText.TabIndex = 22;
@@ -257,7 +271,7 @@
             // 
             this.plotSizeLabel.AutoSize = true;
             this.plotSizeLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.plotSizeLabel.Location = new System.Drawing.Point(6, 120);
+            this.plotSizeLabel.Location = new System.Drawing.Point(6, 125);
             this.plotSizeLabel.Name = "plotSizeLabel";
             this.plotSizeLabel.Size = new System.Drawing.Size(51, 15);
             this.plotSizeLabel.TabIndex = 21;
@@ -266,15 +280,16 @@
             // 
             // rentLabelText
             // 
-            this.rentLabelText.Location = new System.Drawing.Point(56, 116);
+            this.rentLabelText.Location = new System.Drawing.Point(189, 92);
             this.rentLabelText.Name = "rentLabelText";
-            this.rentLabelText.Size = new System.Drawing.Size(39, 23);
+            this.rentLabelText.Size = new System.Drawing.Size(56, 23);
             this.rentLabelText.TabIndex = 20;
+            this.rentLabelText.TextChanged += new System.EventHandler(this.rentLabelText_TextChanged);
             // 
             // rentLabel
             // 
             this.rentLabel.AutoSize = true;
-            this.rentLabel.Location = new System.Drawing.Point(6, 120);
+            this.rentLabel.Location = new System.Drawing.Point(152, 95);
             this.rentLabel.Name = "rentLabel";
             this.rentLabel.Size = new System.Drawing.Size(31, 15);
             this.rentLabel.TabIndex = 19;
@@ -394,7 +409,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(42, 19);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 23);
+            this.comboBox2.Size = new System.Drawing.Size(204, 23);
             this.comboBox2.TabIndex = 5;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -461,7 +476,6 @@
             this.groupBox3.Controls.Add(this.displayseeEstate);
             this.groupBox3.Controls.Add(this.DisplayAddressGroup);
             this.groupBox3.Controls.Add(this.displayEstateText);
-            this.groupBox3.Controls.Add(this.image);
             this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Location = new System.Drawing.Point(270, 12);
@@ -550,19 +564,6 @@
             this.displayEstateText.Visible = false;
             this.displayEstateText.Click += new System.EventHandler(this.label2_Click_2);
             // 
-            // image
-            // 
-            this.image.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.image.Location = new System.Drawing.Point(22, 224);
-            this.image.Name = "image";
-            this.image.Size = new System.Drawing.Size(476, 155);
-            this.image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.image.TabIndex = 3;
-            this.image.TabStop = false;
-            this.image.Click += new System.EventHandler(this.image_Click);
-            // 
             // chooseImageFile
             // 
             this.chooseImageFile.FileName = "openFileDialog1";
@@ -597,11 +598,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.DisplayAddressGroup.ResumeLayout(false);
             this.DisplayAddressGroup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -4,13 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RealEstateAssignment.Appartment
+namespace RealEstateAssignment
 {
-    internal class Rental
+    internal class Rental : LegalForm
     {
-        public Rental()
+        private int rent;
 
+        public Rental(int rent)
         {
+            this.rent = rent;
+        }
+
+        public int Rent
+        {
+            get { return rent; }
+            set { rent = value; }
         }
     }
 }
