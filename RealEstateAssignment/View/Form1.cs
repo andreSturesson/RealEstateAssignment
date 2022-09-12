@@ -13,7 +13,6 @@ namespace RealEstateAssignment
         public Form1()
         {
             InitializeComponent();
-
             countryComboBox.DataSource = Enums.countries.GetValues(typeof(countries));
             comboBox2.DataSource = Enums.types.GetValues(typeof(types));
             garageComboBox.DataSource = Enums.hasGarage.GetValues(typeof(hasGarage));
@@ -51,7 +50,14 @@ namespace RealEstateAssignment
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            DisplayAddressGroup.Visible = false;
+            displayCountry.Visible = false;
+            displayCity.Visible = false;
+            displayStreet.Visible = false;
+            displayZipcode.Visible = false;
+            displayEstateText.Visible = false;
+            displayseeEstate.Visible = true;
+            estate = null;
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -143,7 +149,6 @@ namespace RealEstateAssignment
                     browseFilesButton.Visible = true;
                     BrowseFilesLabel.Visible = true;
                     break;
-
                 default:
                     break;
             }
@@ -243,14 +248,7 @@ namespace RealEstateAssignment
                             estate = new Apartment(adress, Int32.Parse(apartmentNumberTextBox.Text), Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legalform);
                             displayseeEstate.Visible = false;
                             //Address
-                            displayCountry.Visible = true;
-                            displayCity.Visible = true;
-                            displayStreet.Visible = true;
-                            displayZipcode.Visible = true;
-
-                            displaySize.Visible = true;
-                            displayPlotSize.Visible = true;
-                            displayRooms.Visible = true;
+                            showApartment();
                         }
                         else
                         {
@@ -259,12 +257,16 @@ namespace RealEstateAssignment
                         break;
                     case "Villa":
                         estate = new Villa(adress, plotSizeText.Text, Convert.ToBoolean(garageComboBox.Text), Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text),legalform);
+                        showVilla();
                         break;
                     case "Shop":
+                        showShop();
                         break;
                     case "Warehouse":
+                        showWarehouse();
                         break;
                     case "Rowhouse":
+                        showRowHouse();
                         estate = new Rowhouse(adress, plotSizeText.Text, Convert.ToBoolean(garageComboBox.Text), Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legalform);
                         break;
                     default:
@@ -277,6 +279,63 @@ namespace RealEstateAssignment
                 errorText.Text = "ERROR - Something in address is empty";
             }
 
+        }
+
+        private void showAdress()
+        {
+            DisplayAddressGroup.Visible = true;
+            displayCountry.Visible = true;
+            displayCity.Visible = true;
+            displayStreet.Visible = true;
+            displayZipcode.Visible = true;
+            displayCountry.Text = "Country: " + estate.Address.Country;
+            displayCity.Text = "City: " + estate.Address.City;
+            displayZipcode.Text = "Zip code: " +estate.Address.ZipCode.ToString();
+            displayStreet.Text = "Street: " + estate.Address.Street;
+        }
+
+        private void showApartment()
+        {
+            displayEstateText.Visible = true;
+            displayEstateText.Text = "Size: " + ((Apartment)estate).Size.ToString() + "\r\n" + "Apartment Number: " + ((Apartment)estate).ApartmentNumber + "\r\n" + "Number of rooms: " + ((Apartment)estate).Rooms.ToString() + "\r\n";
+            showAdress();
+
+        }
+
+        private void showVilla()
+        {
+            displayEstateText.Visible = true;
+            showAdress();
+        }
+
+        private void showRowHouse()
+        {
+            displayEstateText.Visible = true;
+            string hasGarage;
+            if (((Villa)estate).Garage == true)
+            {
+                hasGarage = "Yes";
+            }
+            else
+            {
+                hasGarage = "No";
+            }
+            displayEstateText.Text = "Size: " + ((Villa)estate).Size + "\r\n" + "Total land size: " + ((Villa)estate).Plot + "\r\n" + "Number of rooms: " + ((Villa)estate).Rooms + "\r\n" + "Garage: " + hasGarage;
+            showAdress();
+
+        }
+
+        private void showShop()
+        {
+            displayEstateText.Visible = true;
+            displayEstateText.Text = "Size: " + "\r\n" + "Total land size: " + "\r\n" + "Number of rooms: " + "\r\n";
+            showAdress();
+        }
+        private void showWarehouse()
+        {
+            displayEstateText.Visible = true;
+            displayEstateText.Text = "Size: " + "\r\n" + "Total land size: " + "\r\n" + "Number of rooms: " + "\r\n";
+            showAdress();
         }
 
         //Errortext
@@ -301,6 +360,21 @@ namespace RealEstateAssignment
         }
 
         private void label2_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DisplayAddressGroup_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void displayseeEstate_Click(object sender, EventArgs e)
         {
 
         }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RealEstateAssignment;
+using RealEstateAssignment.Model.Residential;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace RealEstateAssignment
 {
-    internal class Apartment : Residential
+    class Apartment : Residential
     {
         private int apartmentNumber;
         public Apartment(Address address, int apartmentNumber, int rooms, int size, LegalForm legalForm) : base(address, rooms, size, legalForm)
@@ -19,5 +21,7 @@ namespace RealEstateAssignment
             get { return apartmentNumber; }
             set { apartmentNumber = value; }
         }
+
+
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RealEstateAssignment
 {
-    internal class LegalForm
+    public class LegalForm
     {
         public LegalForm()
         {

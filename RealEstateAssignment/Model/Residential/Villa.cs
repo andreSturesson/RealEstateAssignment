@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RealEstateAssignment.Model.Residential;
 
 namespace RealEstateAssignment
 {
@@ -14,7 +15,18 @@ namespace RealEstateAssignment
         {
             this.plot = plot;
             this.garage = garage;
+        }
 
+        public string Plot
+        {
+            get { return plot; }
+            set { plot = value; }
+        }
+
+        public bool Garage
+        {
+            get { return garage; }
+            set { garage = value; }
         }
     }
 }
