@@ -10,10 +10,18 @@ namespace RealEstateAssignment
 {
     abstract class Commercial : Estate
     {
-        public Commercial(Address address, int size, LegalForm legalForm, string img) : base(address, size, legalForm, img)
+        private int shelves;
+        public Commercial(Address address, int size, LegalForm legalForm, string img, int shelves) : base(address, size, legalForm, img)
         {
+            this.shelves = shelves;
 
 
+        }
+
+        public int Shelves
+        {
+            get { return shelves; }
+            set { shelves = value; }
         }
     }
 }

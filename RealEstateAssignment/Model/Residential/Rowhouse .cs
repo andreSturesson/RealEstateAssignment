@@ -12,5 +12,15 @@ namespace RealEstateAssignment
         {
 
         }
+        public override void Change(Estate estate)
+        {
+            Address = ((Rowhouse)estate).Address;
+            Plot = ((Rowhouse)estate).Plot;
+            Garage = ((Rowhouse)estate).Garage;
+            Rooms = ((Rowhouse)estate).Rooms;
+            Size = ((Rowhouse)estate).Size;
+            LegalForm = ((Rowhouse)estate).LegalForm;
+            Img = ((Rowhouse)estate).Img;
+        }
     }
 }

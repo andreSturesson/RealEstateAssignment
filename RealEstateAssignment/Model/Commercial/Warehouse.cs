@@ -8,9 +8,17 @@ namespace RealEstateAssignment
 {
     internal class Warehouse : Commercial
     {
-        public Warehouse(Address address) : base(address)
+        public Warehouse(Address address, int size, LegalForm legalForm, string img, int shelves) : base(address, size, legalForm, img, shelves)
         {
 
+        }
+        public override void Change(Estate estate)
+        {
+            Address = ((Warehouse)estate).Address;
+            Size = ((Warehouse)estate).Size;
+            LegalForm = ((Warehouse)estate).LegalForm;
+            Img = ((Warehouse)estate).Img;
+            Shelves = ((Warehouse)estate).Shelves;
         }
     }
 }

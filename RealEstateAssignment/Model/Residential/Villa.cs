@@ -36,6 +36,7 @@ namespace RealEstateAssignment
             Rooms = ((Villa)estate).Rooms;
             Size = ((Villa)estate).Size;
             LegalForm = ((Villa)estate).LegalForm;
+            Img = ((Villa)estate).Img;
         }
     }
 }

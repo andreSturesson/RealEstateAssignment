@@ -28,6 +28,7 @@ namespace RealEstateAssignment
             Rooms = ((Apartment)estate).Rooms;
             Size = ((Apartment)estate).Size;
             LegalForm = ((Apartment)estate).LegalForm;
+            Img = ((Apartment)estate).Img;
         }
 
     }
