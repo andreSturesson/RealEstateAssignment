@@ -27,16 +27,6 @@ namespace RealEstateAssignment.Model.Residential
             get { return garage; }
             set { garage = value; }
         }
-        public string Plot
-        {
-            get { return this.plot; }
-            set { this.plot = value; }
-        }
-        public bool Garage
-        {
-            get { return this.garage; }
-            set { this.garage = value; }
-        }
 
         public override void Change(Estate estate)
         {
