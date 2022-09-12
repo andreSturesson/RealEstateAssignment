@@ -52,7 +52,7 @@ namespace RealEstateAssignment
         }
 
 
-        public virtual void Change(Estate estate) { }
+        public abstract void Change(Estate estate);
 
     }
 }
