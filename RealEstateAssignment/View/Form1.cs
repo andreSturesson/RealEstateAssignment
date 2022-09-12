@@ -22,7 +22,7 @@ namespace RealEstateAssignment
         {
 
             Estate state;
-            state = new Apartment(15, new Address("Street", "City", 35591, Enums.countries.Somalia), 1, 1, 1, new LegalForm());
+            state = new Apartment(15, new Address("Street", "City", 35591, "sweden"), 1, 1, 1, new LegalForm());
             Console.Write(state);
 
         }
