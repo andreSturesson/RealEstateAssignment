@@ -9,7 +9,7 @@ namespace RealEstateAssignment
 {
     internal class Hospitals : Institutional
     {
-        public Hospitals(int id, Address address) : base(id, address)
+        public Hospitals(Address address) : base(address)
         {
 
         }

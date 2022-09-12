@@ -10,7 +10,7 @@ namespace RealEstateAssignment
     internal class Apartment : Residential
     {
         private int apartmentNumber;
-        public Apartment(int id, Address address, int apartmentNumber, int rooms, int size, LegalForm legalForm) : base(id, address, rooms, size, legalForm)
+        public Apartment(Address address, int apartmentNumber, int rooms, int size, LegalForm legalForm) : base(address, rooms, size, legalForm)
         {
             this.apartmentNumber = apartmentNumber;
         }

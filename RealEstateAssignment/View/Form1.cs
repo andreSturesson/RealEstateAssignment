@@ -8,7 +8,7 @@ namespace RealEstateAssignment
 {
     public partial class Form1 : Form
     {
-        private EstateManager em;
+        private Estate estate;
 
         public Form1()
         {
@@ -22,11 +22,6 @@ namespace RealEstateAssignment
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            Estate state;
-            state = new Apartment(15, new Address("Street", "City", 35591, "sweden"), 1, 1, 1, new LegalForm());
-            Console.Write(state);
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -135,6 +130,20 @@ namespace RealEstateAssignment
                     break;
                 case "Warehouse":
                     break;
+                case "Rowhouse":
+                    sizeLabel.Visible = true;
+                    sizeTextBox.Visible = true;
+                    sizesqmLabel.Visible = true;
+                    roomsLabel.Visible = true;
+                    roomsTextBox.Visible = true;
+                    plotSizeLabel.Visible = true;
+                    plotSizeText.Visible = true;
+                    garageLabel.Visible = true;
+                    garageComboBox.Visible = true;
+                    browseFilesButton.Visible = true;
+                    BrowseFilesLabel.Visible = true;
+                    break;
+
                 default:
                     break;
             }
@@ -222,30 +231,76 @@ namespace RealEstateAssignment
         //Add an estate
         private void button2_Click(object sender, EventArgs e)
         {
-            //Address adress = new Address(streetTextBox.Text, cityTextBox.Text, Int32.Parse(zipCodeTextBox.Text), countryComboBox.SelectedItem.ToString);
-            switch (comboBox2.SelectedItem.ToString())
+            if (streetTextBox.Text != "" && cityTextBox.Text != "" && zipCodeTextBox.Text != "" && countryComboBox.SelectedText == "")
             {
-                case "Apartment":
+                Address adress = new Address(streetTextBox.Text, cityTextBox.Text, Int32.Parse(zipCodeTextBox.Text), countryComboBox.SelectedText);
+                LegalForm legalform = new LegalForm();
+                switch (comboBox2.SelectedItem.ToString())
+                {
+                    case "Apartment":
+                        if (apartmentNumberTextBox.Text != "" && roomsTextBox.Text != "" && sizeTextBox.Text != "")
+                        {
+                            estate = new Apartment(adress, Int32.Parse(apartmentNumberTextBox.Text), Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legalform);
+                            displayseeEstate.Visible = false;
+                            //Address
+                            displayCountry.Visible = true;
+                            displayCity.Visible = true;
+                            displayStreet.Visible = true;
+                            displayZipcode.Visible = true;
 
-                    String size = sizeTextBox.Text;
-                    String rooms = roomsTextBox.Text;
-
-
-                    break;
-                case "Villa":
-                    break;
-                case "Shop":
-                    break;
-                case "Warehouse":
-                    break;
-                default:
-                    break;
+                            displaySize.Visible = true;
+                            displayPlotSize.Visible = true;
+                            displayRooms.Visible = true;
+                        }
+                        else
+                        {
+                            errorText.Text = "ERROR - No fields can be empty";
+                        }
+                        break;
+                    case "Villa":
+                        estate = new Villa(adress, plotSizeText.Text, Convert.ToBoolean(garageComboBox.Text), Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text),legalform);
+                        break;
+                    case "Shop":
+                        break;
+                    case "Warehouse":
+                        break;
+                    case "Rowhouse":
+                        estate = new Rowhouse(adress, plotSizeText.Text, Convert.ToBoolean(garageComboBox.Text), Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legalform);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                errorText.Visible = true;
+                errorText.Text = "ERROR - Something in address is empty";
             }
 
         }
 
         //Errortext
         private void errorText_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click_2(object sender, EventArgs e)
         {
 
         }

@@ -10,7 +10,7 @@ namespace RealEstateAssignment
 {
     internal class University : Institutional
     {
-        public University(int id, Address address) : base(id, address)
+        public University(Address address) : base(address)
         {
 
         }
