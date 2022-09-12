@@ -12,12 +12,17 @@ namespace RealEstateAssignment
     {
         private int id;
         private Address address;
+        private int size;
+        private LegalForm legalForm;
+        private string img;
 
 
-        public Estate(Address address)
+        public Estate(Address address, int size, LegalForm legalForm, string img)
         {
             this.id = 1;
             this.address = address;
+            this.size = size;
+            this.legalForm = legalForm;
         }
 
         public int Id
@@ -30,7 +35,22 @@ namespace RealEstateAssignment
             get { return address; }
             set { address = value; }
         }
-       
+        public int Size
+        {
+            get { return size; }
+            set { size = value; }
+        }
+        public LegalForm LegalForm
+        {
+            get { return legalForm; }
+            set { legalForm = value; }
+        }
+        public string Img
+        {
+            get { return img; }
+            set { img = value; }
+        }
+
 
         public virtual void Change(Estate estate) { }
 

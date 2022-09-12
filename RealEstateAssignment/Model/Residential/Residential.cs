@@ -9,13 +9,9 @@ namespace RealEstateAssignment
     abstract class Residential : Estate
     {
         private int rooms;
-        private int size;
-        private LegalForm legalForm;
-        public Residential(Address address, int rooms, int size, LegalForm legalForm) : base(address)
+        public Residential(Address address, int rooms, int size, LegalForm legalForm, string img) : base(address, size, legalForm, img)
         {
             this.rooms = rooms;
-            this.size = size;
-            this.legalForm = legalForm;
         }
 
         public int Rooms
@@ -23,16 +19,7 @@ namespace RealEstateAssignment
             get { return rooms; }
             set { rooms = value; }
         }
-        public int Size
-        {
-            get { return size; }
-            set { size = value; }
-        }
-        public LegalForm LegalForm
-        {
-            get { return legalForm; }
-            set { legalForm = value; }
-        }
+        
     }
 
 }

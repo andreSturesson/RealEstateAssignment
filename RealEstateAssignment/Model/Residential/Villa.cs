@@ -10,7 +10,7 @@ namespace RealEstateAssignment
     {
         private string plot;
         private bool garage;
-        public Villa(Address address, string plot, bool garage, int rooms, int size, LegalForm legalForm) : base(address, rooms, size, legalForm)
+        public Villa(Address address, string plot, bool garage, int rooms, int size, LegalForm legalForm, string img) : base(address, rooms, size, legalForm, img)
         {
             this.plot = plot;
             this.garage = garage;
@@ -36,6 +36,7 @@ namespace RealEstateAssignment
             Rooms = ((Villa)estate).Rooms;
             Size = ((Villa)estate).Size;
             LegalForm = ((Villa)estate).LegalForm;
+            Img = ((Villa)estate).Img;
         }
     }
 }

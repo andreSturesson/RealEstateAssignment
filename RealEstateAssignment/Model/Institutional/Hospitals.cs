@@ -1,5 +1,4 @@
-﻿using RealEstateAssignment.Model.Institutional;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +9,17 @@ namespace RealEstateAssignment
 {
     internal class Hospitals : Institutional
     {
-        public Hospitals(Address address) : base(address)
+        public Hospitals(Address address, int size, LegalForm legalForm, string img, int capacity) : base(address, size, legalForm, img, capacity)
         {
 
+        }
+        public override void Change(Estate estate)
+        {
+            Address = ((Hospitals)estate).Address;
+            Size = ((Hospitals)estate).Size;
+            LegalForm = ((Hospitals)estate).LegalForm;
+            Img = ((Hospitals)estate).Img;
+            Capacity = ((Hospitals)estate).Capacity;
         }
     }
 }

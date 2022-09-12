@@ -11,7 +11,7 @@ namespace RealEstateAssignment
     class Apartment : Residential
     {
         private int apartmentNumber;
-        public Apartment(Address address, int apartmentNumber, int rooms, int size, LegalForm legalForm) : base(address, rooms, size, legalForm)
+        public Apartment(Address address, int apartmentNumber, int rooms, int size, LegalForm legalForm, string img) : base(address, rooms, size, legalForm, img)
         {
             this.apartmentNumber = apartmentNumber;
         }
@@ -28,6 +28,7 @@ namespace RealEstateAssignment
             Rooms = ((Apartment)estate).Rooms;
             Size = ((Apartment)estate).Size;
             LegalForm = ((Apartment)estate).LegalForm;
+            Img = ((Apartment)estate).Img;
         }
 
     }

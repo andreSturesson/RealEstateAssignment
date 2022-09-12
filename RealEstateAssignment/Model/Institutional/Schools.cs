@@ -1,5 +1,4 @@
-﻿using RealEstateAssignment.Model.Institutional;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +9,17 @@ namespace RealEstateAssignment
 {
     internal class Schools : Institutional
     {
-        public Schools(Address address) : base(address)
+        public Schools(Address address, int size, LegalForm legalForm, string img, int capacity) : base(address, size, legalForm, img, capacity)
         {
 
+        }
+        public override void Change(Estate estate)
+        {
+            Address = ((Schools)estate).Address;
+            Size = ((Schools)estate).Size;
+            LegalForm = ((Schools)estate).LegalForm;
+            Img = ((Schools)estate).Img;
+            Capacity = ((Schools)estate).Capacity;
         }
     }
 }

@@ -1,16 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RealEstateAssignment.Model.Institutional
+namespace RealEstateAssignment
 {
     abstract class Institutional : Estate
     {
-        public Institutional(Address address) : base(address)
+        private int capacity;
+        public Institutional(Address address, int size, LegalForm legalForm, string img, int capacity) : base(address, size, legalForm, img)
         {
-
+            this.capacity = capacity;
+        }
+        public int Capacity
+        {
+            get { return capacity; }
+            set { capacity = value; }
         }
     }
 }
