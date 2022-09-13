@@ -28,7 +28,7 @@ public class Enums
 
     public enum apartmentType
     {
-        Tenement,
+        Ownership,
         Rental
     }
     
