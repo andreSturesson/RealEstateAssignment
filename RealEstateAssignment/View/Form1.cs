@@ -48,6 +48,7 @@ namespace RealEstateAssignment
 
         }
 
+        //Delete button to delete estate object..
         private void button3_Click(object sender, EventArgs e)
         {
             DisplayAddressGroup.Visible = false;
@@ -61,6 +62,7 @@ namespace RealEstateAssignment
             errorText.Text = "";
             addButton.Visible = true;
             changeButton.Visible = false;
+            imgBox.Visible = false;
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -147,6 +149,7 @@ namespace RealEstateAssignment
                 default:
                     break;
             }
+            imgBox.Visible = true;
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)
@@ -154,6 +157,7 @@ namespace RealEstateAssignment
 
         }
 
+        //Method for when chaning the combobox for type. shows relevant fields
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             sizeLabel.Visible = false;
@@ -483,6 +487,7 @@ namespace RealEstateAssignment
                     errorText.Visible = true;
                     errorText.Text = "ERROR - Something in address is empty";
                 }
+                imgBox.Visible = true;
             } catch (Exception er)
             {
                 errorText.Visible = true;
