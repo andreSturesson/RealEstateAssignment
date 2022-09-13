@@ -53,7 +53,7 @@ namespace RealEstateAssignment
         }
 
 
-        public abstract void Change(Estate estate);
+        public abstract void Change(Estate estate); // create abstract method
 
     }
 }
