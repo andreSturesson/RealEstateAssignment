@@ -22,5 +22,10 @@ namespace RealEstateAssignment
             LegalForm = ((Rowhouse)estate).LegalForm;
             Img = ((Rowhouse)estate).Img;
         }
+
+        public override string getObjectType()
+        {
+            return "Rowhouse";
+        }
     }
 }

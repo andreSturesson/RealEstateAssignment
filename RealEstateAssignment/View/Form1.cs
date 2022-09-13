@@ -58,6 +58,9 @@ namespace RealEstateAssignment
             displayEstateText.Visible = false;
             displayseeEstate.Visible = true;
             estate = null;
+            errorText.Text = "";
+            addButton.Visible = true;
+            changeButton.Visible = false;
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -75,9 +78,75 @@ namespace RealEstateAssignment
 
         }
 
+        //Method for changing object
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            LegalForm legal;
+            Address adress = new Address(streetTextBox.Text, cityTextBox.Text, Int32.Parse(zipCodeTextBox.Text), countryComboBox.SelectedItem.ToString());
+            if (apartmentTypeComboBox.SelectedItem.ToString() == "Tenement")
+            {
+                legal = new Rental(Int32.Parse(rentLabelText.Text));
+            }
+            else
+            {
+                legal = new Ownership(Int32.Parse(rentLabelText.Text));
+            }
+            switch (estate.getObjectType())
+            {
+                case "Villa":
+                    Boolean garage;
+                    if (garageComboBox.SelectedItem.ToString() == "Yes")
+                    {
+                        garage = true;
+                    }
+                    else
+                    {
+                        garage = false;
+                    }
+                    estate.Change(new Villa(adress, plotSizeText.Text, garage, Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text));
+                    showVilla();
+                    break;
+                case "Rowhouse":
+                    displayseeEstate.Visible = false;
+                    Boolean ga;
+                    if (garageComboBox.SelectedItem.ToString() == "Yes")
+                    {
+                        ga = true;
+                    }
+                    else
+                    {
+                        ga = false;
+                    }
+                    estate.Change(new Rowhouse(adress, plotSizeText.Text, ga, Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text));
+                    showRowHouse();
+                    break;
+                case "Apartment":
+                    estate.Change(new Apartment(adress, Int32.Parse(apartmentNumberTextBox.Text), Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text));
+                    showApartment();
+                    break;
+                case "University":
+                    estate.Change(new University(adress, Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text)));
+                    showUniversity();
+                    break;
+                case "Schools":
+                    estate.Change(new Shop(adress, Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text)));
+                    showSchool();
+                    break;
+                case "Hospitals":
+                    estate.Change(new Hospitals(adress, Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text)));
+                    showHospital();
+                    break;
+                case "Warehouse":
+                    estate.Change(new Warehouse(adress, Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text)));
+                    showWarehouse();
+                    break;
+                case "Shop":
+                    estate.Change(new Shop(adress, Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text)));
+                    showShop();
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)
@@ -182,6 +251,8 @@ namespace RealEstateAssignment
                     plotSizeLabel.Text = "Capacity";
                     plotSizeLabel.Visible = true;
                     plotSizeText.Visible = true;
+                    browseFilesButton.Visible = true;
+                    BrowseFilesLabel.Visible = true;
                     break;
                 case "School":
                     sizeLabel.Visible = true;
@@ -193,6 +264,8 @@ namespace RealEstateAssignment
                     plotSizeLabel.Text = "Capacity";
                     plotSizeLabel.Visible = true;
                     plotSizeText.Visible = true;
+                    browseFilesButton.Visible = true;
+                    BrowseFilesLabel.Visible = true;
                     break;
                 case "University":
                     sizeLabel.Visible = true;
@@ -204,6 +277,8 @@ namespace RealEstateAssignment
                     plotSizeLabel.Text = "Capacity";
                     plotSizeLabel.Visible = true;
                     plotSizeText.Visible = true;
+                    browseFilesButton.Visible = true;
+                    BrowseFilesLabel.Visible = true;
                     break;
                 case "Rowhouse":
                     sizeLabel.Visible = true;
@@ -316,9 +391,9 @@ namespace RealEstateAssignment
             try
             {
                 LegalForm legal;
-                if (streetTextBox.Text != "" && cityTextBox.Text != "" && zipCodeTextBox.Text != "" && countryComboBox.SelectedText == "")
+                if (streetTextBox.Text != "" && cityTextBox.Text != "" && zipCodeTextBox.Text != "" && countryComboBox.SelectedText.ToString() == "")
                 {
-                    Address adress = new Address(streetTextBox.Text, cityTextBox.Text, Int32.Parse(zipCodeTextBox.Text), countryComboBox.SelectedText);
+                    Address adress = new Address(streetTextBox.Text, cityTextBox.Text, Int32.Parse(zipCodeTextBox.Text), countryComboBox.SelectedItem.ToString());
                     if (apartmentTypeComboBox.SelectedItem.ToString() == "Tenement")
                     {
                         legal = new Rental(Int32.Parse(rentLabelText.Text));
@@ -383,19 +458,25 @@ namespace RealEstateAssignment
                             break;
                         case "University":
                             estate = new University(adress,Int32.Parse(sizeTextBox.Text),legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text));
+                            displayseeEstate.Visible = false;
                             showUniversity();
                             break;
                         case "School":
                             estate = new Schools(adress, Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text));
+                            displayseeEstate.Visible = false;
                             showSchool();
                             break;
                         case "Hospital":
                             estate = new Hospitals(adress, Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text));
+                            displayseeEstate.Visible = false;
                             showHospital();
                             break;
                         default:
                             break;
+
                     }
+                    addButton.Visible = false;
+                    changeButton.Visible = true;
                 }
                 else
                 {
@@ -643,4 +724,4 @@ namespace RealEstateAssignment
 
         }
     }
-}
+    }

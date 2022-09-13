@@ -52,6 +52,8 @@ namespace RealEstateAssignment
             set { img = value; }
         }
 
+        public abstract string getObjectType();
+
 
         public abstract void Change(Estate estate); // create abstract method
 

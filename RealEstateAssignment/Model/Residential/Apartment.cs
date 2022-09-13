@@ -31,5 +31,10 @@ namespace RealEstateAssignment
             Img = ((Apartment)estate).Img;
         }
 
+        public override string getObjectType()
+        {
+            return "Apartment";
+        }
+
     }
 }

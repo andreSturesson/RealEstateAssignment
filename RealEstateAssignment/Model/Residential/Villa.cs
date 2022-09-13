@@ -38,5 +38,10 @@ namespace RealEstateAssignment
             LegalForm = ((Villa)estate).LegalForm;
             Img = ((Villa)estate).Img;
         }
+
+        public override string getObjectType()
+        {
+            return "Villa";
+        }
     }
 }
