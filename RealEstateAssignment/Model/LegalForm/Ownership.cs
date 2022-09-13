@@ -20,5 +20,10 @@ namespace RealEstateAssignment
             get { return value; }
             set { value = value; }
         }
+
+        public override String getType()
+        {
+            return "Ownership";
+        }
     }
 }
