@@ -21,5 +21,10 @@ namespace RealEstateAssignment
             Img = ((Hospitals)estate).Img;
             Capacity = ((Hospitals)estate).Capacity;
         }
+
+        public override string getObjectType()
+        {
+            return "Hospitals";
+        }
     }
 }

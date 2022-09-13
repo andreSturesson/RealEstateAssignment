@@ -62,9 +62,9 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.type = new System.Windows.Forms.Label();
             this.countryComboBox = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.changeButton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.imgBox = new System.Windows.Forms.PictureBox();
@@ -126,6 +126,7 @@
             this.groupBox2.Controls.Add(this.chooseImageTextBox);
             this.groupBox2.Controls.Add(this.image);
             this.groupBox2.Controls.Add(this.browseFilesButton);
+            this.groupBox2.Controls.Add(this.changeButton);
             this.groupBox2.Controls.Add(this.BrowseFilesLabel);
             this.groupBox2.Controls.Add(this.apartmentTypeComboBox);
             this.groupBox2.Controls.Add(this.AppartmentTypeText);
@@ -150,7 +151,7 @@
             this.groupBox2.Controls.Add(this.comboBox2);
             this.groupBox2.Controls.Add(this.type);
             this.groupBox2.Controls.Add(this.countryComboBox);
-            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.addButton);
             this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
@@ -434,15 +435,15 @@
             this.countryComboBox.TabIndex = 3;
             this.countryComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
-            // button2
+            // addButton
             // 
-            this.button2.Location = new System.Drawing.Point(6, 397);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Add";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.addButton.Location = new System.Drawing.Point(76, 397);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(75, 23);
+            this.addButton.TabIndex = 1;
+            this.addButton.Text = "Add";
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox4
             // 
@@ -454,15 +455,16 @@
             this.groupBox4.Text = "Address Information";
             this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
             // 
-            // button1
+            // changeButton
             // 
-            this.button1.Location = new System.Drawing.Point(372, 397);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Change";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.changeButton.Location = new System.Drawing.Point(76, 397);
+            this.changeButton.Name = "changeButton";
+            this.changeButton.Size = new System.Drawing.Size(75, 23);
+            this.changeButton.TabIndex = 0;
+            this.changeButton.Text = "Change";
+            this.changeButton.UseVisualStyleBackColor = true;
+            this.changeButton.Visible = false;
+            this.changeButton.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // button3
             // 
@@ -481,7 +483,6 @@
             this.groupBox3.Controls.Add(this.DisplayAddressGroup);
             this.groupBox3.Controls.Add(this.displayEstateText);
             this.groupBox3.Controls.Add(this.button3);
-            this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Location = new System.Drawing.Point(270, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(575, 426);
@@ -631,8 +632,8 @@
         private GroupBox groupBox1;
         private GroupBox groupBox2;
         private Button button3;
-        private Button button2;
-        private Button button1;
+        private Button addButton;
+        private Button changeButton;
         private ComboBox countryComboBox;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn id;

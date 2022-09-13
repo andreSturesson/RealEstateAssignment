@@ -20,5 +20,10 @@ namespace RealEstateAssignment
             Img = ((Warehouse)estate).Img;
             Shelves = ((Warehouse)estate).Shelves;
         }
+
+        public override string getObjectType()
+        {
+            return "Warehouse";
+        }
     }
 }

@@ -21,5 +21,10 @@ namespace RealEstateAssignment
             Img = ((University)estate).Img;
             Capacity = ((University)estate).Capacity;
         }
+
+        public override string getObjectType()
+        {
+            return "University";
+        }
     }
 }
