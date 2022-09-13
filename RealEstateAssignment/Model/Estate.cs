@@ -23,6 +23,7 @@ namespace RealEstateAssignment
             this.address = address;
             this.size = size;
             this.legalForm = legalForm;
+            this.img = img;
         }
 
         public int Id
