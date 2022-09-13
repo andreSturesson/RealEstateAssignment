@@ -173,10 +173,37 @@ namespace RealEstateAssignment
                     break;
 
                 case "Hospital":
+                    sizeLabel.Visible = true;
+                    sizeTextBox.Visible = true;
+                    rentLabel.Visible = true;
+                    rentLabelText.Visible = true;
+                    apartmentTypeComboBox.Visible = true;
+                    AppartmentTypeText.Visible = true;
+                    plotSizeLabel.Text = "Capacity";
+                    plotSizeLabel.Visible = true;
+                    plotSizeText.Visible = true;
                     break;
                 case "School":
+                    sizeLabel.Visible = true;
+                    sizeTextBox.Visible = true;
+                    rentLabel.Visible = true;
+                    rentLabelText.Visible = true;
+                    apartmentTypeComboBox.Visible = true;
+                    AppartmentTypeText.Visible = true;
+                    plotSizeLabel.Text = "Capacity";
+                    plotSizeLabel.Visible = true;
+                    plotSizeText.Visible = true;
                     break;
                 case "University":
+                    sizeLabel.Visible = true;
+                    sizeTextBox.Visible = true;
+                    rentLabel.Visible = true;
+                    rentLabelText.Visible = true;
+                    apartmentTypeComboBox.Visible = true;
+                    AppartmentTypeText.Visible = true;
+                    plotSizeLabel.Text = "Capacity";
+                    plotSizeLabel.Visible = true;
+                    plotSizeText.Visible = true;
                     break;
                 case "Rowhouse":
                     sizeLabel.Visible = true;
@@ -305,7 +332,7 @@ namespace RealEstateAssignment
                         case "Apartment":
                             if (apartmentNumberTextBox.Text != "" && roomsTextBox.Text != "" && sizeTextBox.Text != "")
                             {
-                                estate = new Apartment(adress, Int32.Parse(apartmentNumberTextBox.Text), Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legal);
+                                estate = new Apartment(adress, Int32.Parse(apartmentNumberTextBox.Text), Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text);
                                 displayseeEstate.Visible = false;
                                 //Address
                                 showApartment();
@@ -326,16 +353,17 @@ namespace RealEstateAssignment
                             {
                                 garage = false;
                             }
-                            estate = new Villa(adress, plotSizeText.Text, garage, Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legal);
+                            estate = new Villa(adress, plotSizeText.Text, garage, Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text);
                             showVilla();
                             break;
                         case "Shop":
                             displayseeEstate.Visible = false;
-
+                            estate = new Shop(adress, Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text));
                             showShop();
                             break;
                         case "Warehouse":
                             displayseeEstate.Visible = false;
+                            estate = new Warehouse(adress, Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text));
 
                             showWarehouse();
                             break;
@@ -350,8 +378,20 @@ namespace RealEstateAssignment
                             {
                                 ga = false;
                             }
-                            estate = new Rowhouse(adress, plotSizeText.Text, ga, Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legal);
+                            estate = new Rowhouse(adress, plotSizeText.Text, ga, Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text);
                             showRowHouse();
+                            break;
+                        case "University":
+                            estate = new University(adress,Int32.Parse(sizeTextBox.Text),legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text));
+                            showUniversity();
+                            break;
+                        case "School":
+                            estate = new Schools(adress, Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text));
+                            showSchool();
+                            break;
+                        case "Hospital":
+                            estate = new Hospitals(adress, Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text));
+                            showHospital();
                             break;
                         default:
                             break;
@@ -384,15 +424,36 @@ namespace RealEstateAssignment
 
         private void showApartment()
         {
+            String ty;
+            LegalForm le = estate.LegalForm;
+            if (((Apartment)estate).LegalForm.getType() == "Ownership")
+            {
+                ty = "Estate finance: Owned" + "\r\n" + "Property is valued: " + ((Ownership)le).Value.ToString() + "$";
+            }
+            else
+            {
+                ty = "Estate finance - Rental" + "\r\n" + "Rent: " + ((Rental)le).Rent.ToString() + "$ per month";
+            }
             displayEstateText.Text = "Size: " + ((Apartment)estate).Size.ToString() + "\r\n" + "Apartment Number: " + 
-                ((Apartment)estate).ApartmentNumber + "\r\n" + "Number of rooms: " + ((Apartment)estate).Rooms.ToString() + "\r\n";
+                ((Apartment)estate).ApartmentNumber + "\r\n" + "Number of rooms: " + ((Apartment)estate).Rooms.ToString() + "\r\n" + ty;
             displayEstateText.Visible = true;
+            imgBox.Image = Image.FromFile(((Apartment)estate).Img);
             showAdress();
 
         }
 
         private void showVilla()
         {
+            String ty;
+            LegalForm le = estate.LegalForm;
+            if (((Villa)estate).LegalForm.getType() == "Ownership")
+            {
+                ty = "Estate finance: Owned" + "\r\n" + "Property is valued: " + ((Ownership)le).Value.ToString() + "$";
+            }
+            else
+            {
+                ty = "Estate finance - Rental" + "\r\n" + "Rent: " + ((Rental)le).Rent.ToString() + "$ per month";
+            }
             displayEstateText.Visible = true;
             string hasGarage;
             if (((Villa)estate).Garage == true)
@@ -404,12 +465,23 @@ namespace RealEstateAssignment
                 hasGarage = "No";
             }
             displayEstateText.Text = "Size: " + ((Villa)estate).Size + "\r\n" + "Total land size: " + ((Villa)estate).Plot + 
-                "\r\n" + "Number of rooms: " + ((Villa)estate).Rooms + "\r\n" + "Garage: " + hasGarage;
+                "\r\n" + "Number of rooms: " + ((Villa)estate).Rooms + "\r\n" + "Garage: " + hasGarage + "\r\n" + ty;
             showAdress();
+            imgBox.Image = Image.FromFile(((Villa)estate).Img);
         }
 
         private void showRowHouse()
         {
+            String ty;
+            LegalForm le = estate.LegalForm;
+            if (((Rowhouse)estate).LegalForm.getType() == "Ownership")
+            {
+                ty = "Estate finance: Owned" + "\r\n" + "Property is valued: " + ((Ownership)le).Value.ToString() + "$";
+            }
+            else
+            {
+                ty = "Estate finance - Rental" + "\r\n" + "Rent: " + ((Rental)le).Rent.ToString() + "$ per month";
+            }
             displayEstateText.Visible = true;
             string hasGarage;
             if (((Rowhouse)estate).Garage == true)
@@ -420,22 +492,99 @@ namespace RealEstateAssignment
             {
                 hasGarage = "No";
             }
-            displayEstateText.Text = "Size: " + ((Rowhouse)estate).Size + "\r\n" + "Total land size: " + ((Rowhouse)estate).Plot + "\r\n" + "Number of rooms: " + ((Rowhouse)estate).Rooms + "\r\n" + "Garage: " + hasGarage;
+            displayEstateText.Text = "Size: " + ((Rowhouse)estate).Size + "\r\n" + "Total land size: " + ((Rowhouse)estate).Plot + "\r\n" + "Number of rooms: " + ((Rowhouse)estate).Rooms + "\r\n" + "Garage: " + hasGarage + "\r\n" + ty;
             showAdress();
+            imgBox.Image = Image.FromFile(((Rowhouse)estate).Img);
 
         }
 
         private void showShop()
         {
+            String ty;
+            LegalForm le = estate.LegalForm;
+            if (((Shop)estate).LegalForm.getType() == "Ownership")
+            {
+                ty = "Estate finance: Owned" + "\r\n" + "Property is valued: " + ((Ownership)le).Value.ToString() + "$";
+            }
+            else
+            {
+                ty = "Estate finance - Rental" + "\r\n" + "Rent: " + ((Rental)le).Rent.ToString() + "$ per month";
+            }
             displayEstateText.Visible = true;
-            displayEstateText.Text = "Size: " + "\r\n" + "Total land size: " + "\r\n" + "Number of rooms: " + "\r\n";
+            displayEstateText.Text = "Size: " + ((Shop)estate).Size + "\r\n" + "Shelves: " + ((Shop)estate).Shelves + "\r\n" + ty;
             showAdress();
+            imgBox.Image = Image.FromFile(((Shop)estate).Img);
         }
         private void showWarehouse()
         {
+            String ty;
+            LegalForm le = estate.LegalForm;
+            if (((Warehouse)estate).LegalForm.getType() == "Ownership")
+            {
+                ty = "Estate finance: Owned" + "\r\n" + "Property is valued: " + ((Ownership)le).Value.ToString() + "$";
+            }
+            else
+            {
+                ty = "Estate finance - Rental" + "\r\n" + "Rent: " + ((Rental)le).Rent.ToString() + "$ per month";
+            }
             displayEstateText.Visible = true;
-            displayEstateText.Text = "Size: " + "\r\n" + "Total land size: " + "\r\n" + "Number of rooms: " + "\r\n";
+            displayEstateText.Text = "Size: " + ((Warehouse)estate).Size + "\r\n" + "Shelves: " + ((Warehouse)estate).Shelves + "\r\n" + ty;
             showAdress();
+            imgBox.Image = Image.FromFile(((Warehouse)estate).Img);
+        }
+
+        private void showUniversity()
+        {
+            String ty;
+            LegalForm le = estate.LegalForm;
+            if (((University)estate).LegalForm.getType() == "Ownership")
+            {
+                ty = "Estate finance: Owned" + "\r\n" + "Property is valued: " + ((Ownership)le).Value.ToString() + "$";
+            }
+            else
+            {
+                ty = "Estate finance - Rental" + "\r\n" + "Rent: " + ((Rental)le).Rent.ToString() + "$ per month";
+            }
+            displayEstateText.Visible = true;
+            displayEstateText.Text = "Size: " + ((University)estate).Size + "\r\n" + "Capacity: " + ((University)estate).Capacity + "\r\n" + ty;
+            showAdress();
+            imgBox.Image = Image.FromFile(((University)estate).Img);
+        }
+        private void showSchool()
+        {
+            String ty;
+            LegalForm le = estate.LegalForm;
+            if (((Schools)estate).LegalForm.getType() == "Ownership")
+            {
+                ty = "Estate finance: Owned" + "\r\n" + "Property is valued: " + ((Ownership)le).Value.ToString() + "$";
+            }
+            else
+            {
+                ty = "Estate finance - Rental" + "\r\n" + "Rent: " + ((Rental)le).Rent.ToString() + "$ per month";
+            }
+
+            displayEstateText.Visible = true;
+            displayEstateText.Text = "Size: " + ((Schools)estate).Size + "\r\n" + "Capacity: " + ((Schools)estate).Capacity + "\r\n" + ty;
+            showAdress();
+            imgBox.Image = Image.FromFile(((Schools)estate).Img);
+        }
+        private void showHospital()
+        {
+            String ty;
+            LegalForm le = estate.LegalForm;
+            if (((Hospitals)estate).LegalForm.getType() == "Ownership")
+            {
+                ty = "Estate finance: Owned" + "\r\n" + "Property is valued: " + ((Ownership)le).Value.ToString() + "$";
+            }
+            else
+            {
+                ty = "Estate finance - Rental" + "\r\n" + "Rent: " + ((Rental)le).Rent.ToString() + "$ per month";
+            }
+            displayEstateText.Visible = true;
+            displayEstateText.Text = "Size: " + ((Hospitals)estate).Size + "\r\n" + 
+                "Capacity: " + ((Hospitals)estate).Capacity + "\r\n" + ty;
+            showAdress();
+            imgBox.Image = Image.FromFile(((Hospitals)estate).Img);
         }
 
         //Errortext
@@ -480,6 +629,16 @@ namespace RealEstateAssignment
         }
 
         private void rentLabelText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void plotSizeLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void imgBox_Click(object sender, EventArgs e)
         {
 
         }

@@ -20,5 +20,10 @@ namespace RealEstateAssignment
             get { return rent; }
             set { rent = value; }
         }
+
+        public override String getType()
+        {
+            return "Rental";
+        }
     }
 }

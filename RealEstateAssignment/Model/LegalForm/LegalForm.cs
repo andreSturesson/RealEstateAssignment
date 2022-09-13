@@ -12,5 +12,7 @@ namespace RealEstateAssignment
         {
 
         }
+
+        public abstract string getType();
     }
 }

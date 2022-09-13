@@ -67,6 +67,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.imgBox = new System.Windows.Forms.PictureBox();
             this.displayseeEstate = new System.Windows.Forms.Label();
             this.DisplayAddressGroup = new System.Windows.Forms.GroupBox();
             this.displayStreet = new System.Windows.Forms.Label();
@@ -81,6 +82,7 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBox)).BeginInit();
             this.DisplayAddressGroup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -277,6 +279,7 @@
             this.plotSizeLabel.TabIndex = 21;
             this.plotSizeLabel.Text = "Plot Size";
             this.plotSizeLabel.Visible = false;
+            this.plotSizeLabel.Click += new System.EventHandler(this.plotSizeLabel_Click);
             // 
             // rentLabelText
             // 
@@ -473,6 +476,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.imgBox);
             this.groupBox3.Controls.Add(this.displayseeEstate);
             this.groupBox3.Controls.Add(this.DisplayAddressGroup);
             this.groupBox3.Controls.Add(this.displayEstateText);
@@ -485,6 +489,19 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Estate Information";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // imgBox
+            // 
+            this.imgBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.imgBox.Location = new System.Drawing.Point(326, 243);
+            this.imgBox.Name = "imgBox";
+            this.imgBox.Size = new System.Drawing.Size(150, 148);
+            this.imgBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgBox.TabIndex = 32;
+            this.imgBox.TabStop = false;
+            this.imgBox.Click += new System.EventHandler(this.imgBox_Click);
             // 
             // displayseeEstate
             // 
@@ -601,6 +618,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBox)).EndInit();
             this.DisplayAddressGroup.ResumeLayout(false);
             this.DisplayAddressGroup.PerformLayout();
             this.ResumeLayout(false);
@@ -658,5 +676,6 @@
         private GroupBox DisplayAddressGroup;
         private Label displayseeEstate;
         private Label displayStreet;
+        private PictureBox imgBox;
     }
 }
