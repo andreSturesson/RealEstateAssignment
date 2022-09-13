@@ -28,7 +28,7 @@ namespace RealEstateAssignment
             set { garage = value; }
         }
 
-        public override void Change(Estate estate)
+        public override void Change(Estate estate) // set which values ​​can be changed
         {
             Address = ((Villa)estate).Address;
             Plot = ((Villa)estate).Plot;

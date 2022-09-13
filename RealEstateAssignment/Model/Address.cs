@@ -31,7 +31,7 @@ namespace RealEstateAssignment
         {
             get { return this.zipCode; }
             set { 
-                if(value.ToString().Length == 5)
+                if(value.ToString().Length == 5) // set that the zipcode have to be 5 numbers long
                 {
                     this.zipCode = value; 
                 }

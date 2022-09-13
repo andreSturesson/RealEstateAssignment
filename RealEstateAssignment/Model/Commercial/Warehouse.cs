@@ -12,7 +12,7 @@ namespace RealEstateAssignment
         {
 
         }
-        public override void Change(Estate estate)
+        public override void Change(Estate estate) // set which values ​​can be changed
         {
             Address = ((Warehouse)estate).Address;
             Size = ((Warehouse)estate).Size;

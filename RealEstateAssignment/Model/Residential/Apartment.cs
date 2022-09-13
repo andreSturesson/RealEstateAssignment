@@ -21,7 +21,7 @@ namespace RealEstateAssignment
             set { apartmentNumber = value; }
         }
 
-        public override void Change(Estate estate) 
+        public override void Change(Estate estate)  // set which values ​​can be changed
         {
             Address = ((Apartment)estate).Address;
             ApartmentNumber = ((Apartment)estate).ApartmentNumber;
