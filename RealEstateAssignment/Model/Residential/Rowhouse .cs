@@ -8,6 +8,10 @@ namespace RealEstateAssignment
 {
     internal class Rowhouse : Villa
     {
+        public Rowhouse()
+        {
+
+        }
         public Rowhouse(Address address, string plot, bool garage, int rooms, int size, LegalForm legalForm, string img) : base(address, plot, garage, rooms, size, legalForm, img)
         {
 
