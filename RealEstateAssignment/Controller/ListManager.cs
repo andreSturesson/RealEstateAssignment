@@ -71,7 +71,14 @@ namespace RealEstateAssignment.Controller
 
             foreach (Estate obj in this.estates)
             {
-                strArray[i] += obj.ToString();
+                strArray[i] += " " + obj.Address.Street;
+                strArray[i] += " " + obj.Address.City;
+                strArray[i] += "                                             " +
+                    "                                                        " +
+                    "                                                        " +
+                    "                                                        " +
+                    "                                                        " +
+                    obj.Id.ToString();
                 i += 1;
             }
             return strArray;
