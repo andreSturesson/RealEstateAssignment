@@ -16,7 +16,7 @@ namespace RealEstateAssignment.Controller
 
         public ListManager()
         {
-
+            estates = new List<Estate>();
         }
 
         public int Count => throw new NotImplementedException();
@@ -66,7 +66,7 @@ namespace RealEstateAssignment.Controller
 
         public string[] ToStringArray()
         {
-            string[] strArray = new string[1];
+            string[] strArray = new string[estates.Count];
             int i = 0;
 
             foreach (Estate obj in this.estates)
