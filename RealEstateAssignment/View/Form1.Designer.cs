@@ -144,7 +144,7 @@
             // apartmentNumberLabel
             // 
             this.apartmentNumberLabel.AutoSize = true;
-            this.apartmentNumberLabel.Location = new System.Drawing.Point(6, 148);
+            this.apartmentNumberLabel.Location = new System.Drawing.Point(6, 151);
             this.apartmentNumberLabel.Name = "apartmentNumberLabel";
             this.apartmentNumberLabel.Size = new System.Drawing.Size(111, 15);
             this.apartmentNumberLabel.TabIndex = 30;
@@ -224,6 +224,7 @@
             this.AppartmentTypeText.TabIndex = 25;
             this.AppartmentTypeText.Text = "Owner Ship";
             this.AppartmentTypeText.Visible = false;
+            this.AppartmentTypeText.Click += new System.EventHandler(this.AppartmentTypeText_Click);
             // 
             // garageComboBox
             // 
@@ -302,6 +303,7 @@
             this.roomsTextBox.Size = new System.Drawing.Size(39, 23);
             this.roomsTextBox.TabIndex = 16;
             this.roomsTextBox.Visible = false;
+            this.roomsTextBox.TextChanged += new System.EventHandler(this.roomsTextBox_TextChanged);
             // 
             // roomsLabel
             // 
@@ -580,6 +582,7 @@
             this.lstEstates.Name = "lstEstates";
             this.lstEstates.Size = new System.Drawing.Size(301, 409);
             this.lstEstates.TabIndex = 31;
+            this.lstEstates.Tag = "";
             this.lstEstates.SelectedIndexChanged += new System.EventHandler(this.lstEstates_SelectedIndexChanged);
             // 
             // Form1

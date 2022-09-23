@@ -35,7 +35,6 @@ namespace RealEstateAssignment
             displayZipcode.Visible = false;
             displayEstateText.Visible = false;
             displayseeEstate.Visible = true;
-            estate = null;
             errorText.Text = "";
             addButton.Visible = true;
             changeButton.Visible = false;
@@ -117,153 +116,87 @@ namespace RealEstateAssignment
         //Method for when chaning the combobox for type. shows relevant fields
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            sizeLabel.Visible = false;
-            sizeTextBox.Visible = false;
-            sizesqmLabel.Visible = false;
-            plotSizeLabel.Visible = false;
-            plotSizeText.Visible = false;
-            garageLabel.Visible = false;
-            garageComboBox.Visible = false;
-            apartmentTypeComboBox.Visible = false;
-            AppartmentTypeText.Visible = false;
-            browseFilesButton.Visible = false;
-            BrowseFilesLabel.Visible = false;
-            apartmentNumberLabel.Visible = false;
-            apartmentNumberTextBox.Visible = false;
+            setVisible(true);
             switch (comboBox2.SelectedItem.ToString())
             {
                 case "Apartment":
-                    sizeLabel.Visible = true;
-                    sizeTextBox.Visible = true;
-                    sizesqmLabel.Visible = true;
-                    roomsLabel.Visible = true;
-                    roomsTextBox.Visible = true;
-                    browseFilesButton.Visible = true;
-                    BrowseFilesLabel.Visible = true;
-                    apartmentNumberLabel.Visible = true;
-                    apartmentNumberTextBox.Visible = true;
-                    rentLabel.Visible = true;
-                    rentLabelText.Visible = true;
-                    apartmentTypeComboBox.Visible = true;
-                    AppartmentTypeText.Visible = true;
+                    garageComboBox.Visible = false;
+                    garageLabel.Visible = false;
                     break;
                 case "Villa":
-                    sizeLabel.Visible = true;
-                    sizeTextBox.Visible = true;
-                    sizesqmLabel.Visible = true;
-                    roomsLabel.Visible = true;
-                    roomsTextBox.Visible = true;
+                    apartmentNumberTextBox.Visible = false;
+                    apartmentNumberLabel.Visible = false;
                     plotSizeLabel.Text = "Plot size";
-                    plotSizeLabel.Visible = true;
-                    plotSizeText.Visible = true;
-                    garageLabel.Visible = true;
-                    garageComboBox.Visible = true;
-                    browseFilesButton.Visible = true;
-                    BrowseFilesLabel.Visible = true;
-
-                    //For legalform
-                    rentLabel.Visible = true;
-                    rentLabelText.Visible = true;
-                    apartmentTypeComboBox.Visible = true;
-                    AppartmentTypeText.Visible = true;
                     break;
                 case "Shop":
-                    sizeLabel.Visible = true;
-                    sizeTextBox.Visible = true;
-                    roomsLabel.Visible = true;
-                    roomsTextBox.Visible = true;
+                    garageComboBox.Visible = false;
+                    garageLabel.Visible = false;
+                    apartmentNumberTextBox.Visible = false;
+                    apartmentNumberLabel.Visible = false;
                     plotSizeLabel.Text = "Shelves";
-                    plotSizeLabel.Visible = true;
-                    plotSizeText.Visible = true;
-                    browseFilesButton.Visible = true;
-                    BrowseFilesLabel.Visible = true;
-
-                    //For legalform
-                    rentLabel.Visible = true;
-                    rentLabelText.Visible = true;
-                    apartmentTypeComboBox.Visible = true;
-                    AppartmentTypeText.Visible = true;
                     break;
                 case "Warehouse":
-                    sizeLabel.Visible = true;
-                    sizeTextBox.Visible = true;
-                    roomsLabel.Visible = true;
-                    roomsTextBox.Visible = true;
+                    garageComboBox.Visible = false;
+                    garageLabel.Visible = false;
+                    apartmentNumberTextBox.Visible = false;
+                    apartmentNumberLabel.Visible = false;
                     plotSizeLabel.Text = "Shelves";
-                    plotSizeLabel.Visible = true;
-                    plotSizeText.Visible = true;
-                    browseFilesButton.Visible = true;
-                    BrowseFilesLabel.Visible = true;
-
-                    //For legalform
-                    rentLabel.Visible = true;
-                    rentLabelText.Visible = true;
-                    apartmentTypeComboBox.Visible = true;
-                    AppartmentTypeText.Visible = true;
                     break;
-
                 case "Hospital":
-                    sizeLabel.Visible = true;
-                    sizeTextBox.Visible = true;
-                    rentLabel.Visible = true;
-                    rentLabelText.Visible = true;
-                    apartmentTypeComboBox.Visible = true;
-                    AppartmentTypeText.Visible = true;
+                    garageComboBox.Visible = false;
+                    garageLabel.Visible = false;
+                    apartmentNumberTextBox.Visible = false;
+                    apartmentNumberLabel.Visible = false;
                     plotSizeLabel.Text = "Capacity";
-                    plotSizeLabel.Visible = true;
-                    plotSizeText.Visible = true;
-                    browseFilesButton.Visible = true;
-                    BrowseFilesLabel.Visible = true;
                     break;
                 case "School":
-                    sizeLabel.Visible = true;
-                    sizeTextBox.Visible = true;
-                    rentLabel.Visible = true;
-                    rentLabelText.Visible = true;
-                    apartmentTypeComboBox.Visible = true;
-                    AppartmentTypeText.Visible = true;
+                    garageComboBox.Visible = false;
+                    garageLabel.Visible = false;
+                    apartmentNumberTextBox.Visible = false;
+                    apartmentNumberLabel.Visible = false;
                     plotSizeLabel.Text = "Capacity";
-                    plotSizeLabel.Visible = true;
-                    plotSizeText.Visible = true;
-                    browseFilesButton.Visible = true;
-                    BrowseFilesLabel.Visible = true;
                     break;
                 case "University":
-                    sizeLabel.Visible = true;
-                    sizeTextBox.Visible = true;
-                    rentLabel.Visible = true;
-                    rentLabelText.Visible = true;
-                    apartmentTypeComboBox.Visible = true;
-                    AppartmentTypeText.Visible = true;
+                    garageComboBox.Visible = false;
+                    garageLabel.Visible = false;
+                    apartmentNumberTextBox.Visible = false;
+                    apartmentNumberLabel.Visible = false;
                     plotSizeLabel.Text = "Capacity";
-                    plotSizeLabel.Visible = true;
-                    plotSizeText.Visible = true;
-                    browseFilesButton.Visible = true;
-                    BrowseFilesLabel.Visible = true;
                     break;
                 case "Rowhouse":
-                    sizeLabel.Visible = true;
-                    sizeTextBox.Visible = true;
-                    sizesqmLabel.Visible = true;
-                    roomsLabel.Visible = true;
-                    roomsTextBox.Visible = true;
-                    plotSizeLabel.Visible = true;
-                    plotSizeText.Visible = true;
-                    garageLabel.Visible = true;
-                    garageComboBox.Visible = true;
-                    browseFilesButton.Visible = true;
-                    BrowseFilesLabel.Visible = true;
-                    rentLabel.Visible = true;
-                    rentLabelText.Visible = true;
-                    rentLabel.Visible = true;
-                    rentLabelText.Visible = true;
-                    apartmentTypeComboBox.Visible = true;
-                    AppartmentTypeText.Visible = true;
+                    apartmentNumberTextBox.Visible = false;
+                    apartmentNumberLabel.Visible = false;
+                    plotSizeLabel.Text = "Plot size";
                     break;
                 default:
                     break;
             }
 
+        }
+
+        private void setVisible(Boolean visible)
+        {
+            roomsLabel.Visible = visible;
+            roomsTextBox.Visible = visible;
+            sizeLabel.Visible = visible;
+            sizeTextBox.Visible = visible;
+            sizesqmLabel.Visible = visible;
+            rentLabel.Visible = visible;
+            rentLabelText.Visible = visible;
+            browseFilesButton.Visible = visible;
+            BrowseFilesLabel.Visible = visible;
+            plotSizeText.Visible = visible;
+            plotSizeLabel.Visible = visible;
+            plotSizeLabel.Visible = visible;
+            plotSizeText.Visible = visible;
+            garageLabel.Visible = visible;
+            garageComboBox.Visible = visible;
+            apartmentTypeComboBox.Visible = visible;
+            AppartmentTypeText.Visible = visible;
+            browseFilesButton.Visible = visible;
+            BrowseFilesLabel.Visible = visible;
+            apartmentNumberLabel.Visible = visible;
+            apartmentNumberTextBox.Visible = visible;
         }
 
         private void label1_Click_1(object sender, EventArgs e)
@@ -369,8 +302,6 @@ namespace RealEstateAssignment
                                 ((Villa)estate).Garage = false;
                             }
                             ((Villa)estate).Plot = plotSizeText.Text;
-
-                            lstManager.Add(estate);
                             showVilla();
                             break;
                         case "Shop":
@@ -433,7 +364,7 @@ namespace RealEstateAssignment
                 errorText.Visible = true;
                 errorText.Text = "ERROR - Some value is empty or incorrect " + er;
             }
-            
+            lstManager.Add(estate);
             updateGUI();
         }
 
@@ -452,6 +383,7 @@ namespace RealEstateAssignment
             }
             estate.Size = Int32.Parse(sizeTextBox.Text);
             estate.Img = chooseImageTextBox.Text;
+            estate.Address = adress;
 
         }
         private void newResidential()
@@ -468,7 +400,6 @@ namespace RealEstateAssignment
         {
             ((Commercial)estate).Shelves = Int32.Parse(plotSizeText.Text);
         }
-
 
         private void showAdress()
         {
@@ -762,6 +693,17 @@ namespace RealEstateAssignment
         }
 
         private void lstEstates_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String id = lstEstates.GetItemText(lstEstates.SelectedItem).ToString().Split(" ").Last();
+
+        }
+
+        private void AppartmentTypeText_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void roomsTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }

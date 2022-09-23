@@ -10,7 +10,7 @@ namespace RealEstateAssignment
 {
      abstract class Estate : IEstate
     {
-        private int id;
+        private String id;
         private Address address;
         private int size;
         private LegalForm legalForm;
@@ -18,19 +18,19 @@ namespace RealEstateAssignment
 
         public Estate()
         {
-            this.id = 1;
+            this.id = Guid.NewGuid().ToString();
         }
 
         public Estate(Address address, int size, LegalForm legalForm, string img)
         {
-            this.id = 1;
+            this.id = Guid.NewGuid().ToString();
             this.address = address;
             this.size = size;
             this.legalForm = legalForm;
             this.img = img;
         }
 
-        public int Id
+        public String Id
         {
             get { return id; }
             set { id = value; }
