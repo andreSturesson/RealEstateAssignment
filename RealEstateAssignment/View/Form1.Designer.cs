@@ -59,27 +59,38 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.type = new System.Windows.Forms.Label();
-            this.countryComboBox = new System.Windows.Forms.ComboBox();
             this.addButton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.countryComboBox = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.plotSizeInfoBox = new System.Windows.Forms.TextBox();
+            this.costInfoBox = new System.Windows.Forms.TextBox();
+            this.roomInfoBox = new System.Windows.Forms.TextBox();
+            this.legalFormInfoComboBox = new System.Windows.Forms.ComboBox();
+            this.garageInfoComboBox = new System.Windows.Forms.ComboBox();
+            this.sizeInfoBox = new System.Windows.Forms.TextBox();
+            this.displayStreet = new System.Windows.Forms.Label();
+            this.displayZipcode = new System.Windows.Forms.Label();
+            this.displayCountry = new System.Windows.Forms.Label();
+            this.displayCity = new System.Windows.Forms.Label();
             this.imgBox = new System.Windows.Forms.PictureBox();
             this.displayseeEstate = new System.Windows.Forms.Label();
-            this.DisplayAddressGroup = new System.Windows.Forms.GroupBox();
-            this.displayStreet = new System.Windows.Forms.Label();
-            this.displayCountry = new System.Windows.Forms.Label();
-            this.displayZipcode = new System.Windows.Forms.Label();
-            this.displayCity = new System.Windows.Forms.Label();
+            this.AddressInfoGroup = new System.Windows.Forms.GroupBox();
+            this.countryInfoComboBox = new System.Windows.Forms.ComboBox();
+            this.streetInfoBox = new System.Windows.Forms.TextBox();
+            this.zipCodeInfoBox = new System.Windows.Forms.TextBox();
+            this.cityInfoBox = new System.Windows.Forms.TextBox();
             this.displayEstateText = new System.Windows.Forms.Label();
             this.chooseImageFile = new System.Windows.Forms.OpenFileDialog();
             this.errorText = new System.Windows.Forms.Label();
             this.lstEstates = new System.Windows.Forms.ListBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).BeginInit();
-            this.DisplayAddressGroup.SuspendLayout();
+            this.AddressInfoGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -122,7 +133,6 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.comboBox2);
             this.groupBox2.Controls.Add(this.type);
-            this.groupBox2.Controls.Add(this.countryComboBox);
             this.groupBox2.Controls.Add(this.addButton);
             this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
@@ -411,15 +421,6 @@
             this.type.TabIndex = 4;
             this.type.Text = "type";
             // 
-            // countryComboBox
-            // 
-            this.countryComboBox.FormattingEnabled = true;
-            this.countryComboBox.Location = new System.Drawing.Point(67, 235);
-            this.countryComboBox.Name = "countryComboBox";
-            this.countryComboBox.Size = new System.Drawing.Size(100, 23);
-            this.countryComboBox.TabIndex = 3;
-            this.countryComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
-            // 
             // addButton
             // 
             this.addButton.Location = new System.Drawing.Point(76, 397);
@@ -432,6 +433,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.countryComboBox);
             this.groupBox4.Location = new System.Drawing.Point(0, 215);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(252, 176);
@@ -439,6 +441,15 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Address Information";
             this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
+            // 
+            // countryComboBox
+            // 
+            this.countryComboBox.FormattingEnabled = true;
+            this.countryComboBox.Location = new System.Drawing.Point(67, 20);
+            this.countryComboBox.Name = "countryComboBox";
+            this.countryComboBox.Size = new System.Drawing.Size(100, 23);
+            this.countryComboBox.TabIndex = 3;
+            this.countryComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
             // button3
             // 
@@ -452,9 +463,19 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.plotSizeInfoBox);
+            this.groupBox3.Controls.Add(this.costInfoBox);
+            this.groupBox3.Controls.Add(this.roomInfoBox);
+            this.groupBox3.Controls.Add(this.legalFormInfoComboBox);
+            this.groupBox3.Controls.Add(this.garageInfoComboBox);
+            this.groupBox3.Controls.Add(this.sizeInfoBox);
+            this.groupBox3.Controls.Add(this.displayStreet);
+            this.groupBox3.Controls.Add(this.displayZipcode);
+            this.groupBox3.Controls.Add(this.displayCountry);
+            this.groupBox3.Controls.Add(this.displayCity);
             this.groupBox3.Controls.Add(this.imgBox);
             this.groupBox3.Controls.Add(this.displayseeEstate);
-            this.groupBox3.Controls.Add(this.DisplayAddressGroup);
+            this.groupBox3.Controls.Add(this.AddressInfoGroup);
             this.groupBox3.Controls.Add(this.displayEstateText);
             this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Location = new System.Drawing.Point(270, 12);
@@ -464,6 +485,99 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Estate Information";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // plotSizeInfoBox
+            // 
+            this.plotSizeInfoBox.Location = new System.Drawing.Point(48, 149);
+            this.plotSizeInfoBox.Name = "plotSizeInfoBox";
+            this.plotSizeInfoBox.Size = new System.Drawing.Size(100, 23);
+            this.plotSizeInfoBox.TabIndex = 39;
+            this.plotSizeInfoBox.Visible = false;
+            // 
+            // costInfoBox
+            // 
+            this.costInfoBox.Location = new System.Drawing.Point(48, 91);
+            this.costInfoBox.Name = "costInfoBox";
+            this.costInfoBox.Size = new System.Drawing.Size(100, 23);
+            this.costInfoBox.TabIndex = 38;
+            this.costInfoBox.Visible = false;
+            // 
+            // roomInfoBox
+            // 
+            this.roomInfoBox.Location = new System.Drawing.Point(48, 120);
+            this.roomInfoBox.Name = "roomInfoBox";
+            this.roomInfoBox.Size = new System.Drawing.Size(100, 23);
+            this.roomInfoBox.TabIndex = 37;
+            this.roomInfoBox.Visible = false;
+            this.roomInfoBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged_3);
+            // 
+            // legalFormInfoComboBox
+            // 
+            this.legalFormInfoComboBox.FormattingEnabled = true;
+            this.legalFormInfoComboBox.Location = new System.Drawing.Point(48, 62);
+            this.legalFormInfoComboBox.Name = "legalFormInfoComboBox";
+            this.legalFormInfoComboBox.Size = new System.Drawing.Size(100, 23);
+            this.legalFormInfoComboBox.TabIndex = 36;
+            this.legalFormInfoComboBox.Visible = false;
+            // 
+            // garageInfoComboBox
+            // 
+            this.garageInfoComboBox.FormattingEnabled = true;
+            this.garageInfoComboBox.Location = new System.Drawing.Point(48, 178);
+            this.garageInfoComboBox.Name = "garageInfoComboBox";
+            this.garageInfoComboBox.Size = new System.Drawing.Size(39, 23);
+            this.garageInfoComboBox.TabIndex = 35;
+            this.garageInfoComboBox.Visible = false;
+            // 
+            // sizeInfoBox
+            // 
+            this.sizeInfoBox.Location = new System.Drawing.Point(48, 33);
+            this.sizeInfoBox.Name = "sizeInfoBox";
+            this.sizeInfoBox.Size = new System.Drawing.Size(100, 23);
+            this.sizeInfoBox.TabIndex = 34;
+            this.sizeInfoBox.Visible = false;
+            this.sizeInfoBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged_2);
+            // 
+            // displayStreet
+            // 
+            this.displayStreet.AutoSize = true;
+            this.displayStreet.Location = new System.Drawing.Point(360, 351);
+            this.displayStreet.Name = "displayStreet";
+            this.displayStreet.Size = new System.Drawing.Size(44, 15);
+            this.displayStreet.TabIndex = 13;
+            this.displayStreet.Text = "label10";
+            // 
+            // displayZipcode
+            // 
+            this.displayZipcode.AutoSize = true;
+            this.displayZipcode.Location = new System.Drawing.Point(428, 346);
+            this.displayZipcode.Name = "displayZipcode";
+            this.displayZipcode.Size = new System.Drawing.Size(44, 15);
+            this.displayZipcode.TabIndex = 12;
+            this.displayZipcode.Text = "label10";
+            this.displayZipcode.Visible = false;
+            // 
+            // displayCountry
+            // 
+            this.displayCountry.AutoSize = true;
+            this.displayCountry.Location = new System.Drawing.Point(360, 313);
+            this.displayCountry.Name = "displayCountry";
+            this.displayCountry.Size = new System.Drawing.Size(14, 15);
+            this.displayCountry.TabIndex = 11;
+            this.displayCountry.Text = "d";
+            this.displayCountry.Visible = false;
+            this.displayCountry.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // displayCity
+            // 
+            this.displayCity.AutoSize = true;
+            this.displayCity.Location = new System.Drawing.Point(393, 313);
+            this.displayCity.Name = "displayCity";
+            this.displayCity.Size = new System.Drawing.Size(38, 15);
+            this.displayCity.TabIndex = 10;
+            this.displayCity.Text = "label8";
+            this.displayCity.Visible = false;
+            this.displayCity.Click += new System.EventHandler(this.label8_Click);
             // 
             // imgBox
             // 
@@ -482,73 +596,62 @@
             // 
             this.displayseeEstate.AutoSize = true;
             this.displayseeEstate.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.displayseeEstate.Location = new System.Drawing.Point(46, 122);
+            this.displayseeEstate.Location = new System.Drawing.Point(46, 207);
             this.displayseeEstate.Name = "displayseeEstate";
             this.displayseeEstate.Size = new System.Drawing.Size(413, 25);
             this.displayseeEstate.TabIndex = 14;
             this.displayseeEstate.Text = "Please add an estate to see information about it";
             this.displayseeEstate.Click += new System.EventHandler(this.displayseeEstate_Click);
             // 
-            // DisplayAddressGroup
+            // AddressInfoGroup
             // 
-            this.DisplayAddressGroup.Controls.Add(this.displayStreet);
-            this.DisplayAddressGroup.Controls.Add(this.displayCountry);
-            this.DisplayAddressGroup.Controls.Add(this.displayZipcode);
-            this.DisplayAddressGroup.Controls.Add(this.displayCity);
-            this.DisplayAddressGroup.Location = new System.Drawing.Point(265, 22);
-            this.DisplayAddressGroup.Name = "DisplayAddressGroup";
-            this.DisplayAddressGroup.Size = new System.Drawing.Size(227, 196);
-            this.DisplayAddressGroup.TabIndex = 13;
-            this.DisplayAddressGroup.TabStop = false;
-            this.DisplayAddressGroup.Text = "Adress of estate";
-            this.DisplayAddressGroup.Visible = false;
-            this.DisplayAddressGroup.Enter += new System.EventHandler(this.DisplayAddressGroup_Enter);
+            this.AddressInfoGroup.Controls.Add(this.countryInfoComboBox);
+            this.AddressInfoGroup.Controls.Add(this.streetInfoBox);
+            this.AddressInfoGroup.Controls.Add(this.zipCodeInfoBox);
+            this.AddressInfoGroup.Controls.Add(this.cityInfoBox);
+            this.AddressInfoGroup.Location = new System.Drawing.Point(292, 11);
+            this.AddressInfoGroup.Name = "AddressInfoGroup";
+            this.AddressInfoGroup.Size = new System.Drawing.Size(227, 196);
+            this.AddressInfoGroup.TabIndex = 13;
+            this.AddressInfoGroup.TabStop = false;
+            this.AddressInfoGroup.Text = "Adress of estate";
+            this.AddressInfoGroup.Visible = false;
+            this.AddressInfoGroup.Enter += new System.EventHandler(this.DisplayAddressGroup_Enter);
             // 
-            // displayStreet
+            // countryInfoComboBox
             // 
-            this.displayStreet.AutoSize = true;
-            this.displayStreet.Location = new System.Drawing.Point(6, 108);
-            this.displayStreet.Name = "displayStreet";
-            this.displayStreet.Size = new System.Drawing.Size(44, 15);
-            this.displayStreet.TabIndex = 13;
-            this.displayStreet.Text = "label10";
+            this.countryInfoComboBox.FormattingEnabled = true;
+            this.countryInfoComboBox.Location = new System.Drawing.Point(67, 22);
+            this.countryInfoComboBox.Name = "countryInfoComboBox";
+            this.countryInfoComboBox.Size = new System.Drawing.Size(100, 23);
+            this.countryInfoComboBox.TabIndex = 34;
+            this.countryInfoComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_2);
             // 
-            // displayCountry
+            // streetInfoBox
             // 
-            this.displayCountry.AutoSize = true;
-            this.displayCountry.Location = new System.Drawing.Point(6, 32);
-            this.displayCountry.Name = "displayCountry";
-            this.displayCountry.Size = new System.Drawing.Size(14, 15);
-            this.displayCountry.TabIndex = 11;
-            this.displayCountry.Text = "d";
-            this.displayCountry.Visible = false;
-            this.displayCountry.Click += new System.EventHandler(this.label9_Click);
+            this.streetInfoBox.Location = new System.Drawing.Point(67, 109);
+            this.streetInfoBox.Name = "streetInfoBox";
+            this.streetInfoBox.Size = new System.Drawing.Size(100, 23);
+            this.streetInfoBox.TabIndex = 3;
             // 
-            // displayZipcode
+            // zipCodeInfoBox
             // 
-            this.displayZipcode.AutoSize = true;
-            this.displayZipcode.Location = new System.Drawing.Point(6, 84);
-            this.displayZipcode.Name = "displayZipcode";
-            this.displayZipcode.Size = new System.Drawing.Size(44, 15);
-            this.displayZipcode.TabIndex = 12;
-            this.displayZipcode.Text = "label10";
-            this.displayZipcode.Visible = false;
+            this.zipCodeInfoBox.Location = new System.Drawing.Point(67, 80);
+            this.zipCodeInfoBox.Name = "zipCodeInfoBox";
+            this.zipCodeInfoBox.Size = new System.Drawing.Size(100, 23);
+            this.zipCodeInfoBox.TabIndex = 2;
             // 
-            // displayCity
+            // cityInfoBox
             // 
-            this.displayCity.AutoSize = true;
-            this.displayCity.Location = new System.Drawing.Point(6, 60);
-            this.displayCity.Name = "displayCity";
-            this.displayCity.Size = new System.Drawing.Size(38, 15);
-            this.displayCity.TabIndex = 10;
-            this.displayCity.Text = "label8";
-            this.displayCity.Visible = false;
-            this.displayCity.Click += new System.EventHandler(this.label8_Click);
+            this.cityInfoBox.Location = new System.Drawing.Point(67, 51);
+            this.cityInfoBox.Name = "cityInfoBox";
+            this.cityInfoBox.Size = new System.Drawing.Size(100, 23);
+            this.cityInfoBox.TabIndex = 1;
             // 
             // displayEstateText
             // 
             this.displayEstateText.AutoSize = true;
-            this.displayEstateText.Location = new System.Drawing.Point(22, 27);
+            this.displayEstateText.Location = new System.Drawing.Point(147, 238);
             this.displayEstateText.Name = "displayEstateText";
             this.displayEstateText.Size = new System.Drawing.Size(38, 30);
             this.displayEstateText.TabIndex = 4;
@@ -601,11 +704,12 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
+            this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).EndInit();
-            this.DisplayAddressGroup.ResumeLayout(false);
-            this.DisplayAddressGroup.PerformLayout();
+            this.AddressInfoGroup.ResumeLayout(false);
+            this.AddressInfoGroup.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -655,10 +759,20 @@
         private Label displayCountry;
         private Label displayCity;
         private Label displayEstateText;
-        private GroupBox DisplayAddressGroup;
+        private GroupBox AddressInfoGroup;
         private Label displayseeEstate;
         private Label displayStreet;
         private PictureBox imgBox;
         private ListBox lstEstates;
+        private ComboBox countryInfoComboBox;
+        private TextBox streetInfoBox;
+        private TextBox zipCodeInfoBox;
+        private TextBox cityInfoBox;
+        private TextBox sizeInfoBox;
+        private ComboBox legalFormInfoComboBox;
+        private ComboBox garageInfoComboBox;
+        private TextBox roomInfoBox;
+        private TextBox costInfoBox;
+        private TextBox plotSizeInfoBox;
     }
 }

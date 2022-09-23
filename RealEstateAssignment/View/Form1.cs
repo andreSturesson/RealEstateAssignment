@@ -14,9 +14,12 @@ namespace RealEstateAssignment
         {
             InitializeComponent();
             countryComboBox.DataSource = Enums.countries.GetValues(typeof(countries));
+            countryInfoComboBox.DataSource = Enums.countries.GetValues(typeof(countries));
             comboBox2.DataSource = Enums.types.GetValues(typeof(types));
             garageComboBox.DataSource = Enums.hasGarage.GetValues(typeof(hasGarage));
-            apartmentTypeComboBox.DataSource = Enums.apartmentType.GetValues(typeof(apartmentType));
+            garageInfoComboBox.DataSource = Enums.hasGarage.GetValues(typeof(hasGarage));
+            apartmentTypeComboBox.DataSource = Enums.legalType.GetValues(typeof(legalType));
+            legalFormInfoComboBox.DataSource = Enums.legalType.GetValues(typeof(legalType));
         }
 
         public void updateGUI()
@@ -28,7 +31,7 @@ namespace RealEstateAssignment
         //Delete button to delete estate object..
         private void button3_Click(object sender, EventArgs e)
         {
-            DisplayAddressGroup.Visible = false;
+            AddressInfoGroup.Visible = false;
             displayCountry.Visible = false;
             displayCity.Visible = false;
             displayStreet.Visible = false;
@@ -45,7 +48,7 @@ namespace RealEstateAssignment
         private void button1_Click_1(object sender, EventArgs e)
         {
             LegalForm legal;
-            Address adress = new Address(streetTextBox.Text, cityTextBox.Text, Int32.Parse(zipCodeTextBox.Text), countryComboBox.SelectedItem.ToString());
+            Address adress = new Address(streetTextBox.Text, cityTextBox.Text, Int32.Parse(zipCodeTextBox.Text), (countries)countryComboBox.SelectedItem);
             if (apartmentTypeComboBox.SelectedItem.ToString() == "Tenement")
             {
                 legal = new Rental(Int32.Parse(rentLabelText.Text));
@@ -372,8 +375,8 @@ namespace RealEstateAssignment
         {
             LegalForm legal;
             Address adress = new Address(streetTextBox.Text, cityTextBox.Text, Int32.Parse(zipCodeTextBox.Text), 
-                countryComboBox.SelectedItem.ToString());
-            if (apartmentTypeComboBox.SelectedItem.ToString() == "Tenement")
+                (countries)countryComboBox.SelectedItem);
+            if ((legalType)apartmentTypeComboBox.SelectedItem == legalType.Rental)
             {
                 legal = new Rental(Int32.Parse(rentLabelText.Text));
             }
@@ -381,6 +384,8 @@ namespace RealEstateAssignment
             {
                 legal = new Ownership(Int32.Parse(rentLabelText.Text));
             }
+            estate.LegalForm = legal;
+            estate.Address = adress;
             estate.Size = Int32.Parse(sizeTextBox.Text);
             estate.Img = chooseImageTextBox.Text;
             estate.Address = adress;
@@ -403,7 +408,7 @@ namespace RealEstateAssignment
 
         private void showAdress()
         {
-            DisplayAddressGroup.Visible = true;
+            AddressInfoGroup.Visible = true;
             displayCountry.Visible = true;
             displayCity.Visible = true;
             displayStreet.Visible = true;
@@ -435,30 +440,29 @@ namespace RealEstateAssignment
 
         private void showVilla()
         {
-            String ty;
-            LegalForm le = estate.LegalForm;
-            if (((Villa)estate).LegalForm.getType() == "Ownership")
+            setEstateInfo();
+            setResidentialInfo();
+
+            estateInfoIsDisabled();
+            residentialInfoIsDisabled();
+
+            estateInfoIsVisible();
+            residentialInfoIsVisible();
+
+            plotSizeInfoBox.Text = ((Villa)estate).Plot.ToString();
+            plotSizeInfoBox.Enabled = false;
+            plotSizeInfoBox.Visible = true;
+
+            if (((Villa)estate).Garage)
             {
-                ty = "Estate finance: Owned" + "\r\n" + "Property is valued: " + ((Ownership)le).Value.ToString() + "$";
+                garageInfoComboBox.SelectedItem = hasGarage.Yes;
             }
             else
             {
-                ty = "Estate finance - Rental" + "\r\n" + "Rent: " + ((Rental)le).Rent.ToString() + "$ per month";
+                garageInfoComboBox.SelectedItem = hasGarage.No;
             }
-            displayEstateText.Visible = true;
-            string hasGarage;
-            if (((Villa)estate).Garage == true)
-            {
-                hasGarage = "Yes";
-            }
-            else
-            {
-                hasGarage = "No";
-            }
-            displayEstateText.Text = "Size: " + ((Villa)estate).Size + "\r\n" + "Total land size: " + ((Villa)estate).Plot + 
-                "\r\n" + "Number of rooms: " + ((Villa)estate).Rooms + "\r\n" + "Garage: " + hasGarage + "\r\n" + ty;
-            showAdress();
-            imgBox.Image = Image.FromFile(((Villa)estate).Img);
+            garageInfoComboBox.Enabled = false;
+            garageInfoComboBox.Visible = true;
         }
 
         private void showRowHouse()
@@ -577,6 +581,76 @@ namespace RealEstateAssignment
             showAdress();
             imgBox.Image = Image.FromFile(((Hospitals)estate).Img);
         }
+
+
+        private void estateInfoIsVisible()
+        {
+            AddressInfoGroup.Visible = true;
+            sizeInfoBox.Visible = true;
+            legalFormInfoComboBox.Visible = true;
+            costInfoBox.Visible = true;
+        }
+
+        private void residentialInfoIsVisible()
+        {
+            roomInfoBox.Visible = true;
+        }
+
+        private void estateInfoIsEnabled()
+        {
+            countryInfoComboBox.Enabled = true;
+            cityInfoBox.Enabled = true;
+            zipCodeInfoBox.Enabled = true;
+            streetInfoBox.Enabled = true;
+            sizeInfoBox.Enabled = true;
+            legalFormInfoComboBox.Enabled = true;
+            costInfoBox.Enabled = true;
+        }
+
+        private void residentialInfoIsEnabled()
+        {
+            roomInfoBox.Enabled = true;
+        }
+
+        private void estateInfoIsDisabled()
+        {
+            countryInfoComboBox.Enabled = false;
+            cityInfoBox.Enabled = false;
+            zipCodeInfoBox.Enabled = false;
+            streetInfoBox.Enabled = false;
+            sizeInfoBox.Enabled = false;
+            legalFormInfoComboBox.Enabled = false;
+            costInfoBox.Enabled = false;
+        }
+
+        private void residentialInfoIsDisabled()
+        {
+            roomInfoBox.Enabled = false;
+        }
+
+
+        private void setEstateInfo()
+        {
+            countryInfoComboBox.SelectedItem = estate.Address.Country;
+            cityInfoBox.Text = estate.Address.City;
+            zipCodeInfoBox.Text = estate.Address.ZipCode.ToString();
+            streetInfoBox.Text = estate.Address.Street.ToString();
+            sizeInfoBox.Text = estate.Size.ToString();
+            if(estate.LegalForm.getType() == "Ownership")
+            {
+                legalFormInfoComboBox.SelectedItem = legalType.Ownership;
+                costInfoBox.Text = ((Ownership)estate.LegalForm).Value.ToString();
+            }
+            else
+            {
+                legalFormInfoComboBox.SelectedItem = legalType.Rental;
+                costInfoBox.Text = ((Rental)estate.LegalForm).Rent.ToString();
+            }
+        }
+         private void setResidentialInfo()
+         {
+            roomInfoBox.Text = ((Residential)estate).Rooms.ToString();
+         }
 
         //Errortext
         private void errorText_Click(object sender, EventArgs e)
@@ -704,6 +778,21 @@ namespace RealEstateAssignment
         }
 
         private void roomsTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged_3(object sender, EventArgs e)
         {
 
         }

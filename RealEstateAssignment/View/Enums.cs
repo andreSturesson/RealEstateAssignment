@@ -26,7 +26,7 @@ public class Enums
         No
     }
 
-    public enum apartmentType
+    public enum legalType
     {
         Ownership,
         Rental

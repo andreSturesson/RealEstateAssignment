@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Enums;
 
 namespace RealEstateAssignment
 {
@@ -11,10 +12,10 @@ namespace RealEstateAssignment
         private string street;
         private string city;
         private int zipCode;
-        private string country;
+        private countries country;
 
 
-        public Address(string street, string city, int zipcode, string country)
+        public Address(string street, string city, int zipcode, countries country)
         {
             this.street = street;
             this.city = city;
@@ -37,7 +38,7 @@ namespace RealEstateAssignment
             get { return this.city; }
             set { this.city = value; }
         }
-        public string Country
+        public countries Country
         {
             get { return this.country; }
             set { this.country = value; }
