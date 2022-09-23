@@ -10,6 +10,11 @@ namespace RealEstateAssignment
     abstract class Institutional : Estate
     {
         private int capacity;
+
+        public Institutional()
+        {
+
+        }
         public Institutional(Address address, int size, LegalForm legalForm, string img, int capacity) : base(address, size, legalForm, img)
         {
             this.capacity = capacity;

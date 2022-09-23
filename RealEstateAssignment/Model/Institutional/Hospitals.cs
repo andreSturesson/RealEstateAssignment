@@ -9,6 +9,10 @@ namespace RealEstateAssignment
 {
     internal class Hospitals : Institutional
     {
+        public Hospitals()
+        {
+
+        }
         public Hospitals(Address address, int size, LegalForm legalForm, string img, int capacity) : base(address, size, legalForm, img, capacity)
         {
 

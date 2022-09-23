@@ -1,4 +1,4 @@
-using RealEstateAssignment.Appartment;
+using RealEstateAssignment.Controller;
 using System.Diagnostics;
 using System.Drawing.Text;
 using System.Windows.Forms;
@@ -9,7 +9,7 @@ namespace RealEstateAssignment
     public partial class Form1 : Form
     {
         private Estate estate;
-
+        private ListManager lstManager = new ListManager();
         public Form1()
         {
             InitializeComponent();
@@ -19,33 +19,10 @@ namespace RealEstateAssignment
             apartmentTypeComboBox.DataSource = Enums.apartmentType.GetValues(typeof(apartmentType));
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void updateGUI()
         {
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void test_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+            lstEstates.Items.Clear();
+            lstEstates.Items.AddRange(lstManager.ToStringArray());
         }
 
         //Delete button to delete estate object..
@@ -63,21 +40,6 @@ namespace RealEstateAssignment
             addButton.Visible = true;
             changeButton.Visible = false;
             imgBox.Visible = false;
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         //Method for changing object
@@ -150,11 +112,6 @@ namespace RealEstateAssignment
                     break;
             }
             imgBox.Visible = true;
-        }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
         }
 
         //Method for when chaning the combobox for type. shows relevant fields
@@ -362,10 +319,6 @@ namespace RealEstateAssignment
                     break;
             }
         }
-        private void BrowseFilesLabel_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void browseFilesButton_Click(object sender, EventArgs e)
         {
@@ -378,19 +331,10 @@ namespace RealEstateAssignment
             image.Load(chooseImageFile.FileName);
         }
 
-        private void chooseImageTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void image_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         //Add an estate
         private void button2_Click(object sender, EventArgs e)
         {
+            displayseeEstate.Visible = false;
             errorText.Visible = false;
             try
             {
@@ -411,9 +355,7 @@ namespace RealEstateAssignment
                         case "Apartment":
                             if (apartmentNumberTextBox.Text != "" && roomsTextBox.Text != "" && sizeTextBox.Text != "")
                             {
-                                estate = new Apartment(adress, Int32.Parse(apartmentNumberTextBox.Text), Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text);
-                                displayseeEstate.Visible = false;
-                                //Address
+                                lstManager.Add(new Apartment(adress, Int32.Parse(apartmentNumberTextBox.Text), Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text));
                                 showApartment();
                             }
                             else
@@ -422,32 +364,30 @@ namespace RealEstateAssignment
                             }
                             break;
                         case "Villa":
-                            displayseeEstate.Visible = false;
-                            Boolean garage;
+                            estate = new Villa();
+                            newEstate();
+                            newResidential();
                             if (garageComboBox.SelectedItem.ToString() == "Yes")
                             {
-                                garage = true;
+                                ((Villa)estate).Garage = true;
                             }
                             else
                             {
-                                garage = false;
+                                ((Villa)estate).Garage = false;
                             }
-                            estate = new Villa(adress, plotSizeText.Text, garage, Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text);
+                            ((Villa)estate).Plot = plotSizeText.Text;
                             showVilla();
                             break;
                         case "Shop":
-                            displayseeEstate.Visible = false;
                             estate = new Shop(adress, Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text));
                             showShop();
                             break;
                         case "Warehouse":
-                            displayseeEstate.Visible = false;
                             estate = new Warehouse(adress, Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text));
 
                             showWarehouse();
                             break;
                         case "Rowhouse":
-                            displayseeEstate.Visible = false;
                             Boolean ga;
                             if (garageComboBox.SelectedItem.ToString() == "Yes")
                             {
@@ -462,17 +402,14 @@ namespace RealEstateAssignment
                             break;
                         case "University":
                             estate = new University(adress,Int32.Parse(sizeTextBox.Text),legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text));
-                            displayseeEstate.Visible = false;
                             showUniversity();
                             break;
                         case "School":
                             estate = new Schools(adress, Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text));
-                            displayseeEstate.Visible = false;
                             showSchool();
                             break;
                         case "Hospital":
                             estate = new Hospitals(adress, Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text));
-                            displayseeEstate.Visible = false;
                             showHospital();
                             break;
                         default:
@@ -493,7 +430,33 @@ namespace RealEstateAssignment
                 errorText.Visible = true;
                 errorText.Text = "ERROR - Some value is empty or incorrect " + er;
             }
+            updateGUI();
         }
+
+        private void newEstate()
+        {
+            LegalForm legal;
+            Address adress = new Address(streetTextBox.Text, cityTextBox.Text, Int32.Parse(zipCodeTextBox.Text), 
+                countryComboBox.SelectedItem.ToString());
+            if (apartmentTypeComboBox.SelectedItem.ToString() == "Tenement")
+            {
+                legal = new Rental(Int32.Parse(rentLabelText.Text));
+            }
+            else
+            {
+                legal = new Ownership(Int32.Parse(rentLabelText.Text));
+            }
+            estate.Size = Int32.Parse(sizeTextBox.Text);
+            estate.Img = chooseImageTextBox.Text;
+
+
+
+        }
+        private void newResidential()
+        {
+            ((Residential)estate).Rooms = Int32.Parse(roomsTextBox.Text);
+        }
+
 
         private void showAdress()
         {
@@ -525,7 +488,6 @@ namespace RealEstateAssignment
             displayEstateText.Visible = true;
             imgBox.Image = Image.FromFile(((Apartment)estate).Img);
             showAdress();
-
         }
 
         private void showVilla()
@@ -683,6 +645,10 @@ namespace RealEstateAssignment
         {
 
         }
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
 
         private void label8_Click(object sender, EventArgs e)
         {
@@ -690,6 +656,28 @@ namespace RealEstateAssignment
         }
 
         private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void chooseImageTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        private void image_Click(object sender, EventArgs e)
         {
 
         }
@@ -725,6 +713,43 @@ namespace RealEstateAssignment
         }
 
         private void imgBox_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void test_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void BrowseFilesLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstEstates_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
