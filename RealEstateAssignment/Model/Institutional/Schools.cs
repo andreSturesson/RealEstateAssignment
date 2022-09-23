@@ -9,6 +9,10 @@ namespace RealEstateAssignment
 {
     internal class Schools : Institutional
     {
+        public Schools ()
+        {
+
+        }
         public Schools(Address address, int size, LegalForm legalForm, string img, int capacity) : base(address, size, legalForm, img, capacity)
         {
 

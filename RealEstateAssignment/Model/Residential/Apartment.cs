@@ -11,6 +11,11 @@ namespace RealEstateAssignment
     class Apartment : Residential
     {
         private int apartmentNumber;
+
+        public Apartment()
+        {
+
+        }
         public Apartment(Address address, int apartmentNumber, int rooms, int size, LegalForm legalForm, string img) : base(address, rooms, size, legalForm, img)
         {
             this.apartmentNumber = apartmentNumber;

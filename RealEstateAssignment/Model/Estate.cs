@@ -16,6 +16,10 @@ namespace RealEstateAssignment
         private LegalForm legalForm;
         private string img;
 
+        public Estate()
+        {
+            this.id = 1;
+        }
 
         public Estate(Address address, int size, LegalForm legalForm, string img)
         {

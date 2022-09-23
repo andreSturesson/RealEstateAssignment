@@ -29,15 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.apartmentNumberTextBox = new System.Windows.Forms.TextBox();
             this.apartmentNumberLabel = new System.Windows.Forms.Label();
             this.chooseImageTextBox = new System.Windows.Forms.TextBox();
             this.image = new System.Windows.Forms.PictureBox();
             this.browseFilesButton = new System.Windows.Forms.Button();
+            this.changeButton = new System.Windows.Forms.Button();
             this.BrowseFilesLabel = new System.Windows.Forms.Label();
             this.apartmentTypeComboBox = new System.Windows.Forms.ComboBox();
             this.AppartmentTypeText = new System.Windows.Forms.Label();
@@ -64,7 +62,6 @@
             this.countryComboBox = new System.Windows.Forms.ComboBox();
             this.addButton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.changeButton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.imgBox = new System.Windows.Forms.PictureBox();
@@ -77,8 +74,7 @@
             this.displayEstateText = new System.Windows.Forms.Label();
             this.chooseImageFile = new System.Windows.Forms.OpenFileDialog();
             this.errorText = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.lstEstates = new System.Windows.Forms.ListBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -88,36 +84,12 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Location = new System.Drawing.Point(562, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(283, 426);
+            this.groupBox1.Size = new System.Drawing.Size(235, 426);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Your estate";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.Address});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 22);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(271, 398);
-            this.dataGridView1.TabIndex = 4;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // id
-            // 
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            // 
-            // Address
-            // 
-            this.Address.HeaderText = "Address";
-            this.Address.Name = "Address";
             // 
             // groupBox2
             // 
@@ -210,6 +182,17 @@
             this.browseFilesButton.UseVisualStyleBackColor = true;
             this.browseFilesButton.Visible = false;
             this.browseFilesButton.Click += new System.EventHandler(this.browseFilesButton_Click);
+            // 
+            // changeButton
+            // 
+            this.changeButton.Location = new System.Drawing.Point(76, 397);
+            this.changeButton.Name = "changeButton";
+            this.changeButton.Size = new System.Drawing.Size(75, 23);
+            this.changeButton.TabIndex = 0;
+            this.changeButton.Text = "Change";
+            this.changeButton.UseVisualStyleBackColor = true;
+            this.changeButton.Visible = false;
+            this.changeButton.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // BrowseFilesLabel
             // 
@@ -455,17 +438,6 @@
             this.groupBox4.Text = "Address Information";
             this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
             // 
-            // changeButton
-            // 
-            this.changeButton.Location = new System.Drawing.Point(76, 397);
-            this.changeButton.Name = "changeButton";
-            this.changeButton.Size = new System.Drawing.Size(75, 23);
-            this.changeButton.TabIndex = 0;
-            this.changeButton.Text = "Change";
-            this.changeButton.UseVisualStyleBackColor = true;
-            this.changeButton.Visible = false;
-            this.changeButton.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(110, 397);
@@ -485,7 +457,7 @@
             this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Location = new System.Drawing.Point(270, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(575, 426);
+            this.groupBox3.Size = new System.Drawing.Size(527, 426);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Estate Information";
@@ -496,9 +468,9 @@
             this.imgBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.imgBox.Location = new System.Drawing.Point(326, 243);
+            this.imgBox.Location = new System.Drawing.Point(46, 235);
             this.imgBox.Name = "imgBox";
-            this.imgBox.Size = new System.Drawing.Size(150, 148);
+            this.imgBox.Size = new System.Drawing.Size(102, 148);
             this.imgBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgBox.TabIndex = 32;
             this.imgBox.TabStop = false;
@@ -508,7 +480,7 @@
             // 
             this.displayseeEstate.AutoSize = true;
             this.displayseeEstate.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.displayseeEstate.Location = new System.Drawing.Point(79, 120);
+            this.displayseeEstate.Location = new System.Drawing.Point(46, 122);
             this.displayseeEstate.Name = "displayseeEstate";
             this.displayseeEstate.Size = new System.Drawing.Size(413, 25);
             this.displayseeEstate.TabIndex = 14;
@@ -600,11 +572,22 @@
             this.errorText.Visible = false;
             this.errorText.Click += new System.EventHandler(this.errorText_Click);
             // 
+            // lstEstates
+            // 
+            this.lstEstates.FormattingEnabled = true;
+            this.lstEstates.ItemHeight = 15;
+            this.lstEstates.Location = new System.Drawing.Point(803, 23);
+            this.lstEstates.Name = "lstEstates";
+            this.lstEstates.Size = new System.Drawing.Size(301, 409);
+            this.lstEstates.TabIndex = 31;
+            this.lstEstates.SelectedIndexChanged += new System.EventHandler(this.lstEstates_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 451);
+            this.ClientSize = new System.Drawing.Size(1116, 451);
+            this.Controls.Add(this.lstEstates);
             this.Controls.Add(this.errorText);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -612,8 +595,6 @@
             this.Name = "Form1";
             this.Text = "Modern Real Estates by André Sturesson & Johannes Böök";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
@@ -635,9 +616,6 @@
         private Button addButton;
         private Button changeButton;
         private ComboBox countryComboBox;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn id;
-        private DataGridViewTextBoxColumn Address;
         private GroupBox groupBox3;
         private ComboBox comboBox2;
         private Label type;
@@ -678,5 +656,6 @@
         private Label displayseeEstate;
         private Label displayStreet;
         private PictureBox imgBox;
+        private ListBox lstEstates;
     }
 }

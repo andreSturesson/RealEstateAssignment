@@ -11,6 +11,11 @@ namespace RealEstateAssignment
     abstract class Commercial : Estate
     {
         private int shelves;
+
+        public Commercial()
+        {
+
+        }
         public Commercial(Address address, int size, LegalForm legalForm, string img, int shelves) : base(address, size, legalForm, img)
         {
             this.shelves = shelves;

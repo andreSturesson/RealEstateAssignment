@@ -8,6 +8,10 @@ namespace RealEstateAssignment
 {
     internal class Shop : Commercial
     {
+        public Shop()
+        {
+
+        }
         public Shop(Address address, int size, LegalForm legalForm, string img, int shelves) : base(address, size, legalForm, img, shelves)
         {
 
