@@ -376,6 +376,8 @@ namespace RealEstateAssignment
                                 ((Villa)estate).Garage = false;
                             }
                             ((Villa)estate).Plot = plotSizeText.Text;
+
+                            lstManager.Add(estate);
                             showVilla();
                             break;
                         case "Shop":
