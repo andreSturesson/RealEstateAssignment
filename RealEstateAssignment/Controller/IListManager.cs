@@ -27,7 +27,7 @@ namespace RealEstateAssignment.Controller
         /// </summary>
         /// <param name="anIndex">Index to object that is to be removed.</param>
         /// <returns>True if successful, false otherwise.</returns>
-        bool DeleteAt(int anIndex);
+        bool DeleteAt(String id);
 
         /// <summary>
         /// Replace an object from the collection at a given index by a new object.
@@ -35,21 +35,21 @@ namespace RealEstateAssignment.Controller
         /// <param name="aType">Object to be replaced.</param>
         /// <param name="anIndex">index to element to be replaced by a new object.</param>
         /// <returns>True if successful, false otherwise.</returns>
-        bool ChangeAt(T aType, int anIndex);
+        bool ChangeAt(T aType, String id);
 
         /// <summary>
         /// Return an object at a given position from the collection m_list.
         /// </summary>
         /// <param name="anIndex">.</param>
         /// <returns></returns>
-        T GetAt(int anIndex);
+        T GetAt(String id);
 
         /// <summary>
         /// Control that a given index is >= 0 and less than the number of items in 
         /// the collection.
         /// </summary>
         /// <returns>True if successful, false otherwise.</returns>
-        bool CheckIndex(int index);
+        bool CheckId(String id);
         /// <summary>
         /// Deletes all object of the collection and set the collection to null.
         /// </summary>
