@@ -317,6 +317,8 @@ namespace RealEstateAssignment
                             break;
                         case "Rowhouse":
                             estate = new Rowhouse();
+                            newEstate();
+                            newResidential();
                             if (garageComboBox.SelectedItem.ToString() == "Yes")
                             {
                                 ((Rowhouse)estate).Garage = true;
@@ -325,6 +327,7 @@ namespace RealEstateAssignment
                             {
                                 ((Rowhouse)estate).Garage = false;
                             }
+                            ((Rowhouse)estate).Plot = plotSizeText.Text;
                             showInfo(estate);
                             break;
                         case "University":
@@ -405,19 +408,20 @@ namespace RealEstateAssignment
         private void showInfo(Estate estate)
         {
 
+            hideInfo();
+
+
+            estateInfoIsDisabled();
+            estateInfoIsVisible();
+            setEstateInfo(estate);
+            
+
             switch (estate.getObjectType())
             {
                 case "Apartment":
 
-                    hideInfo();
-
-                    setEstateInfo(estate);
                     setResidentialInfo(estate);
-
-                    estateInfoIsDisabled();
                     residentialInfoIsDisabled();
-
-                    estateInfoIsVisible();
                     residentialInfoIsVisible();
 
                     apartmentNumberInfoBox.Text = ((Apartment)estate).ApartmentNumber.ToString();
@@ -427,15 +431,8 @@ namespace RealEstateAssignment
 
                 case "Villa":
 
-                    hideInfo();
-
-                    setEstateInfo(estate);
                     setResidentialInfo(estate);
-
-                    estateInfoIsDisabled();
                     residentialInfoIsDisabled();
-
-                    estateInfoIsVisible();
                     residentialInfoIsVisible();
 
                     plotSizeInfoBox.Text = ((Villa)estate).Plot.ToString();
@@ -455,15 +452,8 @@ namespace RealEstateAssignment
                     break;
                 case "Rowhouse":
 
-                    hideInfo();
-
-                    setEstateInfo(estate);
                     setResidentialInfo(estate);
-
-                    estateInfoIsDisabled();
                     residentialInfoIsDisabled();
-
-                    estateInfoIsVisible();
                     residentialInfoIsVisible();
 
                     plotSizeInfoBox.Text = ((Rowhouse)estate).Plot.ToString();
@@ -484,76 +474,42 @@ namespace RealEstateAssignment
 
                 case "Shop":
 
-                    hideInfo();
-
-                    setEstateInfo(estate);
                     setCommercialInfo(estate);
-
-                    estateInfoIsDisabled();
                     commercialInfoIsDisabled();
-
-                    estateInfoIsVisible();
                     commercialInfoIsVisible();
                     break;
 
                 case "Warehouse":
 
-                    hideInfo();
-
-                    setEstateInfo(estate);
                     setCommercialInfo(estate);
-
-                    estateInfoIsDisabled();
                     commercialInfoIsDisabled();
-
-                    estateInfoIsVisible();
                     commercialInfoIsVisible();
                     break;
 
                 case "University":
                     
+                    setinstitutionalInfo(estate);
+                    institutionalInfoIsDisabled();
+                    institutionalInfoIsVisible();
                     break;
 
                 case "School":
-                    
+
+                    setinstitutionalInfo(estate);
+                    institutionalInfoIsDisabled();
+                    institutionalInfoIsVisible();
                     break;
 
                 case "Hospital":
-                    
+
+                    setinstitutionalInfo(estate);
+                    institutionalInfoIsDisabled();
+                    institutionalInfoIsVisible();
                     break;
 
                 default:
                     break;
             }
-        }
-
-        
-      
-        private void showUniversity()
-        {
-            
-        }
-        private void showSchool()
-        {
-            
-        }
-        private void showHospital()
-        {
-            /**String ty;
-            LegalForm le = estate.LegalForm;
-            if (((Hospitals)estate).LegalForm.getType() == "Ownership")
-            {
-                ty = "Estate finance: Owned" + "\r\n" + "Property is valued: " + ((Ownership)le).Value.ToString() + "$";
-            }
-            else
-            {
-                ty = "Estate finance - Rental" + "\r\n" + "Rent: " + ((Rental)le).Rent.ToString() + "$ per month";
-            }
-            displayEstateText.Visible = true;
-            displayEstateText.Text = "Size: " + ((Hospitals)estate).Size + "\r\n" + 
-                "Capacity: " + ((Hospitals)estate).Capacity + "\r\n" + ty;
-            showAdress();
-            imgBox.Image = Image.FromFile(((Hospitals)estate).Img);**/
         }
 
         private void hideInfo()
@@ -568,8 +524,8 @@ namespace RealEstateAssignment
             garageInfoComboBox.Visible = false;
             imgBox.Visible = false;
             shelvesInfoBox.Visible = false;
+            capacityInfoBox.Visible = false;
         }
-
 
         private void estateInfoIsVisible()
         {
@@ -588,6 +544,11 @@ namespace RealEstateAssignment
         private void commercialInfoIsVisible()
         {
             shelvesInfoBox.Visible = true;
+        }
+
+        private void institutionalInfoIsVisible()
+        {
+            capacityInfoBox.Visible = true;
         }
 
         private void estateInfoIsEnabled()
@@ -611,6 +572,11 @@ namespace RealEstateAssignment
             shelvesInfoBox.Enabled = true;
         }
 
+        private void institutionalInfoIsEnabled()
+        {
+            capacityInfoBox.Enabled = true;
+        }
+
         private void estateInfoIsDisabled()
         {
             countryInfoComboBox.Enabled = false;
@@ -632,6 +598,11 @@ namespace RealEstateAssignment
             shelvesInfoBox.Enabled = false;
         }
 
+        private void institutionalInfoIsDisabled()
+        {
+            capacityInfoBox.Enabled = false;
+        }
+
         private void setEstateInfo(Estate estate)
         {
             countryInfoComboBox.SelectedItem = estate.Address.Country;
@@ -649,8 +620,16 @@ namespace RealEstateAssignment
                 legalFormInfoComboBox.SelectedItem = legalType.Rental;
                 costInfoBox.Text = ((Rental)estate.LegalForm).Rent.ToString();
             }
-            imgBox.Image = Image.FromFile(estate.Img);
+            if(File.Exists(estate.Img))
+            {
+                imgBox.Image = Image.FromFile(estate.Img);
+            }
+            else
+            {
+                imgBox.Visible = false;
+            }
         }
+
         private void setResidentialInfo(Estate estate)
         {
            roomInfoBox.Text = ((Residential)estate).Rooms.ToString();
@@ -659,6 +638,11 @@ namespace RealEstateAssignment
         private void setCommercialInfo(Estate estate)
         {
             shelvesInfoBox.Text = ((Commercial)estate).Shelves.ToString();
+        }
+
+        private void setinstitutionalInfo(Estate estate)
+        {
+            capacityInfoBox.Text = ((Institutional)estate).Capacity.ToString();
         }
 
         //Errortext

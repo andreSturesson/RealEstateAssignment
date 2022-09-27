@@ -94,6 +94,7 @@
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.openBinary = new System.Windows.Forms.OpenFileDialog();
             this.saveBinarySer = new System.Windows.Forms.SaveFileDialog();
+            this.capacityInfoBox = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -473,6 +474,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.capacityInfoBox);
             this.groupBox3.Controls.Add(this.shelvesInfoBox);
             this.groupBox3.Controls.Add(this.apartmentNumberInfoBox);
             this.groupBox3.Controls.Add(this.plotSizeInfoBox);
@@ -566,9 +568,9 @@
             this.imgBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.imgBox.Location = new System.Drawing.Point(417, 235);
+            this.imgBox.Location = new System.Drawing.Point(292, 172);
             this.imgBox.Name = "imgBox";
-            this.imgBox.Size = new System.Drawing.Size(102, 148);
+            this.imgBox.Size = new System.Drawing.Size(227, 156);
             this.imgBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgBox.TabIndex = 32;
             this.imgBox.TabStop = false;
@@ -578,7 +580,7 @@
             // 
             this.displayseeEstate.AutoSize = true;
             this.displayseeEstate.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.displayseeEstate.Location = new System.Drawing.Point(6, 338);
+            this.displayseeEstate.Location = new System.Drawing.Point(73, 343);
             this.displayseeEstate.Name = "displayseeEstate";
             this.displayseeEstate.Size = new System.Drawing.Size(413, 25);
             this.displayseeEstate.TabIndex = 14;
@@ -709,7 +711,7 @@
             // mnuSaveAs
             // 
             this.mnuSaveAs.Name = "mnuSaveAs";
-            this.mnuSaveAs.Size = new System.Drawing.Size(180, 22);
+            this.mnuSaveAs.Size = new System.Drawing.Size(118, 22);
             this.mnuSaveAs.Text = "Save as..";
             this.mnuSaveAs.Click += new System.EventHandler(this.mnuSaveAs_Click);
             // 
@@ -750,6 +752,13 @@
             // 
             this.saveBinarySer.Filter = "Bin (*.bin;)|*.bin;";
             this.saveBinarySer.FileOk += new System.ComponentModel.CancelEventHandler(this.saveBinarySer_FileOk);
+            // capacityInfoBox
+            // 
+            this.capacityInfoBox.Location = new System.Drawing.Point(48, 265);
+            this.capacityInfoBox.Name = "capacityInfoBox";
+            this.capacityInfoBox.Size = new System.Drawing.Size(100, 23);
+            this.capacityInfoBox.TabIndex = 42;
+            this.capacityInfoBox.Visible = false;
             // 
             // Form1
             // 
@@ -851,5 +860,6 @@
         private ToolStripMenuItem mnuExit;
         private OpenFileDialog openBinary;
         private SaveFileDialog saveBinarySer;
+        private TextBox capacityInfoBox;
     }
 }
