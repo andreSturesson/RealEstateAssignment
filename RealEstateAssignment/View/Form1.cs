@@ -406,19 +406,18 @@ namespace RealEstateAssignment
         private void showInfo(Estate estate)
         {
 
+            hideInfo();
+
+            setEstateInfo(estate);
+            estateInfoIsDisabled();
+            estateInfoIsVisible();
+
             switch (estate.getObjectType())
             {
                 case "Apartment":
 
-                    hideInfo();
-
-                    setEstateInfo(estate);
                     setResidentialInfo(estate);
-
-                    estateInfoIsDisabled();
                     residentialInfoIsDisabled();
-
-                    estateInfoIsVisible();
                     residentialInfoIsVisible();
 
                     apartmentNumberInfoBox.Text = ((Apartment)estate).ApartmentNumber.ToString();
@@ -428,15 +427,8 @@ namespace RealEstateAssignment
 
                 case "Villa":
 
-                    hideInfo();
-
-                    setEstateInfo(estate);
                     setResidentialInfo(estate);
-
-                    estateInfoIsDisabled();
                     residentialInfoIsDisabled();
-
-                    estateInfoIsVisible();
                     residentialInfoIsVisible();
 
                     plotSizeInfoBox.Text = ((Villa)estate).Plot.ToString();
@@ -456,15 +448,8 @@ namespace RealEstateAssignment
                     break;
                 case "Rowhouse":
 
-                    hideInfo();
-
-                    setEstateInfo(estate);
                     setResidentialInfo(estate);
-
-                    estateInfoIsDisabled();
                     residentialInfoIsDisabled();
-
-                    estateInfoIsVisible();
                     residentialInfoIsVisible();
 
                     plotSizeInfoBox.Text = ((Rowhouse)estate).Plot.ToString();
@@ -485,29 +470,15 @@ namespace RealEstateAssignment
 
                 case "Shop":
 
-                    hideInfo();
-
-                    setEstateInfo(estate);
                     setCommercialInfo(estate);
-
-                    estateInfoIsDisabled();
                     commercialInfoIsDisabled();
-
-                    estateInfoIsVisible();
                     commercialInfoIsVisible();
                     break;
 
                 case "Warehouse":
 
-                    hideInfo();
-
-                    setEstateInfo(estate);
                     setCommercialInfo(estate);
-
-                    estateInfoIsDisabled();
                     commercialInfoIsDisabled();
-
-                    estateInfoIsVisible();
                     commercialInfoIsVisible();
                     break;
 
