@@ -85,17 +85,28 @@
             this.chooseImageFile = new System.Windows.Forms.OpenFileDialog();
             this.errorText = new System.Windows.Forms.Label();
             this.lstEstates = new System.Windows.Forms.ListBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuSave = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuSaveAs = new System.Windows.Forms.ToolStripMenuItem();
+            this.xMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuXMLImport = new System.Windows.Forms.ToolStripMenuItem();
+            this.MnuXMLExport = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).BeginInit();
             this.AddressInfoGroup.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(562, 12);
+            this.groupBox1.Location = new System.Drawing.Point(562, 27);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(235, 426);
             this.groupBox1.TabIndex = 0;
@@ -135,7 +146,7 @@
             this.groupBox2.Controls.Add(this.type);
             this.groupBox2.Controls.Add(this.addButton);
             this.groupBox2.Controls.Add(this.groupBox4);
-            this.groupBox2.Location = new System.Drawing.Point(12, 12);
+            this.groupBox2.Location = new System.Drawing.Point(12, 27);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(252, 426);
             this.groupBox2.TabIndex = 1;
@@ -478,7 +489,7 @@
             this.groupBox3.Controls.Add(this.AddressInfoGroup);
             this.groupBox3.Controls.Add(this.displayEstateText);
             this.groupBox3.Controls.Add(this.button3);
-            this.groupBox3.Location = new System.Drawing.Point(270, 12);
+            this.groupBox3.Location = new System.Drawing.Point(270, 27);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(527, 426);
             this.groupBox3.TabIndex = 3;
@@ -669,7 +680,7 @@
             // errorText
             // 
             this.errorText.AutoSize = true;
-            this.errorText.Location = new System.Drawing.Point(20, 435);
+            this.errorText.Location = new System.Drawing.Point(104, 456);
             this.errorText.Name = "errorText";
             this.errorText.Size = new System.Drawing.Size(32, 15);
             this.errorText.TabIndex = 30;
@@ -681,23 +692,103 @@
             // 
             this.lstEstates.FormattingEnabled = true;
             this.lstEstates.ItemHeight = 15;
-            this.lstEstates.Location = new System.Drawing.Point(803, 23);
+            this.lstEstates.Location = new System.Drawing.Point(815, 27);
             this.lstEstates.Name = "lstEstates";
-            this.lstEstates.Size = new System.Drawing.Size(301, 409);
+            this.lstEstates.Size = new System.Drawing.Size(301, 424);
             this.lstEstates.TabIndex = 31;
             this.lstEstates.Tag = "";
             this.lstEstates.SelectedIndexChanged += new System.EventHandler(this.lstEstates_SelectedIndexChanged);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1116, 24);
+            this.menuStrip1.TabIndex = 32;
+            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuNew,
+            this.mnuOpen,
+            this.mnuSave,
+            this.mnuSaveAs,
+            this.xMLToolStripMenuItem,
+            this.mnuExit});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
+            // 
+            // mnuNew
+            // 
+            this.mnuNew.Name = "mnuNew";
+            this.mnuNew.Size = new System.Drawing.Size(180, 22);
+            this.mnuNew.Text = "New";
+            this.mnuNew.Click += new System.EventHandler(this.mnuNew_Click);
+            // 
+            // mnuOpen
+            // 
+            this.mnuOpen.Name = "mnuOpen";
+            this.mnuOpen.Size = new System.Drawing.Size(180, 22);
+            this.mnuOpen.Text = "Open..";
+            // 
+            // mnuSave
+            // 
+            this.mnuSave.Name = "mnuSave";
+            this.mnuSave.Size = new System.Drawing.Size(180, 22);
+            this.mnuSave.Text = "Save..";
+            this.mnuSave.Click += new System.EventHandler(this.mnuSave_Click);
+            // 
+            // mnuSaveAs
+            // 
+            this.mnuSaveAs.Name = "mnuSaveAs";
+            this.mnuSaveAs.Size = new System.Drawing.Size(180, 22);
+            this.mnuSaveAs.Text = "Save as..";
+            // 
+            // xMLToolStripMenuItem
+            // 
+            this.xMLToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MnuXMLImport,
+            this.MnuXMLExport});
+            this.xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
+            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xMLToolStripMenuItem.Text = "XML";
+            // 
+            // MnuXMLImport
+            // 
+            this.MnuXMLImport.Name = "MnuXMLImport";
+            this.MnuXMLImport.Size = new System.Drawing.Size(185, 22);
+            this.MnuXMLImport.Text = "Import from XML file";
+            // 
+            // MnuXMLExport
+            // 
+            this.MnuXMLExport.Name = "MnuXMLExport";
+            this.MnuXMLExport.Size = new System.Drawing.Size(185, 22);
+            this.MnuXMLExport.Text = "Export from XML file";
+            // 
+            // mnuExit
+            // 
+            this.mnuExit.Name = "mnuExit";
+            this.mnuExit.Size = new System.Drawing.Size(180, 22);
+            this.mnuExit.Text = "Exit";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1116, 451);
+            this.ClientSize = new System.Drawing.Size(1116, 487);
             this.Controls.Add(this.lstEstates);
             this.Controls.Add(this.errorText);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.menuStrip1);
             this.Name = "Form1";
             this.Text = "Modern Real Estates by André Sturesson & Johannes Böök";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -710,6 +801,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).EndInit();
             this.AddressInfoGroup.ResumeLayout(false);
             this.AddressInfoGroup.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -774,5 +867,15 @@
         private TextBox roomInfoBox;
         private TextBox costInfoBox;
         private TextBox plotSizeInfoBox;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem mnuNew;
+        private ToolStripMenuItem mnuOpen;
+        private ToolStripMenuItem mnuSave;
+        private ToolStripMenuItem mnuSaveAs;
+        private ToolStripMenuItem xMLToolStripMenuItem;
+        private ToolStripMenuItem MnuXMLImport;
+        private ToolStripMenuItem MnuXMLExport;
+        private ToolStripMenuItem mnuExit;
     }
 }
