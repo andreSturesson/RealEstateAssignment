@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace RealEstateAssignment
 {
+    [Serializable]
     internal class Rowhouse : Villa
     {
         public Rowhouse()

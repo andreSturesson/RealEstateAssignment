@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace RealEstateAssignment
 {
+    [Serializable]
     internal class Shop : Commercial
     {
         public Shop()

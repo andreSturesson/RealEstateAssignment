@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace RealEstateAssignment
 {
+    [Serializable]
     class Apartment : Residential
     {
         private int apartmentNumber;

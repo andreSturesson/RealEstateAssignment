@@ -92,6 +92,8 @@
             this.MnuXMLImport = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuXMLExport = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.openBinary = new System.Windows.Forms.OpenFileDialog();
+            this.saveBinarySer = new System.Windows.Forms.SaveFileDialog();
             this.capacityInfoBox = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
@@ -633,7 +635,7 @@
             // chooseImageFile
             // 
             this.chooseImageFile.FileName = "openFileDialog1";
-            this.chooseImageFile.Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF";
+            this.chooseImageFile.Filter = "Images (*.JPG;*.PNG)|*.JPG;*.PNG;";
             this.chooseImageFile.Title = "Choose Image";
             this.chooseImageFile.FileOk += new System.ComponentModel.CancelEventHandler(this.chooseImageFile_FileOk);
             // 
@@ -697,6 +699,7 @@
             this.mnuOpen.Name = "mnuOpen";
             this.mnuOpen.Size = new System.Drawing.Size(118, 22);
             this.mnuOpen.Text = "Open..";
+            this.mnuOpen.Click += new System.EventHandler(this.mnuOpen_Click);
             // 
             // mnuSave
             // 
@@ -710,6 +713,7 @@
             this.mnuSaveAs.Name = "mnuSaveAs";
             this.mnuSaveAs.Size = new System.Drawing.Size(118, 22);
             this.mnuSaveAs.Text = "Save as..";
+            this.mnuSaveAs.Click += new System.EventHandler(this.mnuSaveAs_Click);
             // 
             // xMLToolStripMenuItem
             // 
@@ -738,6 +742,16 @@
             this.mnuExit.Size = new System.Drawing.Size(118, 22);
             this.mnuExit.Text = "Exit";
             // 
+            // openBinary
+            // 
+            this.openBinary.FileName = "openFileDialog1";
+            this.openBinary.Filter = "Bin (*.bin;)|*.bin;";
+            this.openBinary.FileOk += new System.ComponentModel.CancelEventHandler(this.openBinary_FileOk);
+            // 
+            // saveBinarySer
+            // 
+            this.saveBinarySer.Filter = "Bin (*.bin;)|*.bin;";
+            this.saveBinarySer.FileOk += new System.ComponentModel.CancelEventHandler(this.saveBinarySer_FileOk);
             // capacityInfoBox
             // 
             this.capacityInfoBox.Location = new System.Drawing.Point(48, 265);
@@ -844,6 +858,8 @@
         private ToolStripMenuItem MnuXMLImport;
         private ToolStripMenuItem MnuXMLExport;
         private ToolStripMenuItem mnuExit;
+        private OpenFileDialog openBinary;
+        private SaveFileDialog saveBinarySer;
         private TextBox capacityInfoBox;
     }
 }
