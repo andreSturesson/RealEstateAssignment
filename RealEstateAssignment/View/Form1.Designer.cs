@@ -64,16 +64,13 @@
             this.countryComboBox = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.apartmentNumberInfoBox = new System.Windows.Forms.TextBox();
             this.plotSizeInfoBox = new System.Windows.Forms.TextBox();
             this.costInfoBox = new System.Windows.Forms.TextBox();
             this.roomInfoBox = new System.Windows.Forms.TextBox();
             this.legalFormInfoComboBox = new System.Windows.Forms.ComboBox();
             this.garageInfoComboBox = new System.Windows.Forms.ComboBox();
             this.sizeInfoBox = new System.Windows.Forms.TextBox();
-            this.displayStreet = new System.Windows.Forms.Label();
-            this.displayZipcode = new System.Windows.Forms.Label();
-            this.displayCountry = new System.Windows.Forms.Label();
-            this.displayCity = new System.Windows.Forms.Label();
             this.imgBox = new System.Windows.Forms.PictureBox();
             this.displayseeEstate = new System.Windows.Forms.Label();
             this.AddressInfoGroup = new System.Windows.Forms.GroupBox();
@@ -81,10 +78,12 @@
             this.streetInfoBox = new System.Windows.Forms.TextBox();
             this.zipCodeInfoBox = new System.Windows.Forms.TextBox();
             this.cityInfoBox = new System.Windows.Forms.TextBox();
-            this.displayEstateText = new System.Windows.Forms.Label();
             this.chooseImageFile = new System.Windows.Forms.OpenFileDialog();
             this.errorText = new System.Windows.Forms.Label();
             this.lstEstates = new System.Windows.Forms.ListBox();
+
+            this.shelvesInfoBox = new System.Windows.Forms.TextBox();
+
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuNew = new System.Windows.Forms.ToolStripMenuItem();
@@ -95,6 +94,7 @@
             this.MnuXMLImport = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuXMLExport = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
+
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -474,20 +474,17 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.shelvesInfoBox);
+            this.groupBox3.Controls.Add(this.apartmentNumberInfoBox);
             this.groupBox3.Controls.Add(this.plotSizeInfoBox);
             this.groupBox3.Controls.Add(this.costInfoBox);
             this.groupBox3.Controls.Add(this.roomInfoBox);
             this.groupBox3.Controls.Add(this.legalFormInfoComboBox);
             this.groupBox3.Controls.Add(this.garageInfoComboBox);
             this.groupBox3.Controls.Add(this.sizeInfoBox);
-            this.groupBox3.Controls.Add(this.displayStreet);
-            this.groupBox3.Controls.Add(this.displayZipcode);
-            this.groupBox3.Controls.Add(this.displayCountry);
-            this.groupBox3.Controls.Add(this.displayCity);
             this.groupBox3.Controls.Add(this.imgBox);
             this.groupBox3.Controls.Add(this.displayseeEstate);
             this.groupBox3.Controls.Add(this.AddressInfoGroup);
-            this.groupBox3.Controls.Add(this.displayEstateText);
             this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Location = new System.Drawing.Point(270, 27);
             this.groupBox3.Name = "groupBox3";
@@ -496,6 +493,14 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Estate Information";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // apartmentNumberInfoBox
+            // 
+            this.apartmentNumberInfoBox.Location = new System.Drawing.Point(48, 207);
+            this.apartmentNumberInfoBox.Name = "apartmentNumberInfoBox";
+            this.apartmentNumberInfoBox.Size = new System.Drawing.Size(100, 23);
+            this.apartmentNumberInfoBox.TabIndex = 40;
+            this.apartmentNumberInfoBox.Visible = false;
             // 
             // plotSizeInfoBox
             // 
@@ -549,53 +554,12 @@
             this.sizeInfoBox.Visible = false;
             this.sizeInfoBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged_2);
             // 
-            // displayStreet
-            // 
-            this.displayStreet.AutoSize = true;
-            this.displayStreet.Location = new System.Drawing.Point(360, 351);
-            this.displayStreet.Name = "displayStreet";
-            this.displayStreet.Size = new System.Drawing.Size(44, 15);
-            this.displayStreet.TabIndex = 13;
-            this.displayStreet.Text = "label10";
-            // 
-            // displayZipcode
-            // 
-            this.displayZipcode.AutoSize = true;
-            this.displayZipcode.Location = new System.Drawing.Point(428, 346);
-            this.displayZipcode.Name = "displayZipcode";
-            this.displayZipcode.Size = new System.Drawing.Size(44, 15);
-            this.displayZipcode.TabIndex = 12;
-            this.displayZipcode.Text = "label10";
-            this.displayZipcode.Visible = false;
-            // 
-            // displayCountry
-            // 
-            this.displayCountry.AutoSize = true;
-            this.displayCountry.Location = new System.Drawing.Point(360, 313);
-            this.displayCountry.Name = "displayCountry";
-            this.displayCountry.Size = new System.Drawing.Size(14, 15);
-            this.displayCountry.TabIndex = 11;
-            this.displayCountry.Text = "d";
-            this.displayCountry.Visible = false;
-            this.displayCountry.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // displayCity
-            // 
-            this.displayCity.AutoSize = true;
-            this.displayCity.Location = new System.Drawing.Point(393, 313);
-            this.displayCity.Name = "displayCity";
-            this.displayCity.Size = new System.Drawing.Size(38, 15);
-            this.displayCity.TabIndex = 10;
-            this.displayCity.Text = "label8";
-            this.displayCity.Visible = false;
-            this.displayCity.Click += new System.EventHandler(this.label8_Click);
-            // 
             // imgBox
             // 
             this.imgBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.imgBox.Location = new System.Drawing.Point(46, 235);
+            this.imgBox.Location = new System.Drawing.Point(417, 235);
             this.imgBox.Name = "imgBox";
             this.imgBox.Size = new System.Drawing.Size(102, 148);
             this.imgBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -607,7 +571,7 @@
             // 
             this.displayseeEstate.AutoSize = true;
             this.displayseeEstate.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.displayseeEstate.Location = new System.Drawing.Point(46, 207);
+            this.displayseeEstate.Location = new System.Drawing.Point(6, 338);
             this.displayseeEstate.Name = "displayseeEstate";
             this.displayseeEstate.Size = new System.Drawing.Size(413, 25);
             this.displayseeEstate.TabIndex = 14;
@@ -622,7 +586,7 @@
             this.AddressInfoGroup.Controls.Add(this.cityInfoBox);
             this.AddressInfoGroup.Location = new System.Drawing.Point(292, 11);
             this.AddressInfoGroup.Name = "AddressInfoGroup";
-            this.AddressInfoGroup.Size = new System.Drawing.Size(227, 196);
+            this.AddressInfoGroup.Size = new System.Drawing.Size(227, 155);
             this.AddressInfoGroup.TabIndex = 13;
             this.AddressInfoGroup.TabStop = false;
             this.AddressInfoGroup.Text = "Adress of estate";
@@ -659,17 +623,6 @@
             this.cityInfoBox.Size = new System.Drawing.Size(100, 23);
             this.cityInfoBox.TabIndex = 1;
             // 
-            // displayEstateText
-            // 
-            this.displayEstateText.AutoSize = true;
-            this.displayEstateText.Location = new System.Drawing.Point(147, 238);
-            this.displayEstateText.Name = "displayEstateText";
-            this.displayEstateText.Size = new System.Drawing.Size(38, 30);
-            this.displayEstateText.TabIndex = 4;
-            this.displayEstateText.Text = "label2\r\nfd\r\n";
-            this.displayEstateText.Visible = false;
-            this.displayEstateText.Click += new System.EventHandler(this.label2_Click_2);
-            // 
             // chooseImageFile
             // 
             this.chooseImageFile.FileName = "openFileDialog1";
@@ -699,6 +652,15 @@
             this.lstEstates.Tag = "";
             this.lstEstates.SelectedIndexChanged += new System.EventHandler(this.lstEstates_SelectedIndexChanged);
             // 
+
+            // shelvesInfoBox
+            // 
+            this.shelvesInfoBox.Location = new System.Drawing.Point(48, 236);
+            this.shelvesInfoBox.Name = "shelvesInfoBox";
+            this.shelvesInfoBox.Size = new System.Drawing.Size(100, 23);
+            this.shelvesInfoBox.TabIndex = 41;
+            this.shelvesInfoBox.Visible = false;
+
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -777,6 +739,7 @@
             this.mnuExit.Name = "mnuExit";
             this.mnuExit.Size = new System.Drawing.Size(180, 22);
             this.mnuExit.Text = "Exit";
+
             // 
             // Form1
             // 
@@ -848,13 +811,8 @@
         private Label errorText;
         private TextBox apartmentNumberTextBox;
         private Label apartmentNumberLabel;
-        private Label displayZipcode;
-        private Label displayCountry;
-        private Label displayCity;
-        private Label displayEstateText;
         private GroupBox AddressInfoGroup;
         private Label displayseeEstate;
-        private Label displayStreet;
         private PictureBox imgBox;
         private ListBox lstEstates;
         private ComboBox countryInfoComboBox;
@@ -867,6 +825,10 @@
         private TextBox roomInfoBox;
         private TextBox costInfoBox;
         private TextBox plotSizeInfoBox;
+
+        private TextBox apartmentNumberInfoBox;
+        private TextBox shelvesInfoBox;
+
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem mnuNew;
@@ -877,5 +839,6 @@
         private ToolStripMenuItem MnuXMLImport;
         private ToolStripMenuItem MnuXMLExport;
         private ToolStripMenuItem mnuExit;
+
     }
 }
