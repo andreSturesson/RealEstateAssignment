@@ -64,6 +64,7 @@
             this.countryComboBox = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.shelvesInfoBox = new System.Windows.Forms.TextBox();
             this.apartmentNumberInfoBox = new System.Windows.Forms.TextBox();
             this.plotSizeInfoBox = new System.Windows.Forms.TextBox();
             this.costInfoBox = new System.Windows.Forms.TextBox();
@@ -81,9 +82,6 @@
             this.chooseImageFile = new System.Windows.Forms.OpenFileDialog();
             this.errorText = new System.Windows.Forms.Label();
             this.lstEstates = new System.Windows.Forms.ListBox();
-
-            this.shelvesInfoBox = new System.Windows.Forms.TextBox();
-
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuNew = new System.Windows.Forms.ToolStripMenuItem();
@@ -94,7 +92,8 @@
             this.MnuXMLImport = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuXMLExport = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
-
+            this.openBinary = new System.Windows.Forms.OpenFileDialog();
+            this.saveBinarySer = new System.Windows.Forms.SaveFileDialog();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -494,6 +493,14 @@
             this.groupBox3.Text = "Estate Information";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
+            // shelvesInfoBox
+            // 
+            this.shelvesInfoBox.Location = new System.Drawing.Point(48, 236);
+            this.shelvesInfoBox.Name = "shelvesInfoBox";
+            this.shelvesInfoBox.Size = new System.Drawing.Size(100, 23);
+            this.shelvesInfoBox.TabIndex = 41;
+            this.shelvesInfoBox.Visible = false;
+            // 
             // apartmentNumberInfoBox
             // 
             this.apartmentNumberInfoBox.Location = new System.Drawing.Point(48, 207);
@@ -626,7 +633,7 @@
             // chooseImageFile
             // 
             this.chooseImageFile.FileName = "openFileDialog1";
-            this.chooseImageFile.Filter = "Images (*.BMP;*.JPG;*.GIF,*.PNG,*.TIFF)|*.BMP;*.JPG;*.GIF;*.PNG;*.TIFF";
+            this.chooseImageFile.Filter = "Images (*.JPG;*.PNG)|*.JPG;*.PNG;";
             this.chooseImageFile.Title = "Choose Image";
             this.chooseImageFile.FileOk += new System.ComponentModel.CancelEventHandler(this.chooseImageFile_FileOk);
             // 
@@ -652,15 +659,6 @@
             this.lstEstates.Tag = "";
             this.lstEstates.SelectedIndexChanged += new System.EventHandler(this.lstEstates_SelectedIndexChanged);
             // 
-
-            // shelvesInfoBox
-            // 
-            this.shelvesInfoBox.Location = new System.Drawing.Point(48, 236);
-            this.shelvesInfoBox.Name = "shelvesInfoBox";
-            this.shelvesInfoBox.Size = new System.Drawing.Size(100, 23);
-            this.shelvesInfoBox.TabIndex = 41;
-            this.shelvesInfoBox.Visible = false;
-
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -690,20 +688,21 @@
             // mnuNew
             // 
             this.mnuNew.Name = "mnuNew";
-            this.mnuNew.Size = new System.Drawing.Size(180, 22);
+            this.mnuNew.Size = new System.Drawing.Size(118, 22);
             this.mnuNew.Text = "New";
             this.mnuNew.Click += new System.EventHandler(this.mnuNew_Click);
             // 
             // mnuOpen
             // 
             this.mnuOpen.Name = "mnuOpen";
-            this.mnuOpen.Size = new System.Drawing.Size(180, 22);
+            this.mnuOpen.Size = new System.Drawing.Size(118, 22);
             this.mnuOpen.Text = "Open..";
+            this.mnuOpen.Click += new System.EventHandler(this.mnuOpen_Click);
             // 
             // mnuSave
             // 
             this.mnuSave.Name = "mnuSave";
-            this.mnuSave.Size = new System.Drawing.Size(180, 22);
+            this.mnuSave.Size = new System.Drawing.Size(118, 22);
             this.mnuSave.Text = "Save..";
             this.mnuSave.Click += new System.EventHandler(this.mnuSave_Click);
             // 
@@ -712,6 +711,7 @@
             this.mnuSaveAs.Name = "mnuSaveAs";
             this.mnuSaveAs.Size = new System.Drawing.Size(180, 22);
             this.mnuSaveAs.Text = "Save as..";
+            this.mnuSaveAs.Click += new System.EventHandler(this.mnuSaveAs_Click);
             // 
             // xMLToolStripMenuItem
             // 
@@ -719,7 +719,7 @@
             this.MnuXMLImport,
             this.MnuXMLExport});
             this.xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
-            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.xMLToolStripMenuItem.Text = "XML";
             // 
             // MnuXMLImport
@@ -737,9 +737,19 @@
             // mnuExit
             // 
             this.mnuExit.Name = "mnuExit";
-            this.mnuExit.Size = new System.Drawing.Size(180, 22);
+            this.mnuExit.Size = new System.Drawing.Size(118, 22);
             this.mnuExit.Text = "Exit";
-
+            // 
+            // openBinary
+            // 
+            this.openBinary.FileName = "openFileDialog1";
+            this.openBinary.Filter = "Bin (*.bin;)|*.bin;";
+            this.openBinary.FileOk += new System.ComponentModel.CancelEventHandler(this.openBinary_FileOk);
+            // 
+            // saveBinarySer
+            // 
+            this.saveBinarySer.Filter = "Bin (*.bin;)|*.bin;";
+            this.saveBinarySer.FileOk += new System.ComponentModel.CancelEventHandler(this.saveBinarySer_FileOk);
             // 
             // Form1
             // 
@@ -839,6 +849,7 @@
         private ToolStripMenuItem MnuXMLImport;
         private ToolStripMenuItem MnuXMLExport;
         private ToolStripMenuItem mnuExit;
-
+        private OpenFileDialog openBinary;
+        private SaveFileDialog saveBinarySer;
     }
 }

@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic.ApplicationServices;
 using RealEstateAssignment.Controller;
 using System.Diagnostics;
 using System.Drawing.Text;
@@ -827,7 +828,29 @@ namespace RealEstateAssignment
 
         private void mnuSave_Click(object sender, EventArgs e)
         {
+            lstManager.BinarySerialize("C:/Users/multi/source/repos/RealEstateAssignment/Data.bin");
+        }
 
+        private void mnuOpen_Click(object sender, EventArgs e)
+        {
+            openBinary.ShowDialog();
+        }
+
+        private void openBinary_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            lstManager.BinaryDeSerialize(openBinary.FileName);
+            displayseeEstate.Visible = false;
+            updateGUI();
+        }
+
+        private void saveBinarySer_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            lstManager.BinarySerialize(saveBinarySer.FileName);
+        }
+
+        private void mnuSaveAs_Click(object sender, EventArgs e)
+        {
+            saveBinarySer.ShowDialog();
         }
     }
     }

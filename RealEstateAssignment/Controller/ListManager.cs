@@ -8,6 +8,9 @@ using System.Runtime.Serialization;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.IO.Pipes;
+using System.Collections;
 
 namespace RealEstateAssignment.Controller
 {
@@ -32,13 +35,46 @@ namespace RealEstateAssignment.Controller
 
         public bool BinaryDeSerialize(string fileName)
         {
-            throw new NotImplementedException();
+            FileStream fs = new FileStream(fileName, FileMode.Open);
+            try
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+
+                estates = (Dictionary<String,Estate>)formatter.Deserialize(fs);
+            }
+            catch (SerializationException e)
+            {
+                Console.WriteLine("Failed to deserialize. Reason: " + e.Message);
+                return false;
+                throw;
+            }
+            finally
+            {
+                fs.Close();
+            }
+            return true;
         }
 
         public bool BinarySerialize(string fileName)
         {
-            throw new NotImplementedException();
+            FileStream fs = new FileStream(fileName, FileMode.Create);
+            BinaryFormatter formatter = new BinaryFormatter();
+            try
+            {
+                formatter.Serialize(fs, graph: estates);
+            }
+            catch (SerializationException e)
+            {
+                Console.WriteLine("Failed to serialize. Reason: " + e.Message);
+                throw;
+            }
+            finally
+            {
+                fs.Close();
+            }
+            return true;
         }
+
 
         public bool ChangeAt(Estate aType, String id)
         {

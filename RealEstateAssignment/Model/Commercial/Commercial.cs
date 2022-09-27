@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace RealEstateAssignment
 {
+    [Serializable]
     abstract class Commercial : Estate
     {
         private int shelves;

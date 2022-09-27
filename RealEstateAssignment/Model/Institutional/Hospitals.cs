@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace RealEstateAssignment
 
 {
+    [Serializable]
     internal class Hospitals : Institutional
     {
         public Hospitals()

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace RealEstateAssignment
 {
+    [Serializable]
     abstract class Residential : Estate
     {
         private int rooms;

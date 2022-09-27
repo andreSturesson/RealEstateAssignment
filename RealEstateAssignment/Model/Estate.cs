@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace RealEstateAssignment
 {
-     abstract class Estate : IEstate
+    [Serializable]
+    abstract class Estate : IEstate
     {
         private String id;
         private Address address;

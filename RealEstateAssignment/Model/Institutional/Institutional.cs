@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace RealEstateAssignment
 {
+    [Serializable]
     abstract class Institutional : Estate
     {
         private int capacity;

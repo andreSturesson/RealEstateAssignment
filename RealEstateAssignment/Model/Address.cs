@@ -7,6 +7,7 @@ using static Enums;
 
 namespace RealEstateAssignment
 {
+    [Serializable]
     public class Address
     {
         private string street;
