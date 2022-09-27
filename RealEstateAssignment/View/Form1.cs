@@ -316,6 +316,8 @@ namespace RealEstateAssignment
                             break;
                         case "Rowhouse":
                             estate = new Rowhouse();
+                            newEstate();
+                            newResidential();
                             if (garageComboBox.SelectedItem.ToString() == "Yes")
                             {
                                 ((Rowhouse)estate).Garage = true;
@@ -324,6 +326,7 @@ namespace RealEstateAssignment
                             {
                                 ((Rowhouse)estate).Garage = false;
                             }
+                            ((Rowhouse)estate).Plot = plotSizeText.Text;
                             showInfo(estate);
                             break;
                         case "University":
