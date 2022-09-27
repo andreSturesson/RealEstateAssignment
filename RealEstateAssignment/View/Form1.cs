@@ -32,11 +32,6 @@ namespace RealEstateAssignment
         private void button3_Click(object sender, EventArgs e)
         {
             AddressInfoGroup.Visible = false;
-            displayCountry.Visible = false;
-            displayCity.Visible = false;
-            displayStreet.Visible = false;
-            displayZipcode.Visible = false;
-            displayEstateText.Visible = false;
             displayseeEstate.Visible = true;
             errorText.Text = "";
             addButton.Visible = true;
@@ -70,7 +65,7 @@ namespace RealEstateAssignment
                         garage = false;
                     }
                     estate.Change(new Villa(adress, plotSizeText.Text, garage, Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text));
-                    showVilla();
+                    showInfo(estate);
                     break;
                 case "Rowhouse":
                     displayseeEstate.Visible = false;
@@ -84,31 +79,31 @@ namespace RealEstateAssignment
                         ga = false;
                     }
                     estate.Change(new Rowhouse(adress, plotSizeText.Text, ga, Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text));
-                    showRowHouse();
+                    showInfo(estate);
                     break;
                 case "Apartment":
                     estate.Change(new Apartment(adress, Int32.Parse(apartmentNumberTextBox.Text), Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text));
-                    showApartment();
+                    showInfo(estate);
                     break;
                 case "University":
                     estate.Change(new University(adress, Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text)));
-                    showUniversity();
+                    showInfo(estate);
                     break;
                 case "Schools":
                     estate.Change(new Shop(adress, Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text)));
-                    showSchool();
+                    showInfo(estate);
                     break;
                 case "Hospitals":
                     estate.Change(new Hospitals(adress, Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text)));
-                    showHospital();
+                    showInfo(estate);
                     break;
                 case "Warehouse":
                     estate.Change(new Warehouse(adress, Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text)));
-                    showWarehouse();
+                    showInfo(estate);
                     break;
                 case "Shop":
                     estate.Change(new Shop(adress, Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text)));
-                    showShop();
+                    showInfo(estate);
                     break;
                 default:
                     break;
@@ -285,7 +280,7 @@ namespace RealEstateAssignment
                                 newEstate();
                                 newResidential();
                                 ((Apartment)estate).ApartmentNumber = Int32.Parse(apartmentNumberTextBox.Text);
-                                showApartment();
+                                showInfo(estate);
                             }
                             else
                             {
@@ -305,19 +300,19 @@ namespace RealEstateAssignment
                                 ((Villa)estate).Garage = false;
                             }
                             ((Villa)estate).Plot = plotSizeText.Text;
-                            showVilla();
+                            showInfo(estate);
                             break;
                         case "Shop":
                             estate = new Shop();
                             newEstate();
                             newCommercial();
-                            showShop();
+                            showInfo(estate);
                             break;
                         case "Warehouse":
                             estate = new Warehouse();
                             newEstate();
                             newCommercial();
-                            showWarehouse();
+                            showInfo(estate);
                             break;
                         case "Rowhouse":
                             estate = new Rowhouse();
@@ -329,25 +324,25 @@ namespace RealEstateAssignment
                             {
                                 ((Rowhouse)estate).Garage = false;
                             }
-                            showRowHouse();
+                            showInfo(estate);
                             break;
                         case "University":
                             estate = new University();
                             newEstate();
                             newInstitutional();
-                            showUniversity();
+                            showInfo(estate);
                             break;
                         case "School":
                             estate = new Schools();
                             newEstate();
                             newInstitutional();
-                            showSchool();
+                            showInfo(estate);
                             break;
                         case "Hospital":
                             estate = new Hospitals();
                             newEstate();
                             newInstitutional();
-                            showHospital();
+                            showInfo(estate);
                             break;
                         default:
                             break;
@@ -406,166 +401,146 @@ namespace RealEstateAssignment
             ((Commercial)estate).Shelves = Int32.Parse(plotSizeText.Text);
         }
 
-        private void showAdress()
+     
+
+        private void showInfo(Estate estate)
         {
-            AddressInfoGroup.Visible = true;
-            displayCountry.Visible = true;
-            displayCity.Visible = true;
-            displayStreet.Visible = true;
-            displayZipcode.Visible = true;
-            displayCountry.Text = "Country: " + estate.Address.Country;
-            displayCity.Text = "City: " + estate.Address.City;
-            displayZipcode.Text = "Zip code: " +estate.Address.ZipCode.ToString();
-            displayStreet.Text = "Street: " + estate.Address.Street;
+
+            switch (estate.getObjectType())
+            {
+                case "Apartment":
+
+                    hideInfo();
+
+                    setEstateInfo(estate);
+                    setResidentialInfo(estate);
+
+                    estateInfoIsDisabled();
+                    residentialInfoIsDisabled();
+
+                    estateInfoIsVisible();
+                    residentialInfoIsVisible();
+
+                    apartmentNumberInfoBox.Text = ((Apartment)estate).ApartmentNumber.ToString();
+                    apartmentNumberInfoBox.Enabled = false;
+                    apartmentNumberInfoBox.Visible = true;
+                    break;
+
+                case "Villa":
+
+                    hideInfo();
+
+                    setEstateInfo(estate);
+                    setResidentialInfo(estate);
+
+                    estateInfoIsDisabled();
+                    residentialInfoIsDisabled();
+
+                    estateInfoIsVisible();
+                    residentialInfoIsVisible();
+
+                    plotSizeInfoBox.Text = ((Villa)estate).Plot.ToString();
+                    plotSizeInfoBox.Enabled = false;
+                    plotSizeInfoBox.Visible = true;
+
+                    if (((Villa)estate).Garage)
+                    {
+                        garageInfoComboBox.SelectedItem = hasGarage.Yes;
+                    }
+                    else
+                    {
+                        garageInfoComboBox.SelectedItem = hasGarage.No;
+                    }
+                    garageInfoComboBox.Enabled = false;
+                    garageInfoComboBox.Visible = true;
+                    break;
+                case "Rowhouse":
+
+                    hideInfo();
+
+                    setEstateInfo(estate);
+                    setResidentialInfo(estate);
+
+                    estateInfoIsDisabled();
+                    residentialInfoIsDisabled();
+
+                    estateInfoIsVisible();
+                    residentialInfoIsVisible();
+
+                    plotSizeInfoBox.Text = ((Rowhouse)estate).Plot.ToString();
+                    plotSizeInfoBox.Enabled = false;
+                    plotSizeInfoBox.Visible = true;
+
+                    if (((Villa)estate).Garage)
+                    {
+                        garageInfoComboBox.SelectedItem = hasGarage.Yes;
+                    }
+                    else
+                    {
+                        garageInfoComboBox.SelectedItem = hasGarage.No;
+                    }
+                    garageInfoComboBox.Enabled = false;
+                    garageInfoComboBox.Visible = true;
+                    break;
+
+                case "Shop":
+
+                    hideInfo();
+
+                    setEstateInfo(estate);
+                    setCommercialInfo(estate);
+
+                    estateInfoIsDisabled();
+                    commercialInfoIsDisabled();
+
+                    estateInfoIsVisible();
+                    commercialInfoIsVisible();
+                    break;
+
+                case "Warehouse":
+
+                    hideInfo();
+
+                    setEstateInfo(estate);
+                    setCommercialInfo(estate);
+
+                    estateInfoIsDisabled();
+                    commercialInfoIsDisabled();
+
+                    estateInfoIsVisible();
+                    commercialInfoIsVisible();
+                    break;
+
+                case "University":
+                    
+                    break;
+
+                case "School":
+                    
+                    break;
+
+                case "Hospital":
+                    
+                    break;
+
+                default:
+                    break;
+            }
         }
 
-        private void showApartment()
-        {
-            String ty;
-            LegalForm le = estate.LegalForm;
-            if (((Apartment)estate).LegalForm.getType() == "Ownership")
-            {
-                ty = "Estate finance: Owned" + "\r\n" + "Property is valued: " + ((Ownership)le).Value.ToString() + "$";
-            }
-            else
-            {
-                ty = "Estate finance - Rental" + "\r\n" + "Rent: " + ((Rental)le).Rent.ToString() + "$ per month";
-            }
-            displayEstateText.Text = "Size: " + ((Apartment)estate).Size.ToString() + "\r\n" + "Apartment Number: " + 
-                ((Apartment)estate).ApartmentNumber + "\r\n" + "Number of rooms: " + ((Apartment)estate).Rooms.ToString() + "\r\n" + ty;
-            displayEstateText.Visible = true;
-            imgBox.Image = Image.FromFile(((Apartment)estate).Img);
-            showAdress();
-        }
-
-        private void showVilla()
-        {
-            setEstateInfo();
-            setResidentialInfo();
-
-            estateInfoIsDisabled();
-            residentialInfoIsDisabled();
-
-            estateInfoIsVisible();
-            residentialInfoIsVisible();
-
-            plotSizeInfoBox.Text = ((Villa)estate).Plot.ToString();
-            plotSizeInfoBox.Enabled = false;
-            plotSizeInfoBox.Visible = true;
-
-            if (((Villa)estate).Garage)
-            {
-                garageInfoComboBox.SelectedItem = hasGarage.Yes;
-            }
-            else
-            {
-                garageInfoComboBox.SelectedItem = hasGarage.No;
-            }
-            garageInfoComboBox.Enabled = false;
-            garageInfoComboBox.Visible = true;
-        }
-
-        private void showRowHouse()
-        {
-            String ty;
-            LegalForm le = estate.LegalForm;
-            if (((Rowhouse)estate).LegalForm.getType() == "Ownership")
-            {
-                ty = "Estate finance: Owned" + "\r\n" + "Property is valued: " + ((Ownership)le).Value.ToString() + "$";
-            }
-            else
-            {
-                ty = "Estate finance - Rental" + "\r\n" + "Rent: " + ((Rental)le).Rent.ToString() + "$ per month";
-            }
-            displayEstateText.Visible = true;
-            string hasGarage;
-            if (((Rowhouse)estate).Garage == true)
-            {
-                hasGarage = "Yes";
-            }
-            else
-            {
-                hasGarage = "No";
-            }
-            displayEstateText.Text = "Size: " + ((Rowhouse)estate).Size + "\r\n" + "Total land size: " + ((Rowhouse)estate).Plot + "\r\n" + "Number of rooms: " + ((Rowhouse)estate).Rooms + "\r\n" + "Garage: " + hasGarage + "\r\n" + ty;
-            showAdress();
-            imgBox.Image = Image.FromFile(((Rowhouse)estate).Img);
-
-        }
-
-        private void showShop()
-        {
-            String ty;
-            LegalForm le = estate.LegalForm;
-            if (((Shop)estate).LegalForm.getType() == "Ownership")
-            {
-                ty = "Estate finance: Owned" + "\r\n" + "Property is valued: " + ((Ownership)le).Value.ToString() + "$";
-            }
-            else
-            {
-                ty = "Estate finance - Rental" + "\r\n" + "Rent: " + ((Rental)le).Rent.ToString() + "$ per month";
-            }
-            displayEstateText.Visible = true;
-            displayEstateText.Text = "Size: " + ((Shop)estate).Size + "\r\n" + "Shelves: " + ((Shop)estate).Shelves + "\r\n" + ty;
-            showAdress();
-            imgBox.Image = Image.FromFile(((Shop)estate).Img);
-        }
-        private void showWarehouse()
-        {
-            String ty;
-            LegalForm le = estate.LegalForm;
-            if (((Warehouse)estate).LegalForm.getType() == "Ownership")
-            {
-                ty = "Estate finance: Owned" + "\r\n" + "Property is valued: " + ((Ownership)le).Value.ToString() + "$";
-            }
-            else
-            {
-                ty = "Estate finance - Rental" + "\r\n" + "Rent: " + ((Rental)le).Rent.ToString() + "$ per month";
-            }
-            displayEstateText.Visible = true;
-            displayEstateText.Text = "Size: " + ((Warehouse)estate).Size + "\r\n" + "Shelves: " + ((Warehouse)estate).Shelves + "\r\n" + ty;
-            showAdress();
-            imgBox.Image = Image.FromFile(((Warehouse)estate).Img);
-        }
-
+        
+      
         private void showUniversity()
         {
-            String ty;
-            LegalForm le = estate.LegalForm;
-            if (((University)estate).LegalForm.getType() == "Ownership")
-            {
-                ty = "Estate finance: Owned" + "\r\n" + "Property is valued: " + ((Ownership)le).Value.ToString() + "$";
-            }
-            else
-            {
-                ty = "Estate finance - Rental" + "\r\n" + "Rent: " + ((Rental)le).Rent.ToString() + "$ per month";
-            }
-            displayEstateText.Visible = true;
-            displayEstateText.Text = "Size: " + ((University)estate).Size + "\r\n" + "Capacity: " + ((University)estate).Capacity + "\r\n" + ty;
-            showAdress();
-            imgBox.Image = Image.FromFile(((University)estate).Img);
+            
         }
         private void showSchool()
         {
-            String ty;
-            LegalForm le = estate.LegalForm;
-            if (((Schools)estate).LegalForm.getType() == "Ownership")
-            {
-                ty = "Estate finance: Owned" + "\r\n" + "Property is valued: " + ((Ownership)le).Value.ToString() + "$";
-            }
-            else
-            {
-                ty = "Estate finance - Rental" + "\r\n" + "Rent: " + ((Rental)le).Rent.ToString() + "$ per month";
-            }
-
-            displayEstateText.Visible = true;
-            displayEstateText.Text = "Size: " + ((Schools)estate).Size + "\r\n" + "Capacity: " + ((Schools)estate).Capacity + "\r\n" + ty;
-            showAdress();
-            imgBox.Image = Image.FromFile(((Schools)estate).Img);
+            
         }
         private void showHospital()
         {
-            String ty;
+            /**String ty;
             LegalForm le = estate.LegalForm;
             if (((Hospitals)estate).LegalForm.getType() == "Ownership")
             {
@@ -579,7 +554,21 @@ namespace RealEstateAssignment
             displayEstateText.Text = "Size: " + ((Hospitals)estate).Size + "\r\n" + 
                 "Capacity: " + ((Hospitals)estate).Capacity + "\r\n" + ty;
             showAdress();
-            imgBox.Image = Image.FromFile(((Hospitals)estate).Img);
+            imgBox.Image = Image.FromFile(((Hospitals)estate).Img);**/
+        }
+
+        private void hideInfo()
+        {
+            AddressInfoGroup.Visible = false;
+            sizeInfoBox.Visible = false;
+            legalFormInfoComboBox.Visible = false;
+            costInfoBox.Visible = false;
+            roomInfoBox.Visible = false;
+            apartmentNumberInfoBox.Visible = false;
+            plotSizeInfoBox.Visible = false;
+            garageInfoComboBox.Visible = false;
+            imgBox.Visible = false;
+            shelvesInfoBox.Visible = false;
         }
 
 
@@ -589,11 +578,17 @@ namespace RealEstateAssignment
             sizeInfoBox.Visible = true;
             legalFormInfoComboBox.Visible = true;
             costInfoBox.Visible = true;
+            imgBox.Visible = true;
         }
 
         private void residentialInfoIsVisible()
         {
             roomInfoBox.Visible = true;
+        }
+
+        private void commercialInfoIsVisible()
+        {
+            shelvesInfoBox.Visible = true;
         }
 
         private void estateInfoIsEnabled()
@@ -612,6 +607,11 @@ namespace RealEstateAssignment
             roomInfoBox.Enabled = true;
         }
 
+        private void commercialInfoIsEnabled()
+        {
+            shelvesInfoBox.Enabled = true;
+        }
+
         private void estateInfoIsDisabled()
         {
             countryInfoComboBox.Enabled = false;
@@ -628,8 +628,12 @@ namespace RealEstateAssignment
             roomInfoBox.Enabled = false;
         }
 
+        private void commercialInfoIsDisabled()
+        {
+            shelvesInfoBox.Enabled = false;
+        }
 
-        private void setEstateInfo()
+        private void setEstateInfo(Estate estate)
         {
             countryInfoComboBox.SelectedItem = estate.Address.Country;
             cityInfoBox.Text = estate.Address.City;
@@ -646,11 +650,17 @@ namespace RealEstateAssignment
                 legalFormInfoComboBox.SelectedItem = legalType.Rental;
                 costInfoBox.Text = ((Rental)estate.LegalForm).Rent.ToString();
             }
+            imgBox.Image = Image.FromFile(estate.Img);
         }
-         private void setResidentialInfo()
-         {
-            roomInfoBox.Text = ((Residential)estate).Rooms.ToString();
-         }
+        private void setResidentialInfo(Estate estate)
+        {
+           roomInfoBox.Text = ((Residential)estate).Rooms.ToString();
+        }
+
+        private void setCommercialInfo(Estate estate)
+        {
+            shelvesInfoBox.Text = ((Commercial)estate).Shelves.ToString();
+        }
 
         //Errortext
         private void errorText_Click(object sender, EventArgs e)
