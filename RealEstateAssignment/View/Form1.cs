@@ -796,5 +796,26 @@ namespace RealEstateAssignment
         {
 
         }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void mnuNew_Click(object sender, EventArgs e)
+        {
+            lstManager.DeleteAll();
+            updateGUI();
+        }
+
+        private void mnuSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     }
