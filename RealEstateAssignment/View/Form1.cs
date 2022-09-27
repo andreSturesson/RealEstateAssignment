@@ -348,8 +348,6 @@ namespace RealEstateAssignment
                             break;
 
                     }
-                    addButton.Visible = false;
-                    changeButton.Visible = true;
                 }
                 else
                 {
@@ -779,6 +777,7 @@ namespace RealEstateAssignment
         private void lstEstates_SelectedIndexChanged(object sender, EventArgs e)
         {
             String id = lstEstates.GetItemText(lstEstates.SelectedItem).ToString().Split(" ").Last();
+            showInfo(lstManager.GetAt(id));
 
         }
 
@@ -821,6 +820,9 @@ namespace RealEstateAssignment
         {
             lstManager.DeleteAll();
             updateGUI();
+            hideInfo();
+            displayseeEstate.Visible = true;
+
         }
 
         private void mnuSave_Click(object sender, EventArgs e)
