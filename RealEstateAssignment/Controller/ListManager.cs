@@ -2,6 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,18 +15,18 @@ namespace RealEstateAssignment.Controller
     //Will later contain a collection of estates
     class ListManager : IListManager<Estate> {
 
-        private List<Estate> estates;
+        private Dictionary<String, Estate> estates;
 
         public ListManager()
         {
-            estates = new List<Estate>();
+            estates = new Dictionary<String, Estate>();
         }
 
         public int Count => throw new NotImplementedException();
 
         public bool Add(Estate aType)
         {
-            estates.Add(aType);
+            estates.Add(aType.Id, aType);
             return true;
         }
 
@@ -37,31 +40,39 @@ namespace RealEstateAssignment.Controller
             throw new NotImplementedException();
         }
 
-        public bool ChangeAt(Estate aType, int anIndex)
+        public bool ChangeAt(Estate aType, String id)
         {
-            estates[anIndex].Change(aType);
+            estates[id].Change(aType);
             return true;
         }
 
-        public bool CheckIndex(int index)
+        public bool CheckId(String id)
         {
-            return index <= estates.Count;
+            return estates.TryGetValue(id, out _);
         }
 
         public void DeleteAll()
         {
-            estates = new List<Estate>();
+            estates = new Dictionary<String,Estate>();
         }
 
-        public bool DeleteAt(int anIndex)
+        public bool DeleteAt(String id)
         {
-            estates.RemoveAt(anIndex);
+            estates.Remove(id);
             return true;
         }
 
-        public Estate GetAt(int anIndex)
+        public Estate GetAt(String id)
         {
-            return estates[anIndex];
+            if (CheckId(id))
+            {
+                return estates[id];
+            }
+            else
+            {
+                //Throw error maybe ?
+                return null;
+            }
         }
 
         public string[] ToStringArray()
@@ -69,7 +80,7 @@ namespace RealEstateAssignment.Controller
             string[] strArray = new string[estates.Count];
             int i = 0;
 
-            foreach (Estate obj in this.estates)
+            foreach (Estate obj in this.estates.Values)
             {
                 strArray[i] += " " + obj.Address.Street;
                 strArray[i] += " " + obj.Address.City;
