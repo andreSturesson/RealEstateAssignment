@@ -812,7 +812,8 @@ namespace RealEstateAssignment
 
         private void mnuSave_Click(object sender, EventArgs e)
         {
-            lstManager.BinarySerialize("C:/Users/multi/source/repos/RealEstateAssignment/Data.bin");
+            lstManager.BinarySerialize(lstManager.Path);
+
         }
 
         private void mnuOpen_Click(object sender, EventArgs e)
@@ -825,11 +826,15 @@ namespace RealEstateAssignment
             lstManager.BinaryDeSerialize(openBinary.FileName);
             displayseeEstate.Visible = false;
             updateGUI();
+            lstManager.Path = openBinary.FileName;
+            mnuSave.Enabled = true;
         }
 
         private void saveBinarySer_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
             lstManager.BinarySerialize(saveBinarySer.FileName);
+            lstManager.Path = saveBinarySer.FileName;
+            mnuSave.Enabled = true;
         }
 
         private void mnuSaveAs_Click(object sender, EventArgs e)

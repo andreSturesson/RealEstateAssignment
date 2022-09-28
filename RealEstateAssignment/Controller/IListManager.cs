@@ -73,5 +73,6 @@ namespace RealEstateAssignment.Controller
         bool BinarySerialize(string fileName);
         bool BinaryDeSerialize(string fileName);
         bool XMLSerialize(string fileName);
+        bool Add(Estate aType);
     }
 }
