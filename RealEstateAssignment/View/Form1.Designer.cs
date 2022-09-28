@@ -95,6 +95,7 @@
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.openBinary = new System.Windows.Forms.OpenFileDialog();
             this.saveBinarySer = new System.Windows.Forms.SaveFileDialog();
+            this.changeBtn = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -474,6 +475,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.changeBtn);
             this.groupBox3.Controls.Add(this.capacityInfoBox);
             this.groupBox3.Controls.Add(this.shelvesInfoBox);
             this.groupBox3.Controls.Add(this.apartmentNumberInfoBox);
@@ -762,6 +764,16 @@
             this.saveBinarySer.Filter = "Bin (*.bin;)|*.bin;";
             this.saveBinarySer.FileOk += new System.ComponentModel.CancelEventHandler(this.saveBinarySer_FileOk);
             // 
+            // changeBtn
+            // 
+            this.changeBtn.Location = new System.Drawing.Point(334, 397);
+            this.changeBtn.Name = "changeBtn";
+            this.changeBtn.Size = new System.Drawing.Size(75, 23);
+            this.changeBtn.TabIndex = 43;
+            this.changeBtn.Text = "Save";
+            this.changeBtn.UseVisualStyleBackColor = true;
+            this.changeBtn.Click += new System.EventHandler(this.button1_Click_2);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -863,5 +875,6 @@
         private OpenFileDialog openBinary;
         private SaveFileDialog saveBinarySer;
         private TextBox capacityInfoBox;
+        private Button changeBtn;
     }
 }

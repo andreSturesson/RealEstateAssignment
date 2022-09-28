@@ -41,6 +41,20 @@ namespace RealEstateAssignment
         {
             return "Apartment";
         }
+        public override string toString()
+        {
+            String str = "";
 
+            str += " " + this.Address.Street;
+            str += " " + this.Address.City;
+            str += " " + this.apartmentNumber;
+            str += "                                             " +
+                "                                                        " +
+                "                                                        " +
+                "                                                        " +
+                "                                                        " +
+                this.Id.ToString();
+            return str;
+        }
     }
 }
