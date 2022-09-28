@@ -64,6 +64,7 @@
             this.countryComboBox = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.changeBtn = new System.Windows.Forms.Button();
             this.capacityInfoBox = new System.Windows.Forms.TextBox();
             this.shelvesInfoBox = new System.Windows.Forms.TextBox();
             this.apartmentNumberInfoBox = new System.Windows.Forms.TextBox();
@@ -95,7 +96,6 @@
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.openBinary = new System.Windows.Forms.OpenFileDialog();
             this.saveBinarySer = new System.Windows.Forms.SaveFileDialog();
-            this.changeBtn = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -497,6 +497,16 @@
             this.groupBox3.Text = "Estate Information";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
+            // changeBtn
+            // 
+            this.changeBtn.Location = new System.Drawing.Point(334, 397);
+            this.changeBtn.Name = "changeBtn";
+            this.changeBtn.Size = new System.Drawing.Size(75, 23);
+            this.changeBtn.TabIndex = 43;
+            this.changeBtn.Text = "Save";
+            this.changeBtn.UseVisualStyleBackColor = true;
+            this.changeBtn.Click += new System.EventHandler(this.button1_Click_2);
+            // 
             // capacityInfoBox
             // 
             this.capacityInfoBox.Location = new System.Drawing.Point(48, 265);
@@ -763,16 +773,6 @@
             // 
             this.saveBinarySer.Filter = "Bin (*.bin;)|*.bin;";
             this.saveBinarySer.FileOk += new System.ComponentModel.CancelEventHandler(this.saveBinarySer_FileOk);
-            // 
-            // changeBtn
-            // 
-            this.changeBtn.Location = new System.Drawing.Point(334, 397);
-            this.changeBtn.Name = "changeBtn";
-            this.changeBtn.Size = new System.Drawing.Size(75, 23);
-            this.changeBtn.TabIndex = 43;
-            this.changeBtn.Text = "Save";
-            this.changeBtn.UseVisualStyleBackColor = true;
-            this.changeBtn.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // Form1
             // 
