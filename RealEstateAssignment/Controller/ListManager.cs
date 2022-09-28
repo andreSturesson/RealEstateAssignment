@@ -19,6 +19,7 @@ namespace RealEstateAssignment.Controller
     class ListManager : IListManager<Estate> {
 
         private Dictionary<String, Estate> estates;
+        private String path;
 
         public ListManager()
         {
@@ -26,6 +27,8 @@ namespace RealEstateAssignment.Controller
         }
 
         public int Count => throw new NotImplementedException();
+
+        public string Path { get => path; set => path = value; }
 
         public bool Add(Estate aType)
         {

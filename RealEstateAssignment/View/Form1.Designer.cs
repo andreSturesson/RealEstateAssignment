@@ -64,6 +64,7 @@
             this.countryComboBox = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.capacityInfoBox = new System.Windows.Forms.TextBox();
             this.shelvesInfoBox = new System.Windows.Forms.TextBox();
             this.apartmentNumberInfoBox = new System.Windows.Forms.TextBox();
             this.plotSizeInfoBox = new System.Windows.Forms.TextBox();
@@ -94,7 +95,6 @@
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.openBinary = new System.Windows.Forms.OpenFileDialog();
             this.saveBinarySer = new System.Windows.Forms.SaveFileDialog();
-            this.capacityInfoBox = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -495,6 +495,14 @@
             this.groupBox3.Text = "Estate Information";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
+            // capacityInfoBox
+            // 
+            this.capacityInfoBox.Location = new System.Drawing.Point(48, 265);
+            this.capacityInfoBox.Name = "capacityInfoBox";
+            this.capacityInfoBox.Size = new System.Drawing.Size(100, 23);
+            this.capacityInfoBox.TabIndex = 42;
+            this.capacityInfoBox.Visible = false;
+            // 
             // shelvesInfoBox
             // 
             this.shelvesInfoBox.Location = new System.Drawing.Point(48, 236);
@@ -690,28 +698,29 @@
             // mnuNew
             // 
             this.mnuNew.Name = "mnuNew";
-            this.mnuNew.Size = new System.Drawing.Size(118, 22);
+            this.mnuNew.Size = new System.Drawing.Size(180, 22);
             this.mnuNew.Text = "New";
             this.mnuNew.Click += new System.EventHandler(this.mnuNew_Click);
             // 
             // mnuOpen
             // 
             this.mnuOpen.Name = "mnuOpen";
-            this.mnuOpen.Size = new System.Drawing.Size(118, 22);
+            this.mnuOpen.Size = new System.Drawing.Size(180, 22);
             this.mnuOpen.Text = "Open..";
             this.mnuOpen.Click += new System.EventHandler(this.mnuOpen_Click);
             // 
             // mnuSave
             // 
+            this.mnuSave.Enabled = false;
             this.mnuSave.Name = "mnuSave";
-            this.mnuSave.Size = new System.Drawing.Size(118, 22);
+            this.mnuSave.Size = new System.Drawing.Size(180, 22);
             this.mnuSave.Text = "Save..";
             this.mnuSave.Click += new System.EventHandler(this.mnuSave_Click);
             // 
             // mnuSaveAs
             // 
             this.mnuSaveAs.Name = "mnuSaveAs";
-            this.mnuSaveAs.Size = new System.Drawing.Size(118, 22);
+            this.mnuSaveAs.Size = new System.Drawing.Size(180, 22);
             this.mnuSaveAs.Text = "Save as..";
             this.mnuSaveAs.Click += new System.EventHandler(this.mnuSaveAs_Click);
             // 
@@ -721,7 +730,7 @@
             this.MnuXMLImport,
             this.MnuXMLExport});
             this.xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
-            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.xMLToolStripMenuItem.Text = "XML";
             // 
             // MnuXMLImport
@@ -739,7 +748,7 @@
             // mnuExit
             // 
             this.mnuExit.Name = "mnuExit";
-            this.mnuExit.Size = new System.Drawing.Size(118, 22);
+            this.mnuExit.Size = new System.Drawing.Size(180, 22);
             this.mnuExit.Text = "Exit";
             // 
             // openBinary
@@ -752,13 +761,6 @@
             // 
             this.saveBinarySer.Filter = "Bin (*.bin;)|*.bin;";
             this.saveBinarySer.FileOk += new System.ComponentModel.CancelEventHandler(this.saveBinarySer_FileOk);
-            // capacityInfoBox
-            // 
-            this.capacityInfoBox.Location = new System.Drawing.Point(48, 265);
-            this.capacityInfoBox.Name = "capacityInfoBox";
-            this.capacityInfoBox.Size = new System.Drawing.Size(100, 23);
-            this.capacityInfoBox.TabIndex = 42;
-            this.capacityInfoBox.Visible = false;
             // 
             // Form1
             // 
