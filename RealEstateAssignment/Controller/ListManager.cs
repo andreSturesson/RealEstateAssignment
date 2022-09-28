@@ -118,14 +118,7 @@ namespace RealEstateAssignment.Controller
 
             foreach (Estate obj in this.estates.Values)
             {
-                strArray[i] += " " + obj.Address.Street;
-                strArray[i] += " " + obj.Address.City;
-                strArray[i] += "                                             " +
-                    "                                                        " +
-                    "                                                        " +
-                    "                                                        " +
-                    "                                                        " +
-                    obj.Id.ToString();
+                strArray[i] = " " + obj.toString();
                 i += 1;
             }
             return strArray;
