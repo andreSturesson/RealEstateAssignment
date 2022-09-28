@@ -1,5 +1,6 @@
 using Microsoft.VisualBasic.ApplicationServices;
 using RealEstateAssignment.Controller;
+using RealEstateAssignment.Model;
 using System.Diagnostics;
 using System.Drawing.Text;
 using System.Windows.Forms;
@@ -10,7 +11,7 @@ namespace RealEstateAssignment
     public partial class Form1 : Form
     {
         private Estate estate;
-        private ListManager lstManager = new ListManager();
+        private EstateManager estates = new EstateManager();
         public Form1()
         {
             InitializeComponent();
@@ -26,18 +27,22 @@ namespace RealEstateAssignment
         public void updateGUI()
         {
             lstEstates.Items.Clear();
-            lstEstates.Items.AddRange(lstManager.ToStringArray());
+            lstEstates.Items.AddRange(estates.ToStringArray());
         }
 
         //Delete button to delete estate object..
         private void button3_Click(object sender, EventArgs e)
         {
-            AddressInfoGroup.Visible = false;
+            hideInfo();
+            String id = lstEstates.GetItemText(lstEstates.SelectedItem).ToString().Split(" ").Last();
+            estates.DeleteAt(id);
+            updateGUI();
+            /**AddressInfoGroup.Visible = false;
             displayseeEstate.Visible = true;
             errorText.Text = "";
             addButton.Visible = true;
             changeButton.Visible = false;
-            imgBox.Visible = false;
+            imgBox.Visible = false;**/
         }
 
         //Method for changing object
@@ -281,7 +286,6 @@ namespace RealEstateAssignment
                                 newEstate();
                                 newResidential();
                                 ((Apartment)estate).ApartmentNumber = Int32.Parse(apartmentNumberTextBox.Text);
-                                showInfo(estate);
                             }
                             else
                             {
@@ -301,19 +305,16 @@ namespace RealEstateAssignment
                                 ((Villa)estate).Garage = false;
                             }
                             ((Villa)estate).Plot = plotSizeText.Text;
-                            showInfo(estate);
                             break;
                         case "Shop":
                             estate = new Shop();
                             newEstate();
                             newCommercial();
-                            showInfo(estate);
                             break;
                         case "Warehouse":
                             estate = new Warehouse();
                             newEstate();
                             newCommercial();
-                            showInfo(estate);
                             break;
                         case "Rowhouse":
                             estate = new Rowhouse();
@@ -334,19 +335,16 @@ namespace RealEstateAssignment
                             estate = new University();
                             newEstate();
                             newInstitutional();
-                            showInfo(estate);
                             break;
                         case "School":
                             estate = new Schools();
                             newEstate();
                             newInstitutional();
-                            showInfo(estate);
                             break;
                         case "Hospital":
                             estate = new Hospitals();
                             newEstate();
                             newInstitutional();
-                            showInfo(estate);
                             break;
                         default:
                             break;
@@ -364,7 +362,7 @@ namespace RealEstateAssignment
                 errorText.Visible = true;
                 errorText.Text = "ERROR - Some value is empty or incorrect " + er;
             }
-            lstManager.Add(estate);
+            estates.Add(estate);
             updateGUI();
         }
 
@@ -762,7 +760,7 @@ namespace RealEstateAssignment
         private void lstEstates_SelectedIndexChanged(object sender, EventArgs e)
         {
             String id = lstEstates.GetItemText(lstEstates.SelectedItem).ToString().Split(" ").Last();
-            showInfo(lstManager.GetAt(id));
+            showInfo(estates.GetAt(id));
 
         }
 
@@ -803,7 +801,7 @@ namespace RealEstateAssignment
 
         private void mnuNew_Click(object sender, EventArgs e)
         {
-            lstManager.DeleteAll();
+            estates.DeleteAll();
             updateGUI();
             hideInfo();
             displayseeEstate.Visible = true;
@@ -812,7 +810,7 @@ namespace RealEstateAssignment
 
         private void mnuSave_Click(object sender, EventArgs e)
         {
-            lstManager.BinarySerialize("C:/Users/multi/source/repos/RealEstateAssignment/Data.bin");
+            estates.BinarySerialize("C:/Users/multi/source/repos/RealEstateAssignment/Data.bin");
         }
 
         private void mnuOpen_Click(object sender, EventArgs e)
@@ -822,14 +820,14 @@ namespace RealEstateAssignment
 
         private void openBinary_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            lstManager.BinaryDeSerialize(openBinary.FileName);
+            estates.BinaryDeSerialize(openBinary.FileName);
             displayseeEstate.Visible = false;
             updateGUI();
         }
 
         private void saveBinarySer_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            lstManager.BinarySerialize(saveBinarySer.FileName);
+            estates.BinarySerialize(saveBinarySer.FileName);
         }
 
         private void mnuSaveAs_Click(object sender, EventArgs e)
