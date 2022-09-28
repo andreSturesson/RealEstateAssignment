@@ -59,8 +59,22 @@ namespace RealEstateAssignment
 
         public abstract string getObjectType();
 
-
         public abstract void Change(Estate estate); // create abstract method
+
+        public virtual string toString()
+        {
+            String str = "";
+
+            str += " " + this.Address.Street;
+            str += " " + this.Address.City;
+            str += "                                             " +
+                "                                                        " +
+                "                                                        " +
+                "                                                        " +
+                "                                                        " +
+                this.Id.ToString();
+            return str;
+        }
 
     }
 }
