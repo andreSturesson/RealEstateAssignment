@@ -598,7 +598,7 @@
             this.changeBtn.Name = "changeBtn";
             this.changeBtn.Size = new System.Drawing.Size(75, 23);
             this.changeBtn.TabIndex = 43;
-            this.changeBtn.Text = "Save";
+            this.changeBtn.Text = "Change";
             this.changeBtn.UseVisualStyleBackColor = true;
             this.changeBtn.Click += new System.EventHandler(this.button1_Click_2);
             // 
