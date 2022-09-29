@@ -823,7 +823,7 @@ namespace RealEstateAssignment
             estates.BinaryDeSerialize(openBinary.FileName);
             displayseeEstate.Visible = false;
             updateGUI();
-            lstManager.Path = openBinary.FileName;
+            estates.Path = openBinary.FileName;
             mnuSave.Enabled = true;
         }
 
