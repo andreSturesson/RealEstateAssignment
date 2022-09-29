@@ -30,6 +30,7 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rentLabelText = new System.Windows.Forms.NumericUpDown();
             this.apartmentNumberTextBox = new System.Windows.Forms.NumericUpDown();
             this.plotSizeText = new System.Windows.Forms.NumericUpDown();
             this.roomsTextBox = new System.Windows.Forms.NumericUpDown();
@@ -62,6 +63,13 @@
             this.countryComboBox = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.capacityInfoBox = new System.Windows.Forms.NumericUpDown();
+            this.shelvesInfoBox = new System.Windows.Forms.NumericUpDown();
+            this.apartmentNumberInfoBox = new System.Windows.Forms.NumericUpDown();
+            this.plotSizeInfoBox = new System.Windows.Forms.NumericUpDown();
+            this.roomInfoBox = new System.Windows.Forms.NumericUpDown();
+            this.costInfoBox = new System.Windows.Forms.NumericUpDown();
+            this.sizeInfoBox = new System.Windows.Forms.NumericUpDown();
             this.CapacityShowL = new System.Windows.Forms.Label();
             this.OwnershipShowL = new System.Windows.Forms.Label();
             this.rentShowL = new System.Windows.Forms.Label();
@@ -72,25 +80,18 @@
             this.ShelvesShowL = new System.Windows.Forms.Label();
             this.SizeShowL = new System.Windows.Forms.Label();
             this.changeBtn = new System.Windows.Forms.Button();
-            this.capacityInfoBox = new System.Windows.Forms.TextBox();
-            this.shelvesInfoBox = new System.Windows.Forms.TextBox();
-            this.apartmentNumberInfoBox = new System.Windows.Forms.TextBox();
-            this.plotSizeInfoBox = new System.Windows.Forms.TextBox();
-            this.costInfoBox = new System.Windows.Forms.TextBox();
-            this.roomInfoBox = new System.Windows.Forms.TextBox();
             this.legalFormInfoComboBox = new System.Windows.Forms.ComboBox();
             this.garageInfoComboBox = new System.Windows.Forms.ComboBox();
-            this.sizeInfoBox = new System.Windows.Forms.TextBox();
             this.imgBox = new System.Windows.Forms.PictureBox();
             this.displayseeEstate = new System.Windows.Forms.Label();
             this.AddressInfoGroup = new System.Windows.Forms.GroupBox();
+            this.zipCodeInfoBox = new System.Windows.Forms.NumericUpDown();
             this.StreetShowL = new System.Windows.Forms.Label();
             this.ZipShowL = new System.Windows.Forms.Label();
             this.cityShowL = new System.Windows.Forms.Label();
             this.countryInfoL = new System.Windows.Forms.Label();
             this.countryInfoComboBox = new System.Windows.Forms.ComboBox();
             this.streetInfoBox = new System.Windows.Forms.TextBox();
-            this.zipCodeInfoBox = new System.Windows.Forms.TextBox();
             this.cityInfoBox = new System.Windows.Forms.TextBox();
             this.chooseImageFile = new System.Windows.Forms.OpenFileDialog();
             this.errorText = new System.Windows.Forms.Label();
@@ -107,8 +108,8 @@
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.openBinary = new System.Windows.Forms.OpenFileDialog();
             this.saveBinarySer = new System.Windows.Forms.SaveFileDialog();
-            this.rentLabelText = new System.Windows.Forms.NumericUpDown();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rentLabelText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.apartmentNumberTextBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.plotSizeText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomsTextBox)).BeginInit();
@@ -117,10 +118,17 @@
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.zipCodeTextBox)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.capacityInfoBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shelvesInfoBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.apartmentNumberInfoBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotSizeInfoBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roomInfoBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.costInfoBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sizeInfoBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).BeginInit();
             this.AddressInfoGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.zipCodeInfoBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rentLabelText)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -170,6 +178,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Estate Registration";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // rentLabelText
+            // 
+            this.rentLabelText.Location = new System.Drawing.Point(183, 93);
+            this.rentLabelText.Name = "rentLabelText";
+            this.rentLabelText.Size = new System.Drawing.Size(60, 23);
+            this.rentLabelText.TabIndex = 47;
+            this.rentLabelText.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // apartmentNumberTextBox
             // 
@@ -470,6 +486,13 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.capacityInfoBox);
+            this.groupBox3.Controls.Add(this.shelvesInfoBox);
+            this.groupBox3.Controls.Add(this.apartmentNumberInfoBox);
+            this.groupBox3.Controls.Add(this.plotSizeInfoBox);
+            this.groupBox3.Controls.Add(this.roomInfoBox);
+            this.groupBox3.Controls.Add(this.costInfoBox);
+            this.groupBox3.Controls.Add(this.sizeInfoBox);
             this.groupBox3.Controls.Add(this.CapacityShowL);
             this.groupBox3.Controls.Add(this.OwnershipShowL);
             this.groupBox3.Controls.Add(this.rentShowL);
@@ -480,15 +503,8 @@
             this.groupBox3.Controls.Add(this.ShelvesShowL);
             this.groupBox3.Controls.Add(this.SizeShowL);
             this.groupBox3.Controls.Add(this.changeBtn);
-            this.groupBox3.Controls.Add(this.capacityInfoBox);
-            this.groupBox3.Controls.Add(this.shelvesInfoBox);
-            this.groupBox3.Controls.Add(this.apartmentNumberInfoBox);
-            this.groupBox3.Controls.Add(this.plotSizeInfoBox);
-            this.groupBox3.Controls.Add(this.costInfoBox);
-            this.groupBox3.Controls.Add(this.roomInfoBox);
             this.groupBox3.Controls.Add(this.legalFormInfoComboBox);
             this.groupBox3.Controls.Add(this.garageInfoComboBox);
-            this.groupBox3.Controls.Add(this.sizeInfoBox);
             this.groupBox3.Controls.Add(this.imgBox);
             this.groupBox3.Controls.Add(this.displayseeEstate);
             this.groupBox3.Controls.Add(this.AddressInfoGroup);
@@ -500,6 +516,63 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Estate Information";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // capacityInfoBox
+            // 
+            this.capacityInfoBox.Location = new System.Drawing.Point(85, 273);
+            this.capacityInfoBox.Name = "capacityInfoBox";
+            this.capacityInfoBox.Size = new System.Drawing.Size(100, 23);
+            this.capacityInfoBox.TabIndex = 59;
+            this.capacityInfoBox.Visible = false;
+            // 
+            // shelvesInfoBox
+            // 
+            this.shelvesInfoBox.Location = new System.Drawing.Point(85, 244);
+            this.shelvesInfoBox.Name = "shelvesInfoBox";
+            this.shelvesInfoBox.Size = new System.Drawing.Size(100, 23);
+            this.shelvesInfoBox.TabIndex = 58;
+            this.shelvesInfoBox.Visible = false;
+            // 
+            // apartmentNumberInfoBox
+            // 
+            this.apartmentNumberInfoBox.Location = new System.Drawing.Point(138, 213);
+            this.apartmentNumberInfoBox.Name = "apartmentNumberInfoBox";
+            this.apartmentNumberInfoBox.Size = new System.Drawing.Size(100, 23);
+            this.apartmentNumberInfoBox.TabIndex = 57;
+            this.apartmentNumberInfoBox.Visible = false;
+            this.apartmentNumberInfoBox.ValueChanged += new System.EventHandler(this.apartmentNumberInfoBox_ValueChanged);
+            // 
+            // plotSizeInfoBox
+            // 
+            this.plotSizeInfoBox.Location = new System.Drawing.Point(85, 147);
+            this.plotSizeInfoBox.Name = "plotSizeInfoBox";
+            this.plotSizeInfoBox.Size = new System.Drawing.Size(100, 23);
+            this.plotSizeInfoBox.TabIndex = 56;
+            this.plotSizeInfoBox.Visible = false;
+            // 
+            // roomInfoBox
+            // 
+            this.roomInfoBox.Location = new System.Drawing.Point(85, 118);
+            this.roomInfoBox.Name = "roomInfoBox";
+            this.roomInfoBox.Size = new System.Drawing.Size(100, 23);
+            this.roomInfoBox.TabIndex = 55;
+            this.roomInfoBox.Visible = false;
+            // 
+            // costInfoBox
+            // 
+            this.costInfoBox.Location = new System.Drawing.Point(85, 89);
+            this.costInfoBox.Name = "costInfoBox";
+            this.costInfoBox.Size = new System.Drawing.Size(100, 23);
+            this.costInfoBox.TabIndex = 54;
+            this.costInfoBox.Visible = false;
+            // 
+            // sizeInfoBox
+            // 
+            this.sizeInfoBox.Location = new System.Drawing.Point(85, 31);
+            this.sizeInfoBox.Name = "sizeInfoBox";
+            this.sizeInfoBox.Size = new System.Drawing.Size(100, 23);
+            this.sizeInfoBox.TabIndex = 53;
+            this.sizeInfoBox.Visible = false;
             // 
             // CapacityShowL
             // 
@@ -602,56 +675,6 @@
             this.changeBtn.UseVisualStyleBackColor = true;
             this.changeBtn.Click += new System.EventHandler(this.button1_Click_2);
             // 
-            // capacityInfoBox
-            // 
-            this.capacityInfoBox.Location = new System.Drawing.Point(85, 267);
-            this.capacityInfoBox.Name = "capacityInfoBox";
-            this.capacityInfoBox.Size = new System.Drawing.Size(100, 23);
-            this.capacityInfoBox.TabIndex = 42;
-            this.capacityInfoBox.Visible = false;
-            // 
-            // shelvesInfoBox
-            // 
-            this.shelvesInfoBox.Location = new System.Drawing.Point(85, 238);
-            this.shelvesInfoBox.Name = "shelvesInfoBox";
-            this.shelvesInfoBox.Size = new System.Drawing.Size(100, 23);
-            this.shelvesInfoBox.TabIndex = 41;
-            this.shelvesInfoBox.Visible = false;
-            // 
-            // apartmentNumberInfoBox
-            // 
-            this.apartmentNumberInfoBox.Location = new System.Drawing.Point(138, 207);
-            this.apartmentNumberInfoBox.Name = "apartmentNumberInfoBox";
-            this.apartmentNumberInfoBox.Size = new System.Drawing.Size(100, 23);
-            this.apartmentNumberInfoBox.TabIndex = 40;
-            this.apartmentNumberInfoBox.Visible = false;
-            // 
-            // plotSizeInfoBox
-            // 
-            this.plotSizeInfoBox.Location = new System.Drawing.Point(85, 149);
-            this.plotSizeInfoBox.Name = "plotSizeInfoBox";
-            this.plotSizeInfoBox.Size = new System.Drawing.Size(100, 23);
-            this.plotSizeInfoBox.TabIndex = 39;
-            this.plotSizeInfoBox.Visible = false;
-            // 
-            // costInfoBox
-            // 
-            this.costInfoBox.Location = new System.Drawing.Point(85, 91);
-            this.costInfoBox.Name = "costInfoBox";
-            this.costInfoBox.Size = new System.Drawing.Size(100, 23);
-            this.costInfoBox.TabIndex = 38;
-            this.costInfoBox.Visible = false;
-            this.costInfoBox.TextChanged += new System.EventHandler(this.costInfoBox_TextChanged);
-            // 
-            // roomInfoBox
-            // 
-            this.roomInfoBox.Location = new System.Drawing.Point(85, 120);
-            this.roomInfoBox.Name = "roomInfoBox";
-            this.roomInfoBox.Size = new System.Drawing.Size(100, 23);
-            this.roomInfoBox.TabIndex = 37;
-            this.roomInfoBox.Visible = false;
-            this.roomInfoBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged_3);
-            // 
             // legalFormInfoComboBox
             // 
             this.legalFormInfoComboBox.FormattingEnabled = true;
@@ -669,15 +692,6 @@
             this.garageInfoComboBox.Size = new System.Drawing.Size(39, 23);
             this.garageInfoComboBox.TabIndex = 35;
             this.garageInfoComboBox.Visible = false;
-            // 
-            // sizeInfoBox
-            // 
-            this.sizeInfoBox.Location = new System.Drawing.Point(85, 33);
-            this.sizeInfoBox.Name = "sizeInfoBox";
-            this.sizeInfoBox.Size = new System.Drawing.Size(100, 23);
-            this.sizeInfoBox.TabIndex = 34;
-            this.sizeInfoBox.Visible = false;
-            this.sizeInfoBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged_2);
             // 
             // imgBox
             // 
@@ -705,13 +719,13 @@
             // 
             // AddressInfoGroup
             // 
+            this.AddressInfoGroup.Controls.Add(this.zipCodeInfoBox);
             this.AddressInfoGroup.Controls.Add(this.StreetShowL);
             this.AddressInfoGroup.Controls.Add(this.ZipShowL);
             this.AddressInfoGroup.Controls.Add(this.cityShowL);
             this.AddressInfoGroup.Controls.Add(this.countryInfoL);
             this.AddressInfoGroup.Controls.Add(this.countryInfoComboBox);
             this.AddressInfoGroup.Controls.Add(this.streetInfoBox);
-            this.AddressInfoGroup.Controls.Add(this.zipCodeInfoBox);
             this.AddressInfoGroup.Controls.Add(this.cityInfoBox);
             this.AddressInfoGroup.Location = new System.Drawing.Point(292, 11);
             this.AddressInfoGroup.Name = "AddressInfoGroup";
@@ -721,6 +735,13 @@
             this.AddressInfoGroup.Text = "Adress of estate";
             this.AddressInfoGroup.Visible = false;
             this.AddressInfoGroup.Enter += new System.EventHandler(this.DisplayAddressGroup_Enter);
+            // 
+            // zipCodeInfoBox
+            // 
+            this.zipCodeInfoBox.Location = new System.Drawing.Point(62, 78);
+            this.zipCodeInfoBox.Name = "zipCodeInfoBox";
+            this.zipCodeInfoBox.Size = new System.Drawing.Size(100, 23);
+            this.zipCodeInfoBox.TabIndex = 39;
             // 
             // StreetShowL
             // 
@@ -774,13 +795,6 @@
             this.streetInfoBox.Name = "streetInfoBox";
             this.streetInfoBox.Size = new System.Drawing.Size(100, 23);
             this.streetInfoBox.TabIndex = 3;
-            // 
-            // zipCodeInfoBox
-            // 
-            this.zipCodeInfoBox.Location = new System.Drawing.Point(62, 78);
-            this.zipCodeInfoBox.Name = "zipCodeInfoBox";
-            this.zipCodeInfoBox.Size = new System.Drawing.Size(100, 23);
-            this.zipCodeInfoBox.TabIndex = 2;
             // 
             // cityInfoBox
             // 
@@ -911,14 +925,6 @@
             this.saveBinarySer.Filter = "Bin (*.bin;)|*.bin;";
             this.saveBinarySer.FileOk += new System.ComponentModel.CancelEventHandler(this.saveBinarySer_FileOk);
             // 
-            // rentLabelText
-            // 
-            this.rentLabelText.Location = new System.Drawing.Point(183, 93);
-            this.rentLabelText.Name = "rentLabelText";
-            this.rentLabelText.Size = new System.Drawing.Size(60, 23);
-            this.rentLabelText.TabIndex = 47;
-            this.rentLabelText.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -935,6 +941,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rentLabelText)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.apartmentNumberTextBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.plotSizeText)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomsTextBox)).EndInit();
@@ -944,12 +951,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.zipCodeTextBox)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.capacityInfoBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shelvesInfoBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.apartmentNumberInfoBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotSizeInfoBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roomInfoBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.costInfoBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sizeInfoBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).EndInit();
             this.AddressInfoGroup.ResumeLayout(false);
             this.AddressInfoGroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.zipCodeInfoBox)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rentLabelText)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -994,17 +1008,9 @@
         private ListBox lstEstates;
         private ComboBox countryInfoComboBox;
         private TextBox streetInfoBox;
-        private TextBox zipCodeInfoBox;
         private TextBox cityInfoBox;
-        private TextBox sizeInfoBox;
         private ComboBox legalFormInfoComboBox;
         private ComboBox garageInfoComboBox;
-        private TextBox roomInfoBox;
-        private TextBox costInfoBox;
-        private TextBox plotSizeInfoBox;
-
-        private TextBox apartmentNumberInfoBox;
-        private TextBox shelvesInfoBox;
 
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;
@@ -1018,7 +1024,6 @@
         private ToolStripMenuItem mnuExit;
         private OpenFileDialog openBinary;
         private SaveFileDialog saveBinarySer;
-        private TextBox capacityInfoBox;
         private Button changeBtn;
 
         private NumericUpDown sizeTextBox;
@@ -1041,5 +1046,13 @@
         private Label GarageShowL;
         private Label ApNumShowL;
         private Label ShelvesShowL;
+        private NumericUpDown costInfoBox;
+        private NumericUpDown sizeInfoBox;
+        private NumericUpDown shelvesInfoBox;
+        private NumericUpDown apartmentNumberInfoBox;
+        private NumericUpDown plotSizeInfoBox;
+        private NumericUpDown roomInfoBox;
+        private NumericUpDown capacityInfoBox;
+        private NumericUpDown zipCodeInfoBox;
     }
 }
