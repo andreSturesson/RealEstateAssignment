@@ -30,30 +30,27 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.apartmentNumberTextBox = new System.Windows.Forms.TextBox();
+            this.apartmentNumberTextBox = new System.Windows.Forms.NumericUpDown();
+            this.plotSizeText = new System.Windows.Forms.NumericUpDown();
+            this.roomsTextBox = new System.Windows.Forms.NumericUpDown();
+            this.sizeTextBox = new System.Windows.Forms.NumericUpDown();
             this.apartmentNumberLabel = new System.Windows.Forms.Label();
             this.chooseImageTextBox = new System.Windows.Forms.TextBox();
             this.image = new System.Windows.Forms.PictureBox();
             this.browseFilesButton = new System.Windows.Forms.Button();
-            this.changeButton = new System.Windows.Forms.Button();
             this.BrowseFilesLabel = new System.Windows.Forms.Label();
             this.apartmentTypeComboBox = new System.Windows.Forms.ComboBox();
             this.AppartmentTypeText = new System.Windows.Forms.Label();
             this.garageComboBox = new System.Windows.Forms.ComboBox();
             this.garageLabel = new System.Windows.Forms.Label();
-            this.plotSizeText = new System.Windows.Forms.TextBox();
             this.plotSizeLabel = new System.Windows.Forms.Label();
-            this.rentLabelText = new System.Windows.Forms.TextBox();
             this.rentLabel = new System.Windows.Forms.Label();
             this.sizesqmLabel = new System.Windows.Forms.Label();
-            this.roomsTextBox = new System.Windows.Forms.TextBox();
             this.roomsLabel = new System.Windows.Forms.Label();
-            this.sizeTextBox = new System.Windows.Forms.TextBox();
             this.sizeLabel = new System.Windows.Forms.Label();
             this.streetTextBox = new System.Windows.Forms.TextBox();
             this.streetLabel = new System.Windows.Forms.Label();
             this.zipcodeLabel = new System.Windows.Forms.Label();
-            this.zipCodeTextBox = new System.Windows.Forms.TextBox();
             this.cityLabel = new System.Windows.Forms.Label();
             this.cityTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -61,6 +58,7 @@
             this.type = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.zipCodeTextBox = new System.Windows.Forms.NumericUpDown();
             this.countryComboBox = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -96,13 +94,20 @@
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.openBinary = new System.Windows.Forms.OpenFileDialog();
             this.saveBinarySer = new System.Windows.Forms.SaveFileDialog();
+            this.rentLabelText = new System.Windows.Forms.NumericUpDown();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.apartmentNumberTextBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotSizeText)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roomsTextBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sizeTextBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.zipCodeTextBox)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).BeginInit();
             this.AddressInfoGroup.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rentLabelText)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -116,30 +121,28 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.rentLabelText);
             this.groupBox2.Controls.Add(this.apartmentNumberTextBox);
+            this.groupBox2.Controls.Add(this.plotSizeText);
+            this.groupBox2.Controls.Add(this.roomsTextBox);
+            this.groupBox2.Controls.Add(this.sizeTextBox);
             this.groupBox2.Controls.Add(this.apartmentNumberLabel);
             this.groupBox2.Controls.Add(this.chooseImageTextBox);
             this.groupBox2.Controls.Add(this.image);
             this.groupBox2.Controls.Add(this.browseFilesButton);
-            this.groupBox2.Controls.Add(this.changeButton);
             this.groupBox2.Controls.Add(this.BrowseFilesLabel);
             this.groupBox2.Controls.Add(this.apartmentTypeComboBox);
             this.groupBox2.Controls.Add(this.AppartmentTypeText);
             this.groupBox2.Controls.Add(this.garageComboBox);
             this.groupBox2.Controls.Add(this.garageLabel);
-            this.groupBox2.Controls.Add(this.plotSizeText);
             this.groupBox2.Controls.Add(this.plotSizeLabel);
-            this.groupBox2.Controls.Add(this.rentLabelText);
             this.groupBox2.Controls.Add(this.rentLabel);
             this.groupBox2.Controls.Add(this.sizesqmLabel);
-            this.groupBox2.Controls.Add(this.roomsTextBox);
             this.groupBox2.Controls.Add(this.roomsLabel);
-            this.groupBox2.Controls.Add(this.sizeTextBox);
             this.groupBox2.Controls.Add(this.sizeLabel);
             this.groupBox2.Controls.Add(this.streetTextBox);
             this.groupBox2.Controls.Add(this.streetLabel);
             this.groupBox2.Controls.Add(this.zipcodeLabel);
-            this.groupBox2.Controls.Add(this.zipCodeTextBox);
             this.groupBox2.Controls.Add(this.cityLabel);
             this.groupBox2.Controls.Add(this.cityTextBox);
             this.groupBox2.Controls.Add(this.label1);
@@ -157,11 +160,35 @@
             // 
             // apartmentNumberTextBox
             // 
-            this.apartmentNumberTextBox.Location = new System.Drawing.Point(122, 145);
+            this.apartmentNumberTextBox.Location = new System.Drawing.Point(123, 150);
             this.apartmentNumberTextBox.Name = "apartmentNumberTextBox";
-            this.apartmentNumberTextBox.Size = new System.Drawing.Size(39, 23);
-            this.apartmentNumberTextBox.TabIndex = 31;
+            this.apartmentNumberTextBox.Size = new System.Drawing.Size(54, 23);
+            this.apartmentNumberTextBox.TabIndex = 46;
             this.apartmentNumberTextBox.Visible = false;
+            // 
+            // plotSizeText
+            // 
+            this.plotSizeText.Location = new System.Drawing.Point(56, 117);
+            this.plotSizeText.Name = "plotSizeText";
+            this.plotSizeText.Size = new System.Drawing.Size(41, 23);
+            this.plotSizeText.TabIndex = 45;
+            this.plotSizeText.Visible = false;
+            // 
+            // roomsTextBox
+            // 
+            this.roomsTextBox.Location = new System.Drawing.Point(56, 88);
+            this.roomsTextBox.Name = "roomsTextBox";
+            this.roomsTextBox.Size = new System.Drawing.Size(41, 23);
+            this.roomsTextBox.TabIndex = 44;
+            this.roomsTextBox.Visible = false;
+            // 
+            // sizeTextBox
+            // 
+            this.sizeTextBox.Location = new System.Drawing.Point(56, 55);
+            this.sizeTextBox.Name = "sizeTextBox";
+            this.sizeTextBox.Size = new System.Drawing.Size(41, 23);
+            this.sizeTextBox.TabIndex = 44;
+            this.sizeTextBox.Visible = false;
             // 
             // apartmentNumberLabel
             // 
@@ -204,17 +231,6 @@
             this.browseFilesButton.UseVisualStyleBackColor = true;
             this.browseFilesButton.Visible = false;
             this.browseFilesButton.Click += new System.EventHandler(this.browseFilesButton_Click);
-            // 
-            // changeButton
-            // 
-            this.changeButton.Location = new System.Drawing.Point(76, 397);
-            this.changeButton.Name = "changeButton";
-            this.changeButton.Size = new System.Drawing.Size(75, 23);
-            this.changeButton.TabIndex = 0;
-            this.changeButton.Text = "Change";
-            this.changeButton.UseVisualStyleBackColor = true;
-            this.changeButton.Visible = false;
-            this.changeButton.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // BrowseFilesLabel
             // 
@@ -267,15 +283,6 @@
             this.garageLabel.Text = "Garage";
             this.garageLabel.Click += new System.EventHandler(this.garageLabel_Click);
             // 
-            // plotSizeText
-            // 
-            this.plotSizeText.Location = new System.Drawing.Point(56, 122);
-            this.plotSizeText.Name = "plotSizeText";
-            this.plotSizeText.Size = new System.Drawing.Size(39, 23);
-            this.plotSizeText.TabIndex = 22;
-            this.plotSizeText.Visible = false;
-            this.plotSizeText.TextChanged += new System.EventHandler(this.plotSizeText_TextChanged);
-            // 
             // plotSizeLabel
             // 
             this.plotSizeLabel.AutoSize = true;
@@ -287,14 +294,6 @@
             this.plotSizeLabel.Text = "Plot Size";
             this.plotSizeLabel.Visible = false;
             this.plotSizeLabel.Click += new System.EventHandler(this.plotSizeLabel_Click);
-            // 
-            // rentLabelText
-            // 
-            this.rentLabelText.Location = new System.Drawing.Point(189, 92);
-            this.rentLabelText.Name = "rentLabelText";
-            this.rentLabelText.Size = new System.Drawing.Size(56, 23);
-            this.rentLabelText.TabIndex = 20;
-            this.rentLabelText.TextChanged += new System.EventHandler(this.rentLabelText_TextChanged);
             // 
             // rentLabel
             // 
@@ -311,21 +310,12 @@
             // 
             this.sizesqmLabel.AutoSize = true;
             this.sizesqmLabel.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.sizesqmLabel.Location = new System.Drawing.Point(92, 66);
+            this.sizesqmLabel.Location = new System.Drawing.Point(96, 69);
             this.sizesqmLabel.Name = "sizesqmLabel";
             this.sizesqmLabel.Size = new System.Drawing.Size(21, 11);
             this.sizesqmLabel.TabIndex = 18;
             this.sizesqmLabel.Text = "m^2";
             this.sizesqmLabel.Visible = false;
-            // 
-            // roomsTextBox
-            // 
-            this.roomsTextBox.Location = new System.Drawing.Point(56, 87);
-            this.roomsTextBox.Name = "roomsTextBox";
-            this.roomsTextBox.Size = new System.Drawing.Size(39, 23);
-            this.roomsTextBox.TabIndex = 16;
-            this.roomsTextBox.Visible = false;
-            this.roomsTextBox.TextChanged += new System.EventHandler(this.roomsTextBox_TextChanged);
             // 
             // roomsLabel
             // 
@@ -336,14 +326,6 @@
             this.roomsLabel.TabIndex = 15;
             this.roomsLabel.Text = "Rooms";
             this.roomsLabel.Visible = false;
-            // 
-            // sizeTextBox
-            // 
-            this.sizeTextBox.Location = new System.Drawing.Point(56, 54);
-            this.sizeTextBox.Name = "sizeTextBox";
-            this.sizeTextBox.Size = new System.Drawing.Size(39, 23);
-            this.sizeTextBox.TabIndex = 14;
-            this.sizeTextBox.Visible = false;
             // 
             // sizeLabel
             // 
@@ -380,14 +362,6 @@
             this.zipcodeLabel.Size = new System.Drawing.Size(55, 15);
             this.zipcodeLabel.TabIndex = 10;
             this.zipcodeLabel.Text = "Zip Code";
-            // 
-            // zipCodeTextBox
-            // 
-            this.zipCodeTextBox.Location = new System.Drawing.Point(67, 305);
-            this.zipCodeTextBox.Name = "zipCodeTextBox";
-            this.zipCodeTextBox.Size = new System.Drawing.Size(100, 23);
-            this.zipCodeTextBox.TabIndex = 9;
-            this.zipCodeTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // cityLabel
             // 
@@ -445,6 +419,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.zipCodeTextBox);
             this.groupBox4.Controls.Add(this.countryComboBox);
             this.groupBox4.Location = new System.Drawing.Point(0, 215);
             this.groupBox4.Name = "groupBox4";
@@ -453,6 +428,13 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Address Information";
             this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
+            // 
+            // zipCodeTextBox
+            // 
+            this.zipCodeTextBox.Location = new System.Drawing.Point(67, 90);
+            this.zipCodeTextBox.Name = "zipCodeTextBox";
+            this.zipCodeTextBox.Size = new System.Drawing.Size(100, 23);
+            this.zipCodeTextBox.TabIndex = 44;
             // 
             // countryComboBox
             // 
@@ -499,7 +481,7 @@
             // 
             // changeBtn
             // 
-            this.changeBtn.Location = new System.Drawing.Point(334, 397);
+            this.changeBtn.Location = new System.Drawing.Point(359, 397);
             this.changeBtn.Name = "changeBtn";
             this.changeBtn.Size = new System.Drawing.Size(75, 23);
             this.changeBtn.TabIndex = 43;
@@ -774,6 +756,14 @@
             this.saveBinarySer.Filter = "Bin (*.bin;)|*.bin;";
             this.saveBinarySer.FileOk += new System.ComponentModel.CancelEventHandler(this.saveBinarySer_FileOk);
             // 
+            // rentLabelText
+            // 
+            this.rentLabelText.Location = new System.Drawing.Point(183, 93);
+            this.rentLabelText.Name = "rentLabelText";
+            this.rentLabelText.Size = new System.Drawing.Size(60, 23);
+            this.rentLabelText.TabIndex = 47;
+            this.rentLabelText.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -790,8 +780,13 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.apartmentNumberTextBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plotSizeText)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roomsTextBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sizeTextBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
             this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.zipCodeTextBox)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).EndInit();
@@ -799,6 +794,7 @@
             this.AddressInfoGroup.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rentLabelText)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -810,7 +806,6 @@
         private GroupBox groupBox2;
         private Button button3;
         private Button addButton;
-        private Button changeButton;
         private ComboBox countryComboBox;
         private GroupBox groupBox3;
         private ComboBox comboBox2;
@@ -821,16 +816,11 @@
         private TextBox streetTextBox;
         private Label streetLabel;
         private Label zipcodeLabel;
-        private TextBox zipCodeTextBox;
-        private TextBox roomsTextBox;
         private Label roomsLabel;
-        private TextBox sizeTextBox;
         private Label sizeLabel;
         private GroupBox groupBox4;
         private Label sizesqmLabel;
-        private TextBox rentLabelText;
         private Label rentLabel;
-        private TextBox plotSizeText;
         private Label plotSizeLabel;
         private ComboBox garageComboBox;
         private Label garageLabel;
@@ -842,7 +832,6 @@
         private TextBox chooseImageTextBox;
         private OpenFileDialog chooseImageFile;
         private Label errorText;
-        private TextBox apartmentNumberTextBox;
         private Label apartmentNumberLabel;
         private GroupBox AddressInfoGroup;
         private Label displayseeEstate;
@@ -876,5 +865,11 @@
         private SaveFileDialog saveBinarySer;
         private TextBox capacityInfoBox;
         private Button changeBtn;
+        private NumericUpDown sizeTextBox;
+        private NumericUpDown zipCodeTextBox;
+        private NumericUpDown apartmentNumberTextBox;
+        private NumericUpDown plotSizeText;
+        private NumericUpDown roomsTextBox;
+        private NumericUpDown rentLabelText;
     }
 }
