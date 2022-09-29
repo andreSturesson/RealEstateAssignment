@@ -334,19 +334,13 @@ namespace RealEstateAssignment
             ((Commercial)estate).Shelves = Int32.Parse(plotSizeText.Text);
         }
 
-     
-
         private void showInfo(Estate estate)
         {
-
             hideInfo();
-
-
-            estateInfoIsDisabled();
+            estateInfoShowToggle(false);
             estateInfoIsVisible();
             setEstateInfo(estate);
             
-
             switch (estate.getObjectType())
             {
                 case "Apartment":
@@ -354,14 +348,14 @@ namespace RealEstateAssignment
                     setResidentialInfo(estate);
                     residentialInfoIsDisabled();
                     residentialInfoIsVisible();
-
                     apartmentNumberInfoBox.Text = ((Apartment)estate).ApartmentNumber.ToString();
                     apartmentNumberInfoBox.Enabled = false;
                     apartmentNumberInfoBox.Visible = true;
+                    ApNumShowL.Visible = true;
+                    GarageShowL.Visible = false;
                     break;
 
                 case "Villa":
-
                     setResidentialInfo(estate);
                     residentialInfoIsDisabled();
                     residentialInfoIsVisible();
@@ -369,6 +363,7 @@ namespace RealEstateAssignment
                     plotSizeInfoBox.Text = ((Villa)estate).Plot.ToString();
                     plotSizeInfoBox.Enabled = false;
                     plotSizeInfoBox.Visible = true;
+                    PlotShowL.Visible = true;
 
                     if (((Villa)estate).Garage)
                     {
@@ -380,6 +375,8 @@ namespace RealEstateAssignment
                     }
                     garageInfoComboBox.Enabled = false;
                     garageInfoComboBox.Visible = true;
+                    GarageShowL.Visible = true;
+                    ApNumShowL.Visible = false;
                     break;
                 case "Rowhouse":
 
@@ -390,6 +387,7 @@ namespace RealEstateAssignment
                     plotSizeInfoBox.Text = ((Rowhouse)estate).Plot.ToString();
                     plotSizeInfoBox.Enabled = false;
                     plotSizeInfoBox.Visible = true;
+                    PlotShowL.Visible = true;
 
                     if (((Villa)estate).Garage)
                     {
@@ -401,6 +399,8 @@ namespace RealEstateAssignment
                     }
                     garageInfoComboBox.Enabled = false;
                     garageInfoComboBox.Visible = true;
+                    GarageShowL.Visible = true;
+                    ApNumShowL.Visible = false;
                     break;
 
                 case "Shop":
@@ -465,32 +465,46 @@ namespace RealEstateAssignment
             legalFormInfoComboBox.Visible = true;
             costInfoBox.Visible = true;
             imgBox.Visible = true;
+            cityShowL.Visible = true;
+            ZipShowL.Visible = true;
+            countryInfoL.Visible = true;
+            StreetShowL.Visible = true;
+            SizeShowL.Visible = true;
+            OwnershipShowL.Visible = true;
+            rentShowL.Visible = true;
+
         }
 
         private void residentialInfoIsVisible()
         {
             roomInfoBox.Visible = true;
+            RoomsShowL.Visible = true;
         }
 
         private void commercialInfoIsVisible()
         {
             shelvesInfoBox.Visible = true;
+            ShelvesShowL.Visible = true;
+            GarageShowL.Visible = false;
+            PlotShowL.Visible = false;
         }
 
         private void institutionalInfoIsVisible()
         {
             capacityInfoBox.Visible = true;
+            CapacityShowL.Visible = true;
+            GarageShowL.Visible = false;
         }
 
-        private void estateInfoIsEnabled()
+        private void estateInfoShowToggle(bool toggle)
         {
-            countryInfoComboBox.Enabled = true;
-            cityInfoBox.Enabled = true;
-            zipCodeInfoBox.Enabled = true;
-            streetInfoBox.Enabled = true;
-            sizeInfoBox.Enabled = true;
-            legalFormInfoComboBox.Enabled = true;
-            costInfoBox.Enabled = true;
+            countryInfoComboBox.Enabled = toggle;
+            cityInfoBox.Enabled = toggle;
+            zipCodeInfoBox.Enabled = toggle;
+            streetInfoBox.Enabled = toggle;
+            sizeInfoBox.Enabled = toggle;
+            legalFormInfoComboBox.Enabled = toggle;
+            costInfoBox.Enabled = toggle;
         }
 
         private void residentialInfoIsEnabled()
@@ -506,17 +520,6 @@ namespace RealEstateAssignment
         private void institutionalInfoIsEnabled()
         {
             capacityInfoBox.Enabled = true;
-        }
-
-        private void estateInfoIsDisabled()
-        {
-            countryInfoComboBox.Enabled = false;
-            cityInfoBox.Enabled = false;
-            zipCodeInfoBox.Enabled = false;
-            streetInfoBox.Enabled = false;
-            sizeInfoBox.Enabled = false;
-            legalFormInfoComboBox.Enabled = false;
-            costInfoBox.Enabled = false;
         }
 
         private void residentialInfoIsDisabled()
@@ -773,6 +776,22 @@ namespace RealEstateAssignment
         }
 
         private void button1_Click_2(object sender, EventArgs e)
+        {
+            changeBtn.Text = "Save";
+
+        }
+
+        private void countryInfoL_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void costInfoBox_TextChanged(object sender, EventArgs e)
         {
 
         }
