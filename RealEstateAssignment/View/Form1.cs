@@ -1005,12 +1005,14 @@ namespace RealEstateAssignment
                 }
                 this.Close();
             }
-            else if(result == DialogResult.No) {
+            else if (result == DialogResult.No)
+            {
                 System.Windows.Forms.Application.Exit();
             }
             else
             {
             }
+        }
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
 
