@@ -231,11 +231,6 @@ namespace RealEstateAssignment
             errorText.Visible = false;
             try
             {
-
-
-
-
-
                 if (streetTextBox.Text != "" && cityTextBox.Text != "" && zipCodeTextBox.Text != "" && countryComboBox.SelectedText.ToString() == "")
                 {
                     switch (comboBox2.SelectedItem.ToString())
@@ -601,7 +596,7 @@ namespace RealEstateAssignment
             }
             else
             {
-                imgBox.Visible = false;
+                imgBox.Image = imgBox.ErrorImage;
             }
         }
 
@@ -782,6 +777,7 @@ namespace RealEstateAssignment
             commercialInfoIsEDToggle(false);
             estateInfoShowToggle(false);
             apartmentNumberInfoBox.Enabled = false;
+            updateGUI();
 
         }
 
