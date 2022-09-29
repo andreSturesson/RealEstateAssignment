@@ -45,78 +45,6 @@ namespace RealEstateAssignment
             imgBox.Visible = false;**/
         }
 
-        //Method for changing object
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            LegalForm legal;
-            Address adress = new Address(streetTextBox.Text, cityTextBox.Text, Int32.Parse(zipCodeTextBox.Text), (countries)countryComboBox.SelectedItem);
-            if (apartmentTypeComboBox.SelectedItem.ToString() == "Tenement")
-            {
-                legal = new Rental(Int32.Parse(rentLabelText.Text));
-            }
-            else
-            {
-                legal = new Ownership(Int32.Parse(rentLabelText.Text));
-            }
-            switch (estate.getObjectType())
-            {
-                case "Villa":
-                    Boolean garage;
-                    if (garageComboBox.SelectedItem.ToString() == "Yes")
-                    {
-                        garage = true;
-                    }
-                    else
-                    {
-                        garage = false;
-                    }
-                    estate.Change(new Villa(adress, plotSizeText.Text, garage, Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text));
-                    showInfo(estate);
-                    break;
-                case "Rowhouse":
-                    displayseeEstate.Visible = false;
-                    Boolean ga;
-                    if (garageComboBox.SelectedItem.ToString() == "Yes")
-                    {
-                        ga = true;
-                    }
-                    else
-                    {
-                        ga = false;
-                    }
-                    estate.Change(new Rowhouse(adress, plotSizeText.Text, ga, Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text));
-                    showInfo(estate);
-                    break;
-                case "Apartment":
-                    estate.Change(new Apartment(adress, Int32.Parse(apartmentNumberTextBox.Text), Int32.Parse(roomsTextBox.Text), Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text));
-                    showInfo(estate);
-                    break;
-                case "University":
-                    estate.Change(new University(adress, Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text)));
-                    showInfo(estate);
-                    break;
-                case "Schools":
-                    estate.Change(new Shop(adress, Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text)));
-                    showInfo(estate);
-                    break;
-                case "Hospitals":
-                    estate.Change(new Hospitals(adress, Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text)));
-                    showInfo(estate);
-                    break;
-                case "Warehouse":
-                    estate.Change(new Warehouse(adress, Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text)));
-                    showInfo(estate);
-                    break;
-                case "Shop":
-                    estate.Change(new Shop(adress, Int32.Parse(sizeTextBox.Text), legal, chooseImageTextBox.Text, Int32.Parse(plotSizeText.Text)));
-                    showInfo(estate);
-                    break;
-                default:
-                    break;
-            }
-            imgBox.Visible = true;
-        }
-
         //Method for when chaning the combobox for type. shows relevant fields
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -275,6 +203,11 @@ namespace RealEstateAssignment
             errorText.Visible = false;
             try
             {
+
+
+
+
+
                 if (streetTextBox.Text != "" && cityTextBox.Text != "" && zipCodeTextBox.Text != "" && countryComboBox.SelectedText.ToString() == "")
                 {
                     switch (comboBox2.SelectedItem.ToString())
@@ -859,6 +792,11 @@ namespace RealEstateAssignment
         }
 
         private void costInfoBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
 
         }
