@@ -879,6 +879,9 @@ namespace RealEstateAssignment
         {
             String id = lstEstates.GetItemText(lstEstates.SelectedItem).ToString().Split(" ").Last();
             showInfo(estates.GetAt(id));
+            changeBtn.Visible = true;
+            deleteBtn.Visible = true;
+            displayseeEstate.Visible = false;
 
         }
 
@@ -943,6 +946,7 @@ namespace RealEstateAssignment
             updateGUI();
             estates.Path = openBinary.FileName;
             mnuSave.Enabled = true;
+            displayseeEstate.Visible = true;
         }
 
         private void saveBinarySer_FileOk(object sender, System.ComponentModel.CancelEventArgs e)

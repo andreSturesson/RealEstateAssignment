@@ -30,6 +30,7 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rentLabelText = new System.Windows.Forms.NumericUpDown();
             this.apartmentNumberTextBox = new System.Windows.Forms.NumericUpDown();
             this.plotSizeText = new System.Windows.Forms.NumericUpDown();
             this.roomsTextBox = new System.Windows.Forms.NumericUpDown();
@@ -60,7 +61,7 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.zipCodeTextBox = new System.Windows.Forms.NumericUpDown();
             this.countryComboBox = new System.Windows.Forms.ComboBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.deleteBtn = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.CapacityShowL = new System.Windows.Forms.Label();
             this.OwnershipShowL = new System.Windows.Forms.Label();
@@ -107,8 +108,8 @@
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.openBinary = new System.Windows.Forms.OpenFileDialog();
             this.saveBinarySer = new System.Windows.Forms.SaveFileDialog();
-            this.rentLabelText = new System.Windows.Forms.NumericUpDown();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rentLabelText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.apartmentNumberTextBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.plotSizeText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomsTextBox)).BeginInit();
@@ -120,7 +121,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).BeginInit();
             this.AddressInfoGroup.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rentLabelText)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -170,6 +170,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Estate Registration";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // rentLabelText
+            // 
+            this.rentLabelText.Location = new System.Drawing.Point(183, 93);
+            this.rentLabelText.Name = "rentLabelText";
+            this.rentLabelText.Size = new System.Drawing.Size(60, 23);
+            this.rentLabelText.TabIndex = 47;
+            this.rentLabelText.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // apartmentNumberTextBox
             // 
@@ -458,15 +466,16 @@
             this.countryComboBox.TabIndex = 3;
             this.countryComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
-            // button3
+            // deleteBtn
             // 
-            this.button3.Location = new System.Drawing.Point(110, 397);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.deleteBtn.Location = new System.Drawing.Point(110, 397);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(75, 23);
+            this.deleteBtn.TabIndex = 2;
+            this.deleteBtn.Text = "Delete";
+            this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Visible = false;
+            this.deleteBtn.Click += new System.EventHandler(this.button3_Click);
             // 
             // groupBox3
             // 
@@ -492,7 +501,7 @@
             this.groupBox3.Controls.Add(this.imgBox);
             this.groupBox3.Controls.Add(this.displayseeEstate);
             this.groupBox3.Controls.Add(this.AddressInfoGroup);
-            this.groupBox3.Controls.Add(this.button3);
+            this.groupBox3.Controls.Add(this.deleteBtn);
             this.groupBox3.Location = new System.Drawing.Point(270, 27);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(527, 426);
@@ -600,6 +609,7 @@
             this.changeBtn.TabIndex = 43;
             this.changeBtn.Text = "Change";
             this.changeBtn.UseVisualStyleBackColor = true;
+            this.changeBtn.Visible = false;
             this.changeBtn.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // capacityInfoBox
@@ -696,7 +706,7 @@
             // 
             this.displayseeEstate.AutoSize = true;
             this.displayseeEstate.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.displayseeEstate.Location = new System.Drawing.Point(73, 343);
+            this.displayseeEstate.Location = new System.Drawing.Point(62, 351);
             this.displayseeEstate.Name = "displayseeEstate";
             this.displayseeEstate.Size = new System.Drawing.Size(413, 25);
             this.displayseeEstate.TabIndex = 14;
@@ -847,14 +857,14 @@
             // mnuNew
             // 
             this.mnuNew.Name = "mnuNew";
-            this.mnuNew.Size = new System.Drawing.Size(180, 22);
+            this.mnuNew.Size = new System.Drawing.Size(118, 22);
             this.mnuNew.Text = "New";
             this.mnuNew.Click += new System.EventHandler(this.mnuNew_Click);
             // 
             // mnuOpen
             // 
             this.mnuOpen.Name = "mnuOpen";
-            this.mnuOpen.Size = new System.Drawing.Size(180, 22);
+            this.mnuOpen.Size = new System.Drawing.Size(118, 22);
             this.mnuOpen.Text = "Open..";
             this.mnuOpen.Click += new System.EventHandler(this.mnuOpen_Click);
             // 
@@ -862,14 +872,14 @@
             // 
             this.mnuSave.Enabled = false;
             this.mnuSave.Name = "mnuSave";
-            this.mnuSave.Size = new System.Drawing.Size(180, 22);
+            this.mnuSave.Size = new System.Drawing.Size(118, 22);
             this.mnuSave.Text = "Save..";
             this.mnuSave.Click += new System.EventHandler(this.mnuSave_Click);
             // 
             // mnuSaveAs
             // 
             this.mnuSaveAs.Name = "mnuSaveAs";
-            this.mnuSaveAs.Size = new System.Drawing.Size(180, 22);
+            this.mnuSaveAs.Size = new System.Drawing.Size(118, 22);
             this.mnuSaveAs.Text = "Save as..";
             this.mnuSaveAs.Click += new System.EventHandler(this.mnuSaveAs_Click);
             // 
@@ -879,7 +889,7 @@
             this.MnuXMLImport,
             this.MnuXMLExport});
             this.xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
-            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.xMLToolStripMenuItem.Text = "XML";
             // 
             // MnuXMLImport
@@ -897,7 +907,7 @@
             // mnuExit
             // 
             this.mnuExit.Name = "mnuExit";
-            this.mnuExit.Size = new System.Drawing.Size(180, 22);
+            this.mnuExit.Size = new System.Drawing.Size(118, 22);
             this.mnuExit.Text = "Exit";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
             // 
@@ -911,14 +921,6 @@
             // 
             this.saveBinarySer.Filter = "Bin (*.bin;)|*.bin;";
             this.saveBinarySer.FileOk += new System.ComponentModel.CancelEventHandler(this.saveBinarySer_FileOk);
-            // 
-            // rentLabelText
-            // 
-            this.rentLabelText.Location = new System.Drawing.Point(183, 93);
-            this.rentLabelText.Name = "rentLabelText";
-            this.rentLabelText.Size = new System.Drawing.Size(60, 23);
-            this.rentLabelText.TabIndex = 47;
-            this.rentLabelText.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // Form1
             // 
@@ -936,6 +938,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rentLabelText)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.apartmentNumberTextBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.plotSizeText)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomsTextBox)).EndInit();
@@ -950,7 +953,6 @@
             this.AddressInfoGroup.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rentLabelText)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -960,7 +962,7 @@
 
         private GroupBox groupBox1;
         private GroupBox groupBox2;
-        private Button button3;
+        private Button deleteBtn;
         private Button addButton;
         private ComboBox countryComboBox;
         private GroupBox groupBox3;
