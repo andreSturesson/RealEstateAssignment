@@ -108,6 +108,7 @@
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.openBinary = new System.Windows.Forms.OpenFileDialog();
             this.saveBinarySer = new System.Windows.Forms.SaveFileDialog();
+            this.estateShowType = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rentLabelText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.apartmentNumberTextBox)).BeginInit();
@@ -479,6 +480,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.estateShowType);
             this.groupBox3.Controls.Add(this.CapacityShowL);
             this.groupBox3.Controls.Add(this.OwnershipShowL);
             this.groupBox3.Controls.Add(this.rentShowL);
@@ -922,6 +924,16 @@
             this.saveBinarySer.Filter = "Bin (*.bin;)|*.bin;";
             this.saveBinarySer.FileOk += new System.ComponentModel.CancelEventHandler(this.saveBinarySer_FileOk);
             // 
+            // estateShowType
+            // 
+            this.estateShowType.AutoSize = true;
+            this.estateShowType.Location = new System.Drawing.Point(21, 19);
+            this.estateShowType.Name = "estateShowType";
+            this.estateShowType.Size = new System.Drawing.Size(38, 15);
+            this.estateShowType.TabIndex = 53;
+            this.estateShowType.Text = "label2";
+            this.estateShowType.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1044,5 +1056,6 @@
         private Label GarageShowL;
         private Label ApNumShowL;
         private Label ShelvesShowL;
+        private Label estateShowType;
     }
 }
