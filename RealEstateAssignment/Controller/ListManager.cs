@@ -15,7 +15,6 @@ using System.Collections;
 namespace RealEstateAssignment.Controller
 {
 
-    //Will later contain a collection of estates
     class ListManager : IListManager<Estate> {
 
         private Dictionary<String, Estate> estates;

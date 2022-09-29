@@ -24,6 +24,7 @@ namespace RealEstateAssignment
             legalFormInfoComboBox.DataSource = Enums.legalType.GetValues(typeof(legalType));
         }
 
+        // update GUI list
         public void updateGUI()
         {
             lstEstates.Items.Clear();
@@ -49,12 +50,6 @@ namespace RealEstateAssignment
             string message = "The estate was succesfully deleted";
             string title = "Object Deleted";
             MessageBox.Show(message, title);
-            /**AddressInfoGroup.Visible = false;
-            displayseeEstate.Visible = true;
-            errorText.Text = "";
-            addButton.Visible = true;
-            changeButton.Visible = false;
-            imgBox.Visible = false;**/
         }
 
         //Method for when chaning the combobox for type. shows relevant fields
@@ -134,6 +129,7 @@ namespace RealEstateAssignment
 
         }
 
+        // set all to visible
         private void setVisible(Boolean visible)
         {
             roomsLabel.Visible = visible;
@@ -194,6 +190,7 @@ namespace RealEstateAssignment
 
         }
 
+        // change label for legal form
         private void apartmentTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (apartmentTypeComboBox.SelectedItem.ToString())
@@ -213,11 +210,13 @@ namespace RealEstateAssignment
             }
         }
 
+        // popup square
         private void browseFilesButton_Click(object sender, EventArgs e)
         {
             chooseImageFile.ShowDialog();
         }
 
+        // when image is selected
         private void chooseImageFile_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
             chooseImageTextBox.Text = chooseImageFile.FileName;
@@ -330,6 +329,7 @@ namespace RealEstateAssignment
             MessageBox.Show(message, title);
         }
 
+        // add estate info to new estate
         private void newEstate()
         {
             LegalForm legal;
@@ -350,25 +350,30 @@ namespace RealEstateAssignment
             estate.Address = adress;
 
         }
+
+        // add residential info to new estate
         private void newResidential()
         {
             ((Residential)estate).Rooms = Int32.Parse(roomsTextBox.Text);
         }
 
+        // add institutional info to new estate
         private void newInstitutional()
         {
             ((Institutional)estate).Capacity = Int32.Parse(plotSizeText.Text);
         }
 
+        // add commercial info to new estate
         private void newCommercial()
         {
             ((Commercial)estate).Shelves = Int32.Parse(plotSizeText.Text);
         }
 
+        // decide what info to show
         private void showInfo(Estate estate)
         {
             hideInfo();
-            estateInfoShowToggle(false);
+            estateInfoIsEDToggle(false);
             estateInfoIsVisible();
             setEstateInfo(estate);
             
@@ -455,7 +460,7 @@ namespace RealEstateAssignment
 
                 case "University":
                     
-                    setinstitutionalInfo(estate);
+                    setInstitutionalInfo(estate);
                     institutionalInfoIsEDToggle(false);
                     institutionalInfoIsVisible();
                     estateShowType.Text = "Type: University";
@@ -463,7 +468,7 @@ namespace RealEstateAssignment
 
                 case "Schools":
 
-                    setinstitutionalInfo(estate);
+                    setInstitutionalInfo(estate);
                     institutionalInfoIsEDToggle(false);
                     institutionalInfoIsVisible();
                     estateShowType.Text = "Type: School";
@@ -471,7 +476,7 @@ namespace RealEstateAssignment
 
                 case "Hospitals":
 
-                    setinstitutionalInfo(estate);
+                    setInstitutionalInfo(estate);
                     institutionalInfoIsEDToggle(false);
                     institutionalInfoIsVisible();
                     estateShowType.Text = "Type: Hospital";
@@ -483,6 +488,7 @@ namespace RealEstateAssignment
             estateShowType.Visible = true;
         }
 
+        //hide all info
         private void hideInfo()
         {
             AddressInfoGroup.Visible = false;
@@ -509,6 +515,7 @@ namespace RealEstateAssignment
 
         }
 
+        // show estate info
         private void estateInfoIsVisible()
         {
             AddressInfoGroup.Visible = true;
@@ -526,12 +533,14 @@ namespace RealEstateAssignment
 
         }
 
+        // show residential info
         private void residentialInfoIsVisible()
         {
             roomInfoBox.Visible = true;
             RoomsShowL.Visible = true;
         }
 
+        // show commercial info
         private void commercialInfoIsVisible()
         {
             shelvesInfoBox.Visible = true;
@@ -540,6 +549,7 @@ namespace RealEstateAssignment
             PlotShowL.Visible = false;
         }
 
+        // show institutional info
         private void institutionalInfoIsVisible()
         {
             capacityInfoBox.Visible = true;
@@ -547,7 +557,8 @@ namespace RealEstateAssignment
             GarageShowL.Visible = false;
         }
 
-        private void estateInfoShowToggle(bool toggle)
+        // toggle if estate is enabled
+        private void estateInfoIsEDToggle(bool toggle)
         {
             countryInfoComboBox.Enabled = toggle;
             cityInfoBox.Enabled = toggle;
@@ -558,26 +569,25 @@ namespace RealEstateAssignment
             costInfoBox.Enabled = toggle;
         }
 
+        // toggle if residential is enabled
         private void residentialInfoIsEDToggle(bool toggle)
         {
             roomInfoBox.Enabled = toggle;
         }
 
+        // toggle if commercial is enabled
         private void commercialInfoIsEDToggle(bool toggle)
         {
             shelvesInfoBox.Enabled = toggle;
         }
 
+        // toggle if institutional is enabled
         private void institutionalInfoIsEDToggle(bool toggle)
         {
             capacityInfoBox.Enabled = toggle;
         }
 
-        private void institutionalInfoEDToggle(bool toggle)
-        {
-            capacityInfoBox.Enabled = toggle;
-        }
-
+        // set all the estate info in the info box
         private void setEstateInfo(Estate estate)
         {
             countryInfoComboBox.SelectedItem = estate.Address.Country;
@@ -605,24 +615,28 @@ namespace RealEstateAssignment
             }
         }
 
+        // set all the residential info in the info box
         private void setResidentialInfo(Estate estate)
         {
            roomInfoBox.Text = ((Residential)estate).Rooms.ToString();
         }
 
+        // set all the commercial info in the info box
         private void setCommercialInfo(Estate estate)
         {
             shelvesInfoBox.Text = ((Commercial)estate).Shelves.ToString();
         }
 
-        private void setinstitutionalInfo(Estate estate)
+        // set all the institutional info in the info box
+        private void setInstitutionalInfo(Estate estate)
         {
             capacityInfoBox.Text = ((Institutional)estate).Capacity.ToString();
         }
 
+        // enable the info square for editing
         private void changeInfo(Estate estate)
         {
-            estateInfoShowToggle(true);
+            estateInfoIsEDToggle(true);
             switch (estate.getObjectType())
             {
                 case "Apartment":
@@ -697,6 +711,8 @@ namespace RealEstateAssignment
                     break;
             }
         }
+
+        // save info for the info square
         private void change(Estate estate)
         {
             estate.Size = Int32.Parse(sizeInfoBox.Text);
@@ -778,9 +794,9 @@ namespace RealEstateAssignment
             string title = "Object Changed";
             MessageBox.Show(message, title);
             residentialInfoIsEDToggle(false);
-            institutionalInfoEDToggle(false);
+            institutionalInfoIsEDToggle(false);
             commercialInfoIsEDToggle(false);
-            estateInfoShowToggle(false);
+            estateInfoIsEDToggle(false);
             apartmentNumberInfoBox.Enabled = false;
 
         }
@@ -899,6 +915,7 @@ namespace RealEstateAssignment
 
         }
 
+        // show selected item from list
         private void lstEstates_SelectedIndexChanged(object sender, EventArgs e)
         {
             String id = lstEstates.GetItemText(lstEstates.SelectedItem).ToString().Split(" ").Last();
@@ -944,6 +961,7 @@ namespace RealEstateAssignment
 
         }
 
+        // delete when new is selected
         private void mnuNew_Click(object sender, EventArgs e)
         {
             estates.DeleteAll();
@@ -953,16 +971,19 @@ namespace RealEstateAssignment
 
         }
 
+        // save estates
         private void mnuSave_Click(object sender, EventArgs e)
         {
             estates.BinarySerialize(estates.Path);
         }
 
+        // select file to open with saved estates
         private void mnuOpen_Click(object sender, EventArgs e)
         {
             openBinary.ShowDialog();
         }
 
+        // open saved estates
         private void openBinary_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
             estates.BinaryDeSerialize(openBinary.FileName);
@@ -973,6 +994,7 @@ namespace RealEstateAssignment
             displayseeEstate.Visible = true;
         }
 
+        // save estates
         private void saveBinarySer_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
             estates.BinarySerialize(saveBinarySer.FileName);
@@ -980,11 +1002,13 @@ namespace RealEstateAssignment
             mnuSave.Enabled = true;
         }
 
+        // save estetes in position
         private void mnuSaveAs_Click(object sender, EventArgs e)
         {
             saveBinarySer.ShowDialog();
         }
 
+        // changhe and save botton
         private void button1_Click_2(object sender, EventArgs e)
         {
             if (changeBtn.Text == "Save")
@@ -1015,6 +1039,7 @@ namespace RealEstateAssignment
 
         }
 
+        // exit and ask if it should be saved
         private void mnuExit_Click(object sender, EventArgs e)
         {
             string message = "Do you want to save before closing?";
