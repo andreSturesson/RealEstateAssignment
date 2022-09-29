@@ -445,7 +445,7 @@ namespace RealEstateAssignment
                     estateShowType.Text = "Type: University";
                     break;
 
-                case "School":
+                case "Schools":
 
                     setinstitutionalInfo(estate);
                     institutionalInfoIsEDToggle(false);
@@ -453,7 +453,7 @@ namespace RealEstateAssignment
                     estateShowType.Text = "Type: School";
                     break;
 
-                case "Hospital":
+                case "Hospitals":
 
                     setinstitutionalInfo(estate);
                     institutionalInfoIsEDToggle(false);
