@@ -66,11 +66,15 @@ namespace RealEstateAssignment
                 case "Apartment":
                     garageComboBox.Visible = false;
                     garageLabel.Visible = false;
+                    roomsLabel.Visible = true;
+                    roomsTextBox.Visible = true;
                     break;
                 case "Villa":
                     apartmentNumberTextBox.Visible = false;
                     apartmentNumberLabel.Visible = false;
                     plotSizeLabel.Text = "Plot size";
+                    roomsLabel.Visible = true;
+                    roomsTextBox.Visible = true;
                     break;
                 case "Shop":
                     garageComboBox.Visible = false;
@@ -78,6 +82,8 @@ namespace RealEstateAssignment
                     apartmentNumberTextBox.Visible = false;
                     apartmentNumberLabel.Visible = false;
                     plotSizeLabel.Text = "Shelves";
+                    roomsLabel.Visible = false;
+                    roomsTextBox.Visible = false;
                     break;
                 case "Warehouse":
                     garageComboBox.Visible = false;
@@ -85,6 +91,8 @@ namespace RealEstateAssignment
                     apartmentNumberTextBox.Visible = false;
                     apartmentNumberLabel.Visible = false;
                     plotSizeLabel.Text = "Shelves";
+                    roomsLabel.Visible = false;
+                    roomsTextBox.Visible = false;
                     break;
                 case "Hospital":
                     garageComboBox.Visible = false;
@@ -92,6 +100,8 @@ namespace RealEstateAssignment
                     apartmentNumberTextBox.Visible = false;
                     apartmentNumberLabel.Visible = false;
                     plotSizeLabel.Text = "Capacity";
+                    roomsLabel.Visible = false;
+                    roomsTextBox.Visible = false;
                     break;
                 case "School":
                     garageComboBox.Visible = false;
@@ -99,6 +109,8 @@ namespace RealEstateAssignment
                     apartmentNumberTextBox.Visible = false;
                     apartmentNumberLabel.Visible = false;
                     plotSizeLabel.Text = "Capacity";
+                    roomsLabel.Visible = false;
+                    roomsTextBox.Visible = false;
                     break;
                 case "University":
                     garageComboBox.Visible = false;
@@ -106,11 +118,15 @@ namespace RealEstateAssignment
                     apartmentNumberTextBox.Visible = false;
                     apartmentNumberLabel.Visible = false;
                     plotSizeLabel.Text = "Capacity";
+                    roomsLabel.Visible = false;
+                    roomsTextBox.Visible = false;
                     break;
                 case "Rowhouse":
                     apartmentNumberTextBox.Visible = false;
                     apartmentNumberLabel.Visible = false;
                     plotSizeLabel.Text = "Plot size";
+                    roomsLabel.Visible = true;
+                    roomsTextBox.Visible = true;
                     break;
                 default:
                     break;
