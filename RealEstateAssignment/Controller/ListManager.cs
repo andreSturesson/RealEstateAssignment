@@ -26,7 +26,7 @@ namespace RealEstateAssignment.Controller
             estates = new Dictionary<String, Estate>();
         }
 
-        public int Count => throw new NotImplementedException();
+        public int Count => estates.Count;
 
         public string Path { get => path; set => path = value; }
 
