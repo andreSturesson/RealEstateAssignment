@@ -440,14 +440,14 @@ namespace RealEstateAssignment
                     institutionalInfoIsVisible();
                     break;
 
-                case "School":
+                case "Schools":
 
                     setinstitutionalInfo(estate);
                     institutionalInfoIsEDToggle(false);
                     institutionalInfoIsVisible();
                     break;
 
-                case "Hospital":
+                case "Hospitals":
 
                     setinstitutionalInfo(estate);
                     institutionalInfoIsEDToggle(false);

@@ -182,6 +182,11 @@
             // rentLabelText
             // 
             this.rentLabelText.Location = new System.Drawing.Point(183, 93);
+            this.rentLabelText.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.rentLabelText.Name = "rentLabelText";
             this.rentLabelText.Size = new System.Drawing.Size(60, 23);
             this.rentLabelText.TabIndex = 47;
@@ -190,6 +195,11 @@
             // apartmentNumberTextBox
             // 
             this.apartmentNumberTextBox.Location = new System.Drawing.Point(123, 150);
+            this.apartmentNumberTextBox.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.apartmentNumberTextBox.Name = "apartmentNumberTextBox";
             this.apartmentNumberTextBox.Size = new System.Drawing.Size(54, 23);
             this.apartmentNumberTextBox.TabIndex = 46;
@@ -198,6 +208,11 @@
             // plotSizeText
             // 
             this.plotSizeText.Location = new System.Drawing.Point(56, 117);
+            this.plotSizeText.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.plotSizeText.Name = "plotSizeText";
             this.plotSizeText.Size = new System.Drawing.Size(41, 23);
             this.plotSizeText.TabIndex = 45;
@@ -206,6 +221,11 @@
             // roomsTextBox
             // 
             this.roomsTextBox.Location = new System.Drawing.Point(56, 88);
+            this.roomsTextBox.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.roomsTextBox.Name = "roomsTextBox";
             this.roomsTextBox.Size = new System.Drawing.Size(41, 23);
             this.roomsTextBox.TabIndex = 44;
@@ -214,6 +234,11 @@
             // sizeTextBox
             // 
             this.sizeTextBox.Location = new System.Drawing.Point(56, 55);
+            this.sizeTextBox.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.sizeTextBox.Name = "sizeTextBox";
             this.sizeTextBox.Size = new System.Drawing.Size(41, 23);
             this.sizeTextBox.TabIndex = 44;
@@ -316,7 +341,7 @@
             // 
             this.plotSizeLabel.AutoSize = true;
             this.plotSizeLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.plotSizeLabel.Location = new System.Drawing.Point(6, 125);
+            this.plotSizeLabel.Location = new System.Drawing.Point(5, 119);
             this.plotSizeLabel.Name = "plotSizeLabel";
             this.plotSizeLabel.Size = new System.Drawing.Size(51, 15);
             this.plotSizeLabel.TabIndex = 21;
@@ -461,6 +486,11 @@
             // zipCodeTextBox
             // 
             this.zipCodeTextBox.Location = new System.Drawing.Point(67, 90);
+            this.zipCodeTextBox.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
             this.zipCodeTextBox.Name = "zipCodeTextBox";
             this.zipCodeTextBox.Size = new System.Drawing.Size(100, 23);
             this.zipCodeTextBox.TabIndex = 44;
@@ -521,6 +551,11 @@
             // capacityInfoBox
             // 
             this.capacityInfoBox.Location = new System.Drawing.Point(85, 273);
+            this.capacityInfoBox.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.capacityInfoBox.Name = "capacityInfoBox";
             this.capacityInfoBox.Size = new System.Drawing.Size(100, 23);
             this.capacityInfoBox.TabIndex = 59;
@@ -529,6 +564,11 @@
             // shelvesInfoBox
             // 
             this.shelvesInfoBox.Location = new System.Drawing.Point(85, 244);
+            this.shelvesInfoBox.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.shelvesInfoBox.Name = "shelvesInfoBox";
             this.shelvesInfoBox.Size = new System.Drawing.Size(100, 23);
             this.shelvesInfoBox.TabIndex = 58;
@@ -537,6 +577,11 @@
             // apartmentNumberInfoBox
             // 
             this.apartmentNumberInfoBox.Location = new System.Drawing.Point(138, 213);
+            this.apartmentNumberInfoBox.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.apartmentNumberInfoBox.Name = "apartmentNumberInfoBox";
             this.apartmentNumberInfoBox.Size = new System.Drawing.Size(100, 23);
             this.apartmentNumberInfoBox.TabIndex = 57;
@@ -546,6 +591,11 @@
             // plotSizeInfoBox
             // 
             this.plotSizeInfoBox.Location = new System.Drawing.Point(85, 147);
+            this.plotSizeInfoBox.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.plotSizeInfoBox.Name = "plotSizeInfoBox";
             this.plotSizeInfoBox.Size = new System.Drawing.Size(100, 23);
             this.plotSizeInfoBox.TabIndex = 56;
@@ -554,6 +604,11 @@
             // roomInfoBox
             // 
             this.roomInfoBox.Location = new System.Drawing.Point(85, 118);
+            this.roomInfoBox.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.roomInfoBox.Name = "roomInfoBox";
             this.roomInfoBox.Size = new System.Drawing.Size(100, 23);
             this.roomInfoBox.TabIndex = 55;
@@ -562,6 +617,11 @@
             // costInfoBox
             // 
             this.costInfoBox.Location = new System.Drawing.Point(85, 89);
+            this.costInfoBox.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.costInfoBox.Name = "costInfoBox";
             this.costInfoBox.Size = new System.Drawing.Size(100, 23);
             this.costInfoBox.TabIndex = 54;
@@ -570,6 +630,11 @@
             // sizeInfoBox
             // 
             this.sizeInfoBox.Location = new System.Drawing.Point(85, 31);
+            this.sizeInfoBox.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.sizeInfoBox.Name = "sizeInfoBox";
             this.sizeInfoBox.Size = new System.Drawing.Size(100, 23);
             this.sizeInfoBox.TabIndex = 53;
@@ -741,6 +806,11 @@
             // zipCodeInfoBox
             // 
             this.zipCodeInfoBox.Location = new System.Drawing.Point(62, 78);
+            this.zipCodeInfoBox.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
             this.zipCodeInfoBox.Name = "zipCodeInfoBox";
             this.zipCodeInfoBox.Size = new System.Drawing.Size(100, 23);
             this.zipCodeInfoBox.TabIndex = 39;
