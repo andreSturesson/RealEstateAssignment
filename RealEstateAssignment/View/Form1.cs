@@ -1045,5 +1045,10 @@ namespace RealEstateAssignment
         {
 
         }
+
+        private void apartmentNumberInfoBox_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
     }
