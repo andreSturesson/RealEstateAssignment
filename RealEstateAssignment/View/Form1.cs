@@ -359,7 +359,6 @@ namespace RealEstateAssignment
             switch (estate.getObjectType())
             {
                 case "Apartment":
-
                     setResidentialInfo(estate);
                     residentialInfoIsEDToggle(false);
                     residentialInfoIsVisible();
@@ -369,6 +368,7 @@ namespace RealEstateAssignment
                     ApNumShowL.Visible = true;
                     GarageShowL.Visible = false;
                     PlotShowL.Visible = false;
+                    estateShowType.Text = "Type: Apartment";
                     break;
 
                 case "Villa":
@@ -393,6 +393,7 @@ namespace RealEstateAssignment
                     garageInfoComboBox.Visible = true;
                     GarageShowL.Visible = true;
                     ApNumShowL.Visible = false;
+                    estateShowType.Text = "Type: Villa";
                     break;
                 case "Rowhouse":
 
@@ -417,6 +418,7 @@ namespace RealEstateAssignment
                     garageInfoComboBox.Visible = true;
                     GarageShowL.Visible = true;
                     ApNumShowL.Visible = false;
+                    estateShowType.Text = "Type: Rowhouse";
                     break;
 
                 case "Shop":
@@ -424,6 +426,7 @@ namespace RealEstateAssignment
                     setCommercialInfo(estate);
                     commercialInfoIsEDToggle(false);
                     commercialInfoIsVisible();
+                    estateShowType.Text = "Type: Shop";
                     break;
 
                 case "Warehouse":
@@ -431,6 +434,7 @@ namespace RealEstateAssignment
                     setCommercialInfo(estate);
                     commercialInfoIsEDToggle(false);
                     commercialInfoIsVisible();
+                    estateShowType.Text = "Type: Warehouse";
                     break;
 
                 case "University":
@@ -438,6 +442,7 @@ namespace RealEstateAssignment
                     setinstitutionalInfo(estate);
                     institutionalInfoIsEDToggle(false);
                     institutionalInfoIsVisible();
+                    estateShowType.Text = "Type: University";
                     break;
 
                 case "School":
@@ -445,6 +450,7 @@ namespace RealEstateAssignment
                     setinstitutionalInfo(estate);
                     institutionalInfoIsEDToggle(false);
                     institutionalInfoIsVisible();
+                    estateShowType.Text = "Type: School";
                     break;
 
                 case "Hospital":
@@ -452,11 +458,13 @@ namespace RealEstateAssignment
                     setinstitutionalInfo(estate);
                     institutionalInfoIsEDToggle(false);
                     institutionalInfoIsVisible();
+                    estateShowType.Text = "Type: Hospital";
                     break;
 
                 default:
                     break;
             }
+            estateShowType.Visible = true;
         }
 
         private void hideInfo()
