@@ -28,6 +28,14 @@ namespace RealEstateAssignment
         {
             lstEstates.Items.Clear();
             lstEstates.Items.AddRange(estates.ToStringArray());
+            if (estates.Count > 0)
+            {
+                displayseeEstate.Text = "Choose an estate in the list to see more information";
+            }
+            else
+            {
+                displayseeEstate.Text = "Please add an estate to see information about it";
+            }
         }
 
         //Delete button to delete estate object..
@@ -35,8 +43,12 @@ namespace RealEstateAssignment
         {
             hideInfo();
             String id = lstEstates.GetItemText(lstEstates.SelectedItem).ToString().Split(" ").Last();
+            displayseeEstate.Visible = true;
             estates.DeleteAt(id);
             updateGUI();
+            string message = "The estate was succesfully deleted";
+            string title = "Object Deleted";
+            MessageBox.Show(message, title);
             /**AddressInfoGroup.Visible = false;
             displayseeEstate.Visible = true;
             errorText.Text = "";
@@ -460,6 +472,17 @@ namespace RealEstateAssignment
             imgBox.Visible = false;
             shelvesInfoBox.Visible = false;
             capacityInfoBox.Visible = false;
+
+            SizeShowL.Visible = false;
+            OwnershipShowL.Visible = false;
+            rentShowL.Visible = false;
+            RoomsShowL.Visible = false;
+            PlotShowL.Visible = false;
+            GarageShowL.Visible = false;
+            ApNumShowL.Visible = false;
+            ShelvesShowL.Visible = false;
+            CapacityShowL.Visible = false;
+
         }
 
         private void estateInfoIsVisible()
@@ -964,6 +987,30 @@ namespace RealEstateAssignment
 
         }
 
+        private void mnuExit_Click(object sender, EventArgs e)
+        {
+            string message = "Do you want to save before closing?";
+            string title = "Close Application";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNoCancel;
+            DialogResult result = MessageBox.Show(message, title, buttons, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                if (mnuSave.Enabled)
+                {
+                    estates.BinarySerialize(estates.Path);
+                }
+                else
+                {
+                    saveBinarySer.ShowDialog();
+                }
+                this.Close();
+            }
+            else if(result == DialogResult.No) {
+                System.Windows.Forms.Application.Exit();
+            }
+            else
+            {
+            }
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
 
