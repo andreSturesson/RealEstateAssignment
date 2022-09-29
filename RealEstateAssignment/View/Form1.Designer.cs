@@ -63,6 +63,7 @@
             this.countryComboBox = new System.Windows.Forms.ComboBox();
             this.deleteBtn = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.estateShowType = new System.Windows.Forms.Label();
             this.capacityInfoBox = new System.Windows.Forms.NumericUpDown();
             this.shelvesInfoBox = new System.Windows.Forms.NumericUpDown();
             this.apartmentNumberInfoBox = new System.Windows.Forms.NumericUpDown();
@@ -108,7 +109,6 @@
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.openBinary = new System.Windows.Forms.OpenFileDialog();
             this.saveBinarySer = new System.Windows.Forms.SaveFileDialog();
-            this.estateShowType = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rentLabelText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.apartmentNumberTextBox)).BeginInit();
@@ -550,9 +550,19 @@
             this.groupBox3.Text = "Estate Information";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
+            // estateShowType
+            // 
+            this.estateShowType.AutoSize = true;
+            this.estateShowType.Location = new System.Drawing.Point(21, 27);
+            this.estateShowType.Name = "estateShowType";
+            this.estateShowType.Size = new System.Drawing.Size(38, 15);
+            this.estateShowType.TabIndex = 53;
+            this.estateShowType.Text = "label2";
+            this.estateShowType.Visible = false;
+            // 
             // capacityInfoBox
             // 
-            this.capacityInfoBox.Location = new System.Drawing.Point(85, 273);
+            this.capacityInfoBox.Location = new System.Drawing.Point(85, 288);
             this.capacityInfoBox.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -565,7 +575,7 @@
             // 
             // shelvesInfoBox
             // 
-            this.shelvesInfoBox.Location = new System.Drawing.Point(85, 244);
+            this.shelvesInfoBox.Location = new System.Drawing.Point(85, 259);
             this.shelvesInfoBox.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -578,7 +588,7 @@
             // 
             // apartmentNumberInfoBox
             // 
-            this.apartmentNumberInfoBox.Location = new System.Drawing.Point(138, 213);
+            this.apartmentNumberInfoBox.Location = new System.Drawing.Point(138, 230);
             this.apartmentNumberInfoBox.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -592,7 +602,7 @@
             // 
             // plotSizeInfoBox
             // 
-            this.plotSizeInfoBox.Location = new System.Drawing.Point(85, 147);
+            this.plotSizeInfoBox.Location = new System.Drawing.Point(85, 172);
             this.plotSizeInfoBox.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -605,7 +615,7 @@
             // 
             // roomInfoBox
             // 
-            this.roomInfoBox.Location = new System.Drawing.Point(85, 118);
+            this.roomInfoBox.Location = new System.Drawing.Point(85, 143);
             this.roomInfoBox.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -618,7 +628,7 @@
             // 
             // costInfoBox
             // 
-            this.costInfoBox.Location = new System.Drawing.Point(85, 89);
+            this.costInfoBox.Location = new System.Drawing.Point(85, 114);
             this.costInfoBox.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -631,7 +641,7 @@
             // 
             // sizeInfoBox
             // 
-            this.sizeInfoBox.Location = new System.Drawing.Point(85, 31);
+            this.sizeInfoBox.Location = new System.Drawing.Point(85, 56);
             this.sizeInfoBox.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -645,7 +655,7 @@
             // CapacityShowL
             // 
             this.CapacityShowL.AutoSize = true;
-            this.CapacityShowL.Location = new System.Drawing.Point(21, 275);
+            this.CapacityShowL.Location = new System.Drawing.Point(21, 290);
             this.CapacityShowL.Name = "CapacityShowL";
             this.CapacityShowL.Size = new System.Drawing.Size(53, 15);
             this.CapacityShowL.TabIndex = 52;
@@ -655,7 +665,7 @@
             // OwnershipShowL
             // 
             this.OwnershipShowL.AutoSize = true;
-            this.OwnershipShowL.Location = new System.Drawing.Point(15, 66);
+            this.OwnershipShowL.Location = new System.Drawing.Point(21, 88);
             this.OwnershipShowL.Name = "OwnershipShowL";
             this.OwnershipShowL.Size = new System.Drawing.Size(64, 15);
             this.OwnershipShowL.TabIndex = 51;
@@ -665,7 +675,7 @@
             // rentShowL
             // 
             this.rentShowL.AutoSize = true;
-            this.rentShowL.Location = new System.Drawing.Point(21, 95);
+            this.rentShowL.Location = new System.Drawing.Point(21, 116);
             this.rentShowL.Name = "rentShowL";
             this.rentShowL.Size = new System.Drawing.Size(31, 15);
             this.rentShowL.TabIndex = 50;
@@ -676,7 +686,7 @@
             // RoomsShowL
             // 
             this.RoomsShowL.AutoSize = true;
-            this.RoomsShowL.Location = new System.Drawing.Point(21, 125);
+            this.RoomsShowL.Location = new System.Drawing.Point(21, 145);
             this.RoomsShowL.Name = "RoomsShowL";
             this.RoomsShowL.Size = new System.Drawing.Size(44, 15);
             this.RoomsShowL.TabIndex = 49;
@@ -686,7 +696,7 @@
             // PlotShowL
             // 
             this.PlotShowL.AutoSize = true;
-            this.PlotShowL.Location = new System.Drawing.Point(21, 157);
+            this.PlotShowL.Location = new System.Drawing.Point(21, 174);
             this.PlotShowL.Name = "PlotShowL";
             this.PlotShowL.Size = new System.Drawing.Size(51, 15);
             this.PlotShowL.TabIndex = 48;
@@ -696,7 +706,7 @@
             // GarageShowL
             // 
             this.GarageShowL.AutoSize = true;
-            this.GarageShowL.Location = new System.Drawing.Point(21, 185);
+            this.GarageShowL.Location = new System.Drawing.Point(21, 204);
             this.GarageShowL.Name = "GarageShowL";
             this.GarageShowL.Size = new System.Drawing.Size(44, 15);
             this.GarageShowL.TabIndex = 47;
@@ -706,7 +716,7 @@
             // ApNumShowL
             // 
             this.ApNumShowL.AutoSize = true;
-            this.ApNumShowL.Location = new System.Drawing.Point(21, 215);
+            this.ApNumShowL.Location = new System.Drawing.Point(21, 232);
             this.ApNumShowL.Name = "ApNumShowL";
             this.ApNumShowL.Size = new System.Drawing.Size(111, 15);
             this.ApNumShowL.TabIndex = 46;
@@ -716,7 +726,7 @@
             // ShelvesShowL
             // 
             this.ShelvesShowL.AutoSize = true;
-            this.ShelvesShowL.Location = new System.Drawing.Point(21, 246);
+            this.ShelvesShowL.Location = new System.Drawing.Point(21, 261);
             this.ShelvesShowL.Name = "ShelvesShowL";
             this.ShelvesShowL.Size = new System.Drawing.Size(46, 15);
             this.ShelvesShowL.TabIndex = 45;
@@ -726,7 +736,7 @@
             // SizeShowL
             // 
             this.SizeShowL.AutoSize = true;
-            this.SizeShowL.Location = new System.Drawing.Point(21, 36);
+            this.SizeShowL.Location = new System.Drawing.Point(21, 58);
             this.SizeShowL.Name = "SizeShowL";
             this.SizeShowL.Size = new System.Drawing.Size(27, 15);
             this.SizeShowL.TabIndex = 44;
@@ -747,7 +757,7 @@
             // legalFormInfoComboBox
             // 
             this.legalFormInfoComboBox.FormattingEnabled = true;
-            this.legalFormInfoComboBox.Location = new System.Drawing.Point(85, 60);
+            this.legalFormInfoComboBox.Location = new System.Drawing.Point(85, 85);
             this.legalFormInfoComboBox.Name = "legalFormInfoComboBox";
             this.legalFormInfoComboBox.Size = new System.Drawing.Size(100, 23);
             this.legalFormInfoComboBox.TabIndex = 36;
@@ -756,7 +766,7 @@
             // garageInfoComboBox
             // 
             this.garageInfoComboBox.FormattingEnabled = true;
-            this.garageInfoComboBox.Location = new System.Drawing.Point(85, 178);
+            this.garageInfoComboBox.Location = new System.Drawing.Point(85, 201);
             this.garageInfoComboBox.Name = "garageInfoComboBox";
             this.garageInfoComboBox.Size = new System.Drawing.Size(39, 23);
             this.garageInfoComboBox.TabIndex = 35;
@@ -999,16 +1009,6 @@
             // 
             this.saveBinarySer.Filter = "Bin (*.bin;)|*.bin;";
             this.saveBinarySer.FileOk += new System.ComponentModel.CancelEventHandler(this.saveBinarySer_FileOk);
-            // 
-            // estateShowType
-            // 
-            this.estateShowType.AutoSize = true;
-            this.estateShowType.Location = new System.Drawing.Point(21, 19);
-            this.estateShowType.Name = "estateShowType";
-            this.estateShowType.Size = new System.Drawing.Size(38, 15);
-            this.estateShowType.TabIndex = 53;
-            this.estateShowType.Text = "label2";
-            this.estateShowType.Visible = false;
             // 
             // Form1
             // 
