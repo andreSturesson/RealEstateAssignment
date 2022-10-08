@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstateAssignment", "RealEstateAssignment\RealEstateAssignment.csproj", "{B5D040AF-BDE8-402C-A5AB-F1898845D473}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstateAssignment", "RealEstateAssignment\RealEstateAssignment.csproj", "{B5D040AF-BDE8-402C-A5AB-F1898845D473}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstateBLL", "RealEstateBLL\RealEstateBLL.csproj", "{F667FE83-4497-4986-8C9F-33A8203C4AA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstateDAL", "RealEstateDAL\RealEstateDAL.csproj", "{25330879-D565-4A35-AC43-76EA8F6B560C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{B5D040AF-BDE8-402C-A5AB-F1898845D473}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5D040AF-BDE8-402C-A5AB-F1898845D473}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5D040AF-BDE8-402C-A5AB-F1898845D473}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F667FE83-4497-4986-8C9F-33A8203C4AA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F667FE83-4497-4986-8C9F-33A8203C4AA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F667FE83-4497-4986-8C9F-33A8203C4AA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F667FE83-4497-4986-8C9F-33A8203C4AA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25330879-D565-4A35-AC43-76EA8F6B560C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25330879-D565-4A35-AC43-76EA8F6B560C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25330879-D565-4A35-AC43-76EA8F6B560C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25330879-D565-4A35-AC43-76EA8F6B560C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
