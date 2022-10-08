@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RealEstateAssignment
+namespace RealEstateBLL.Model
 {
     [Serializable]
-    internal class Ownership : LegalForm
+    public class Ownership : LegalForm
     {
         private int value;
 
@@ -22,7 +22,7 @@ namespace RealEstateAssignment
             set { value = value; }
         }
 
-        public override String getType()
+        public override string getType()
         {
             return "Ownership";
         }

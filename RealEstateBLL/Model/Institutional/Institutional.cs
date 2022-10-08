@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RealEstateAssignment
+namespace RealEstateBLL.Model.Institutional
 {
     [Serializable]
-    abstract class Institutional : Estate
+    public abstract class Institutional : Estate
     {
         private int capacity;
 

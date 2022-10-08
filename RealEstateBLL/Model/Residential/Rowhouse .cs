@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace RealEstateAssignment
+namespace RealEstateBLL.Model.Residential
 {
     [Serializable]
-    internal class Rowhouse : Villa
+    public class Rowhouse : Villa
     {
         public Rowhouse()
         {

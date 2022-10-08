@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RealEstateAssignment
+namespace RealEstateBLL.Model
 {
-    internal interface IEstate
+    public interface IEstate
     {
         String Id { get; set; }
         Address Address { get; set; }

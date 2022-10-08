@@ -1,15 +1,14 @@
-﻿using RealEstateAssignment;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RealEstateAssignment
+namespace RealEstateBLL.Model.Residential
 {
     [Serializable]
-    class Apartment : Residential
+    public class Apartment : Residential
     {
         private int apartmentNumber;
 

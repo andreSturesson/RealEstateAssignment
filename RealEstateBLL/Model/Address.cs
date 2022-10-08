@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static Enums;
 
-namespace RealEstateAssignment
+namespace RealEstateBLL.Model
 {
     [Serializable]
     public class Address

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RealEstateAssignment
+namespace RealEstateBLL.Model
 {
     [Serializable]
-    abstract class LegalForm
+    public abstract class LegalForm
     {
         public LegalForm()
         {
