@@ -5,11 +5,10 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace RealEstateAssignment
+namespace RealEstateBLL.Model.Commercial
 {
     [Serializable]
-    abstract class Commercial : Estate
+    public abstract class Commercial : Estate
     {
         private int shelves;
 

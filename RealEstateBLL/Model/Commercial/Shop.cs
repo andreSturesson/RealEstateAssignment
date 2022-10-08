@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RealEstateAssignment
+namespace RealEstateBLL.Model.Commercial
 {
     [Serializable]
-    internal class Shop : Commercial
+    public class Shop : Commercial
     {
         public Shop()
         {

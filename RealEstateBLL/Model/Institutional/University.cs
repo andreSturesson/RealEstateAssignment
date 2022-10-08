@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RealEstateAssignment
+namespace RealEstateBLL.Model.Institutional
 
 {
     [Serializable]
-    internal class University : Institutional
+    public class University : Institutional
     {
         public University()
         {

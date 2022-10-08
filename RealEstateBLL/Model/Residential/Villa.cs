@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace RealEstateAssignment
+namespace RealEstateBLL.Model.Residential
 {
     [Serializable]
-    class Villa : Residential
+    public class Villa : Residential
     {
         private string plot;
         private bool garage;

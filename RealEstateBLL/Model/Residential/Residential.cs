@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RealEstateAssignment
+namespace RealEstateBLL.Model.Residential
 {
     [Serializable]
-    abstract class Residential : Estate
+    public abstract class Residential : Estate
     {
         private int rooms;
 

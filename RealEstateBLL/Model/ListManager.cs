@@ -1,5 +1,4 @@
-﻿using RealEstateAssignment.Controller;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
@@ -12,17 +11,18 @@ using System.IO;
 using System.IO.Pipes;
 using System.Collections;
 
-namespace RealEstateAssignment.Controller
+namespace RealEstateBLL.Model
 {
 
-    class ListManager : IListManager<Estate> {
+    public class ListManager : IListManager<Estate>
+    {
 
-        private Dictionary<String, Estate> estates;
-        private String path;
+        private Dictionary<string, Estate> estates;
+        private string path;
 
         public ListManager()
         {
-            estates = new Dictionary<String, Estate>();
+            estates = new Dictionary<string, Estate>();
         }
 
         public int Count => estates.Count;
@@ -42,7 +42,7 @@ namespace RealEstateAssignment.Controller
             {
                 BinaryFormatter formatter = new BinaryFormatter();
 
-                estates = (Dictionary<String,Estate>)formatter.Deserialize(fs);
+                estates = (Dictionary<string, Estate>)formatter.Deserialize(fs);
             }
             catch (SerializationException e)
             {
@@ -78,29 +78,29 @@ namespace RealEstateAssignment.Controller
         }
 
 
-        public bool ChangeAt(Estate aType, String id)
+        public bool ChangeAt(Estate aType, string id)
         {
             estates[id].Change(aType);
             return true;
         }
 
-        public bool CheckId(String id)
+        public bool CheckId(string id)
         {
             return estates.TryGetValue(id, out _);
         }
 
         public void DeleteAll()
         {
-            estates = new Dictionary<String,Estate>();
+            estates = new Dictionary<string, Estate>();
         }
 
-        public bool DeleteAt(String id)
+        public bool DeleteAt(string id)
         {
             estates.Remove(id);
             return true;
         }
 
-        public Estate GetAt(String id)
+        public Estate GetAt(string id)
         {
             if (CheckId(id))
             {
@@ -118,7 +118,7 @@ namespace RealEstateAssignment.Controller
             string[] strArray = new string[estates.Count];
             int i = 0;
 
-            foreach (Estate obj in this.estates.Values)
+            foreach (Estate obj in estates.Values)
             {
                 strArray[i] = " " + obj.toString();
                 i += 1;
