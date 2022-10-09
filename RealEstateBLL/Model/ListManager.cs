@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.IO.Pipes;
 using System.Collections;
-
+using RealEstateDAL;
 namespace RealEstateBLL.Model
 {
 
@@ -37,43 +37,28 @@ namespace RealEstateBLL.Model
 
         public bool BinaryDeSerialize(string fileName)
         {
-            FileStream fs = new FileStream(fileName, FileMode.Open);
-            try
-            {
-                BinaryFormatter formatter = new BinaryFormatter();
+            RealEstateDAL.Serialize se = new Serialize();
+            List<Object> list = new List<Object>();
+            list = se.BinaryDeSerialize(fileName);
 
-                estates = (Dictionary<string, Estate>)formatter.Deserialize(fs);
-            }
-            catch (SerializationException e)
+            foreach (Object o in list)
             {
-                Console.WriteLine("Failed to deserialize. Reason: " + e.Message);
-                return false;
-                throw;
+                Estate temp = (((Estate)o));
+                estates.Add(((Estate)temp).Id, temp);
             }
-            finally
-            {
-                fs.Close();
-            }
+
             return true;
         }
 
         public bool BinarySerialize(string fileName)
         {
-            FileStream fs = new FileStream(fileName, FileMode.Create);
-            BinaryFormatter formatter = new BinaryFormatter();
-            try
+            RealEstateDAL.Serialize se = new Serialize();
+            List<Object> temp = new List<Object>();
+            foreach (Estate aType in estates.Values)
             {
-                formatter.Serialize(fs, graph: estates);
+                temp.Add((Object)aType);
             }
-            catch (SerializationException e)
-            {
-                Console.WriteLine("Failed to serialize. Reason: " + e.Message);
-                throw;
-            }
-            finally
-            {
-                fs.Close();
-            }
+            se.BinarySerialize(fileName, temp);
             return true;
         }
 
