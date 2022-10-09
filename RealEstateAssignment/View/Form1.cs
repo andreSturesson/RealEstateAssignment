@@ -6,6 +6,7 @@ using RealEstateBLL.Model;
 using RealEstateBLL.Model.Commercial;
 using RealEstateBLL.Model.Institutional;
 using RealEstateBLL.Model.Residential;
+using UtilitiesLib;
 
 namespace RealEstateAssignment;
 
@@ -241,7 +242,7 @@ public partial class Form1 : Form
                             estate = new Apartment();
                             newEstate();
                             newResidential();
-                            ((Apartment)estate).ApartmentNumber = Int32.Parse(apartmentNumberTextBox.Text);
+                            ((Apartment)estate).ApartmentNumber = UtilitiesLib.FromStringToInt.ConvertStringToInteger(apartmentNumberTextBox.Text, 0, 100000);
                         }
                         else
                         {
@@ -329,19 +330,19 @@ public partial class Form1 : Form
     private void newEstate()
     {
         LegalForm legal;
-        Address adress = new Address(streetTextBox.Text, cityTextBox.Text, Int32.Parse(zipCodeTextBox.Text), 
+        Address adress = new Address(streetTextBox.Text, cityTextBox.Text, UtilitiesLib.FromStringToInt.ConvertStringToInteger(zipCodeTextBox.Text, 0,99999), 
             (Enums.countries)countryComboBox.SelectedItem);
         if ((Enums.legalType)apartmentTypeComboBox.SelectedItem == Enums.legalType.Rental)
         {
-            legal = new Rental(Int32.Parse(rentLabelText.Text));
+            legal = new Rental(UtilitiesLib.FromStringToInt.ConvertStringToInteger(rentLabelText.Text,0,100000));
         }
         else
         {
-            legal = new Ownership(Int32.Parse(rentLabelText.Text));
+            legal = new Ownership(UtilitiesLib.FromStringToInt.ConvertStringToInteger(rentLabelText.Text, 0, 100000));
         }
         estate.LegalForm = legal;
         estate.Address = adress;
-        estate.Size = Int32.Parse(sizeTextBox.Text);
+        estate.Size = UtilitiesLib.FromStringToInt.ConvertStringToInteger(sizeTextBox.Text,0,10000);
         estate.Img = chooseImageTextBox.Text;
         estate.Address = adress;
 
@@ -350,19 +351,19 @@ public partial class Form1 : Form
     // add residential info to new estate
     private void newResidential()
     {
-        ((Residential)estate).Rooms = Int32.Parse(roomsTextBox.Text);
+        ((Residential)estate).Rooms = UtilitiesLib.FromStringToInt.ConvertStringToInteger(roomsTextBox.Text, 0, 1000);
     }
 
     // add institutional info to new estate
     private void newInstitutional()
     {
-        ((Institutional)estate).Capacity = Int32.Parse(plotSizeText.Text);
+        ((Institutional)estate).Capacity = UtilitiesLib.FromStringToInt.ConvertStringToInteger(plotSizeText.Text,0,1000000);
     }
 
     // add commercial info to new estate
     private void newCommercial()
     {
-        ((Commercial)estate).Shelves = Int32.Parse(plotSizeText.Text);
+        ((Commercial)estate).Shelves = UtilitiesLib.FromStringToInt.ConvertStringToInteger(plotSizeText.Text,0,1000000);
     }
 
     // decide what info to show
@@ -711,30 +712,30 @@ public partial class Form1 : Form
     // save info for the info square
     private void change(Estate estate)
     {
-        estate.Size = Int32.Parse(sizeInfoBox.Text);
+        estate.Size = UtilitiesLib.FromStringToInt.ConvertStringToInteger(sizeInfoBox.Text,0,10000);
         estate.Address.Street = streetInfoBox.Text;
         estate.Address.City = cityInfoBox.Text;
-        estate.Address.ZipCode = Int32.Parse(zipCodeInfoBox.Text);
+        estate.Address.ZipCode = UtilitiesLib.FromStringToInt.ConvertStringToInteger(zipCodeInfoBox.Text,0,99999);
         estate.Address.Country = (Enums.countries)countryInfoComboBox.SelectedItem;
         if (legalFormInfoComboBox.SelectedItem.ToString() == "Ownership")
         {
-            ((Ownership)estate.LegalForm).Value = Int32.Parse(costInfoBox.Text);
+            ((Ownership)estate.LegalForm).Value = UtilitiesLib.FromStringToInt.ConvertStringToInteger(costInfoBox.Text,0,100000);
         }
         else
         {
-            ((Rental)estate.LegalForm).Rent = Int32.Parse(costInfoBox.Text);
+            ((Rental)estate.LegalForm).Rent = UtilitiesLib.FromStringToInt.ConvertStringToInteger(costInfoBox.Text,0,10000);
         }
 
         switch (estate.getObjectType())
         {
             case "Apartment":
-                ((Apartment)estate).Rooms = Int32.Parse(roomInfoBox.Text);
-                ((Apartment)estate).ApartmentNumber = Int32.Parse(apartmentNumberInfoBox.Text);
+                ((Apartment)estate).Rooms = UtilitiesLib.FromStringToInt.ConvertStringToInteger(roomInfoBox.Text,0,1000);
+                ((Apartment)estate).ApartmentNumber = UtilitiesLib.FromStringToInt.ConvertStringToInteger(apartmentNumberInfoBox.Text,0,100000);
 
                 break;
 
             case "Villa":
-                ((Villa)estate).Rooms = Int32.Parse(roomInfoBox.Text);
+                ((Villa)estate).Rooms = UtilitiesLib.FromStringToInt.ConvertStringToInteger(roomInfoBox.Text,0,1000);
                 ((Villa)estate).Plot = plotSizeInfoBox.Text;
                 if (garageInfoComboBox.SelectedItem == Enums.hasGarage.Yes.ToString())
                 {
@@ -746,7 +747,7 @@ public partial class Form1 : Form
                 }
                 break;
             case "Rowhouse":
-                ((Villa)estate).Rooms = Int32.Parse(roomInfoBox.Text);
+                ((Villa)estate).Rooms = UtilitiesLib.FromStringToInt.ConvertStringToInteger(roomInfoBox.Text,0,1000);
                 ((Villa)estate).Plot = plotSizeInfoBox.Text;
                 if (garageInfoComboBox.SelectedItem == Enums.hasGarage.Yes.ToString())
                 {
@@ -760,26 +761,26 @@ public partial class Form1 : Form
                 break;
 
             case "Shop":
-                ((Shop)estate).Shelves = Int32.Parse(shelvesInfoBox.Text);
+                ((Shop)estate).Shelves = UtilitiesLib.FromStringToInt.ConvertStringToInteger(shelvesInfoBox.Text,0,100000);
 
                 break;
 
             case "Warehouse":
-                ((Warehouse)estate).Shelves = Int32.Parse(shelvesInfoBox.Text);
+                ((Warehouse)estate).Shelves = UtilitiesLib.FromStringToInt.ConvertStringToInteger(shelvesInfoBox.Text,0,100000);
                 break;
 
             case "University":
-                ((University)estate).Capacity = Int32.Parse(capacityInfoBox.Text);
+                ((University)estate).Capacity = UtilitiesLib.FromStringToInt.ConvertStringToInteger(capacityInfoBox.Text,0,100000);
 
                 break;
 
             case "School":
-                ((Schools)estate).Capacity = Int32.Parse(capacityInfoBox.Text);
+                ((Schools)estate).Capacity = UtilitiesLib.FromStringToInt.ConvertStringToInteger(capacityInfoBox.Text,0,100000);
 
                 break;
 
             case "Hospital":
-                ((Hospitals)estate).Capacity = Int32.Parse(capacityInfoBox.Text);
+                ((Hospitals)estate).Capacity = UtilitiesLib.FromStringToInt.ConvertStringToInteger(capacityInfoBox.Text,0,100000);
                 break;
 
             default:
