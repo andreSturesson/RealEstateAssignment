@@ -984,6 +984,7 @@ public partial class Form1 : Form
     // open saved estates
     private void openBinary_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
     {
+        estates.DeleteAll();
         estates.BinaryDeSerialize(openBinary.FileName);
         displayseeEstate.Visible = false;
         updateGUI();
