@@ -917,10 +917,15 @@ public partial class Form1 : Form
     private void lstEstates_SelectedIndexChanged(object sender, EventArgs e)
     {
         String id = lstEstates.GetItemText(lstEstates.SelectedItem).ToString().Split(" ").Last();
-        showInfo(estates.GetAt(id));
-        changeBtn.Visible = true;
-        deleteBtn.Visible = true;
-        displayseeEstate.Visible = false;
+        Estate estate = estates.GetAt(id);
+        if (estate != null)
+        {
+            showInfo(estate);
+            changeBtn.Visible = true;
+            deleteBtn.Visible = true;
+            displayseeEstate.Visible = false;
+        }
+        
 
     }
 
